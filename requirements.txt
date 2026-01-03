@@ -12,6 +12,7 @@ langchain-core==0.1.48
 
 # LLM (we will use this in Step 2)
 openai==1.14.3
+groq
 
 # Date & time parsing (critical later)
 python-dateutil==2.9.0.post0

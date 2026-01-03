@@ -31,6 +31,9 @@ client = Groq(api_key=GROQ_API_KEY)
 MODEL_NAME = settings.GROQ_MODEL_NAME
 REQUEST_TIMEOUT = settings.LLM_REQUEST_TIMEOUT
 MAX_RETRIES = settings.LLM_MAX_RETRIES
+GROQ_TEMPERATURE = settings.GROQ_TEMPERATURE
+GROQ_MAX_TOKENS = settings.GROQ_MAX_TOKENS
+GROQ_TOP_P = settings.GROQ_TOP_P
 
 # ------------------ Helpers ------------------ #
 
@@ -71,9 +74,9 @@ def _call_groq(user_message: str) -> Dict[str, Any]:
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
         ],
-        temperature=0,
-        max_completion_tokens=512,
-        top_p=1,
+        temperature= GROQ_TEMPERATURE,
+        max_completion_tokens= GROQ_MAX_TOKENS,
+        top_p= GROQ_TOP_P,
     )
 
     content = completion.choices[0].message.content

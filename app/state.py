@@ -3,17 +3,18 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 
+
 ConversationStep = Literal[
     "START",
     "ASK_NAME",
     "ASK_DATETIME",
     "ASK_TITLE",
     "CONFIRM_DETAILS",
+    "AWAIT_CONFIRMATION",  
     "END",
 ]
 
-
-class ConverstationState(BaseModel):
+class ConversationState(BaseModel):
     """
     Authoritative source of truth for the conversation.
     This is what drives the workflow not the LLM.
