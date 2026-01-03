@@ -16,3 +16,4 @@ class ExtractionFields(BaseModel):
         default= None,
         description= "Optional meeting title"
     )
+

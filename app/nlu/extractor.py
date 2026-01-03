@@ -1,0 +1,142 @@
+import os
+import json
+import asyncio
+import logging
+from typing import Dict, Any, Optional
+from datetime import datetime
+
+from groq import Groq
+from pydantic import ValidationError
+
+from app.state import ConversationState
+from app.config import settings
+from app.nlu.validators import (
+    validate_name,
+    validate_meeting_datetime,
+    validate_meeting_title,
+)
+from app.nlu.prompts import SYSTEM_PROMPT, USER_PROMPT
+from app.nlu.schemas import ExtractionFields  # <- your schema
+
+# ------------------ Logging ------------------ #
+logger = logging.getLogger(__name__)
+
+# ------------------ Groq Client ------------------ #
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    raise RuntimeError("GROQ_API_KEY is not set")
+
+client = Groq(api_key=GROQ_API_KEY)
+
+MODEL_NAME = settings.GROQ_MODEL_NAME
+REQUEST_TIMEOUT = settings.LLM_REQUEST_TIMEOUT
+MAX_RETRIES = settings.LLM_MAX_RETRIES
+
+# ------------------ Helpers ------------------ #
+
+def _safe_json_parse(text: str) -> Dict[str, Any]:
+    """
+    Safely extract JSON from LLM output.
+    Never raises; returns empty dict if parsing fails.
+    """
+    if not text:
+        return {}
+
+    # Direct attempt
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # Fallback: extract first JSON object in the text
+    start = text.find("{")
+    end = text.rfind("}")
+
+    if start != -1 and end != -1 and start < end:
+        try:
+            return json.loads(text[start : end + 1])
+        except json.JSONDecodeError:
+            pass
+
+    logger.warning("Failed to parse JSON from LLM output: %s", text)
+    return {}
+
+def _call_groq(user_message: str) -> Dict[str, Any]:
+    """
+    Blocking Groq call. Must run in executor.
+    """
+    completion = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+        ],
+        temperature=0,
+        max_completion_tokens=512,
+        top_p=1,
+    )
+
+    content = completion.choices[0].message.content
+    return _safe_json_parse(content)
+
+async def _run_with_retries(user_message: str) -> Dict[str, Any]:
+    """
+    Async wrapper with retries and timeout protection.
+    """
+    loop = asyncio.get_running_loop()
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            return await asyncio.wait_for(
+                loop.run_in_executor(None, _call_groq, user_message),
+                timeout=REQUEST_TIMEOUT,
+            )
+        except asyncio.TimeoutError:
+            logger.warning("Groq timeout on attempt %s", attempt)
+        except Exception as e:
+            logger.exception("Groq call failed on attempt %s: %s", attempt, e)
+    return {}
+
+# ------------------ Main Extraction ------------------ #
+
+async def extract_fields(
+    state: ConversationState,
+    user_message: str,
+) -> ConversationState:
+    """
+    Extract structured fields from user input using LLM.
+    Fully async, retry-protected, schema-validated.
+    """
+
+    raw_output = await _run_with_retries(user_message)
+    if not raw_output:
+        return state
+
+    # ---------------- Pydantic schema enforcement ---------------- #
+    try:
+        fields = ExtractionFields(**raw_output)
+    except ValidationError as e:
+        logger.warning("LLM output failed schema validation: %s", e)
+        return state
+
+    # ---------------- Validators ---------------- #
+    name = validate_name(fields.name)
+    title = validate_meeting_title(fields.meeting_title)
+
+    meeting_datetime: Optional[datetime] = None
+    if fields.meeting_datetime:
+        try:
+            meeting_datetime = validate_meeting_datetime(fields.meeting_datetime)
+        except Exception:
+            logger.warning("Invalid datetime from LLM: %s", fields.meeting_datetime)
+
+    # ---------------- Defensive state updates ---------------- #
+    if name and not state.name:
+        state.name = name
+
+    if meeting_datetime and not state.meeting_datetime:
+        state.meeting_datetime = meeting_datetime
+
+    if title and not state.meeting_title:
+        state.meeting_title = title
+
+    return state
