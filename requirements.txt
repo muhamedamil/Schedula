@@ -1,0 +1,29 @@
+# Core API framework
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# Data validation & settings
+pydantic==2.6.4
+pydantic-settings==2.2.1
+
+# LangGraph (workflow orchestration)
+langgraph==0.0.39
+langchain-core==0.1.48
+
+# LLM (we will use this in Step 2)
+openai==1.14.3
+
+# Date & time parsing (critical later)
+python-dateutil==2.9.0.post0
+pendulum==3.0.0
+
+# Google Calendar (Step 2/3)
+google-api-python-client==2.122.0
+google-auth==2.29.0
+google-auth-oauthlib==1.2.0
+
+# Logging & utilities
+loguru==0.7.2
+
+# Environment variables
+python-dotenv==1.0.1
