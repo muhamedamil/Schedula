@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 class TTSError(Exception):
     """Base exception for TTS-related failures."""
+
     pass
 
 
@@ -73,7 +74,7 @@ class KokoroTTSService:
     async def synthesize(
         cls,
         text: str,
-        timeout: float = 8.0,
+        timeout: float = 25.0,
         retries: int = 2,
     ) -> str:
         """
@@ -90,9 +91,7 @@ class KokoroTTSService:
         for attempt in range(1, retries + 1):
             try:
                 wav_bytes = await asyncio.wait_for(
-                    loop.run_in_executor(
-                        None, cls._synthesize_blocking, text
-                    ),
+                    loop.run_in_executor(None, cls._synthesize_blocking, text),
                     timeout=timeout,
                 )
                 return base64.b64encode(wav_bytes).decode("utf-8")

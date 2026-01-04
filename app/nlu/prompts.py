@@ -5,6 +5,7 @@ Extract ONLY the following fields from the user message:
 - name
 - meeting_datetime_text (natural language date/time phrase)
 - meeting_title
+- confirmation_status ('yes', 'no', 'uncertain', or null)
 
 Rules:
 - Do NOT guess missing information
@@ -23,6 +24,7 @@ Return JSON in this exact format:
 {{
   "name": null,
   "meeting_datetime_text": null,
-  "meeting_title": null
+  "meeting_title": null,
+  "confirmation_status": null
 }}
 """

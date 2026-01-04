@@ -9,8 +9,11 @@ ConversationStep = Literal[
     "ASK_TITLE",
     "CONFIRM_DETAILS",
     "AWAIT_CONFIRMATION",
+    "ASK_ANOTHER",
+    "HANDLE_NEW_LOOP",
     "END",
 ]
+
 
 class ConversationState(BaseModel):
     """
@@ -28,13 +31,12 @@ class ConversationState(BaseModel):
 
     # IO fields
     last_user_message: Optional[str] = Field(
-        default=None,
-        description="Raw user input from the last turn"
+        default=None, description="Raw user input from the last turn"
     )
 
     system_message: Optional[str] = Field(
-        default=None,
-        description="What the system wants to say next"
+        default=None, description="What the system wants to say next"
     )
 
     is_confirmed: Optional[bool] = False
+    confirmation_status: Optional[Literal["yes", "no", "uncertain"]] = None

@@ -1,171 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Voice Assistant</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f9;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-    #chat-container {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px;
-    }
-    .message {
-      margin: 10px 0;
-      max-width: 70%;
-      padding: 10px 15px;
-      border-radius: 15px;
-      clear: both;
-    }
-    .user { background-color: #007bff; color: white; float: right; }
-    .system { background-color: #e0e0e0; color: black; float: left; }
-    #controls {
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      border-top: 1px solid #ccc;
-    }
-    #text-input {
-      flex: 1;
-      padding: 8px;
-      font-size: 16px;
-    }
-    button {
-      padding: 8px 12px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <div id="chat-container"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Assistant | Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-gradient-1: #0f0c29;
+        --bg-gradient-2: #302b63;
+        --bg-gradient-3: #24243e;
+        --accent-color: #00f2ff;
+        --accent-secondary: #bd00ff;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --text-color: #ffffff;
+        --text-muted: #a0a0a0;
+      }
 
-  <div id="controls">
-    <input type="text" id="text-input" placeholder="Type a message..." />
-    <button id="send-text">Send</button>
-    <button id="start-recording">🎤 Start</button>
-    <button id="stop-recording" disabled>⏹ Stop</button>
-  </div>
+      * {
+        box-sizing: border-box;
+        outline: none;
+      }
 
-  <script>
-    const chatContainer = document.getElementById('chat-container');
-    const textInput = document.getElementById('text-input');
-    const sendTextBtn = document.getElementById('send-text');
-    const startRecBtn = document.getElementById('start-recording');
-    const stopRecBtn = document.getElementById('stop-recording');
+      body {
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        background: linear-gradient(
+          -45deg,
+          var(--bg-gradient-1),
+          var(--bg-gradient-2),
+          var(--bg-gradient-3)
+        );
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: var(--text-color);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
 
-    let ws;
-    let mediaRecorder;
-    let audioChunks = [];
-
-    function addMessage(text, sender) {
-      const msgDiv = document.createElement('div');
-      msgDiv.className = `message ${sender}`;
-      msgDiv.textContent = text;
-      chatContainer.appendChild(msgDiv);
-      chatContainer.scrollTop = chatContainer.scrollHeight;
-    }
-
-    function playAudioFromBase64(base64) {
-      if (!base64) return;
-      const audio = new Audio("data:audio/wav;base64," + base64);
-      audio.play();
-    }
-
-    function connectWebSocket() {
-      ws = new WebSocket("ws://localhost:8888/ws"); 
-      ws.onopen = () => {
-        addMessage("Connected to Voice Assistant", "system");
-      };
-
-      ws.onmessage = (event) => {
-        try {
-          const data = JSON.parse(event.data);
-          if (data.text) addMessage(data.text, "system");
-          if (data.audio_b64) playAudioFromBase64(data.audio_b64);
-        } catch (err) {
-          console.error("Error parsing message:", err);
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
         }
-      };
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-      ws.onclose = () => {
-        addMessage("Disconnected from server", "system");
-      };
+      /* --- Immersive Card --- */
+      #app-container {
+        width: 90%;
+        max-width: 900px;
+        height: 90vh;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
 
-      ws.onerror = (err) => {
-        console.error("WebSocket error:", err);
-      };
-    }
+      /* --- Header --- */
+      header {
+        padding: 20px 30px;
+        border-bottom: 1px solid var(--glass-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-    // ------------------ Text Input ------------------ //
-    sendTextBtn.addEventListener("click", () => {
-      const text = textInput.value.trim();
-      if (!text || ws.readyState !== WebSocket.OPEN) return;
-      ws.send(JSON.stringify({ type: "text", payload: text }));
-      addMessage(text, "user");
-      textInput.value = "";
-    });
+      .status-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #444;
+        transition: background 0.3s;
+      }
+      .status-dot.connected {
+        background: #00ff88;
+        box-shadow: 0 0 8px #00ff88;
+      }
+      .status-dot.listening {
+        background: #ff4d4d;
+        box-shadow: 0 0 8px #ff4d4d;
+        animation: pulse 1s infinite;
+      }
+      .status-dot.speaking {
+        background: var(--accent-color);
+        box-shadow: 0 0 8px var(--accent-color);
+      }
 
-    textInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") sendTextBtn.click();
-    });
+      /* --- Visualizer --- */
+      #visualizer-container {
+        height: 120px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.2);
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
 
-    // ------------------ Voice Recording ------------------ //
-    async function startRecording() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        mediaRecorder = new MediaRecorder(stream);
-        audioChunks = [];
+      /* --- Chat Area --- */
+      #chat-scroll {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        scroll-behavior: smooth;
+      }
 
-        mediaRecorder.ondataavailable = (e) => {
-          audioChunks.push(e.data);
+      #chat-scroll::-webkit-scrollbar {
+        width: 6px;
+      }
+      #chat-scroll::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+      }
+
+      .message {
+        max-width: 80%;
+        padding: 14px 20px;
+        border-radius: 18px;
+        font-size: 16px;
+        line-height: 1.5;
+        animation: fadeIn 0.4s ease-out;
+      }
+
+      .message.user {
+        align-self: flex-end;
+        background: linear-gradient(135deg, var(--accent-secondary), #8e2de2);
+        color: white;
+        border-bottom-right-radius: 4px;
+      }
+
+      .message.system {
+        align-self: flex-start;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--glass-border);
+        border-bottom-left-radius: 4px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- Controls --- */
+      #controls {
+        padding: 20px;
+        border-top: 1px solid var(--glass-border);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--glass-border);
+        padding: 14px 20px;
+        border-radius: 30px;
+        color: white;
+        font-size: 16px;
+        font-family: inherit;
+        transition: all 0.3s;
+      }
+      input[type="text"]:focus {
+        background: rgba(0, 0, 0, 0.4);
+        border-color: var(--accent-color);
+      }
+
+      .btn-mic {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(135deg, var(--accent-color), #00c6ff);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        font-size: 24px;
+        color: #0f0c29;
+      }
+
+      .btn-mic:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+      }
+
+      .btn-mic.recording {
+        background: #ff4d4d;
+        animation: pulse-border 1.5s infinite;
+        color: white;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulse-border {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(255, 77, 77, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app-container">
+      <header>
+        <div style="font-weight: 600; font-size: 20px; letter-spacing: 1px">
+          VIRTUAL <span style="color: var(--accent-color)">ASSISTANT</span>
+        </div>
+        <div class="status-badge">
+          <div id="status-dot" class="status-dot"></div>
+          <span id="status-text">Connecting...</span>
+        </div>
+      </header>
+
+      <div id="visualizer-container">
+        <canvas id="visualizer"></canvas>
+      </div>
+
+      <div id="chat-scroll">
+        <!-- Messages go here -->
+      </div>
+
+      <div id="controls">
+        <input
+          type="text"
+          id="text-input"
+          placeholder="Type a message..."
+          autocomplete="off"
+        />
+        <button id="mic-btn" class="btn-mic" title="Hold to Speak">🎤</button>
+      </div>
+    </div>
+
+    <script>
+      const chatScroll = document.getElementById("chat-scroll");
+      const textInput = document.getElementById("text-input");
+      const micBtn = document.getElementById("mic-btn");
+      const statusDot = document.getElementById("status-dot");
+      const statusText = document.getElementById("status-text");
+      const canvas = document.getElementById("visualizer");
+      const ctx = canvas.getContext("2d");
+
+      let ws;
+      let mediaRecorder;
+      let audioChunks = [];
+      let audioContext;
+      let analyser;
+      let microphoneStream;
+      let isVisActive = false;
+
+      // --- Audio Visualizer ---
+      function initVisualizer() {
+        if (!audioContext) {
+          audioContext = new (window.AudioContext ||
+            window.webkitAudioContext)();
+          analyser = audioContext.createAnalyser();
+          analyser.fftSize = 256;
+        }
+      }
+
+      function drawVisualizer() {
+        if (!isVisActive) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          return;
+        }
+
+        requestAnimationFrame(drawVisualizer);
+
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        analyser.getByteFrequencyData(dataArray);
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const width = canvas.width;
+        const height = canvas.height;
+        const barWidth = (width / bufferLength) * 2.5;
+        let x = 0;
+
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = dataArray[i] / 2;
+
+          const gradient = ctx.createLinearGradient(
+            0,
+            height - barHeight,
+            0,
+            height
+          );
+          gradient.addColorStop(0, "#00f2ff");
+          gradient.addColorStop(1, "#bd00ff");
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(x, height - barHeight, barWidth, barHeight);
+          x += barWidth + 2;
+        }
+      }
+
+      function resizeCanvas() {
+        canvas.width = document.getElementById(
+          "visualizer-container"
+        ).offsetWidth;
+        canvas.height = document.getElementById(
+          "visualizer-container"
+        ).offsetHeight;
+      }
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+
+      // --- Messaging ---
+      function addMessage(text, sender) {
+        if (!text) return;
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `message ${sender}`;
+        msgDiv.textContent = text;
+        chatScroll.appendChild(msgDiv);
+        chatScroll.scrollTop = chatScroll.scrollHeight;
+      }
+
+      function updateStatus(state) {
+        statusDot.className = "status-dot " + state;
+        if (state === "connected") statusText.textContent = "Online";
+        if (state === "listening") statusText.textContent = "Listening...";
+        if (state === "speaking") statusText.textContent = "Speaking...";
+        if (state === "disconnected") statusText.textContent = "Offline";
+      }
+
+      // --- Audio Playback ---
+      function playAudioFromBase64(base64) {
+        if (!base64) return;
+
+        const audio = new Audio("data:audio/wav;base64," + base64);
+        updateStatus("speaking");
+
+        // Simple visualization for output audio (simulated relative to duration)
+        // NOTE: Perfect output visualization requires connecting to AudioContext destination,
+        // but for simplicity we'll just indicate state here.
+
+        audio.onended = () => {
+          updateStatus("connected");
         };
 
-        mediaRecorder.onstop = async () => {
-          const blob = new Blob(audioChunks, { type: 'audio/wav' });
-          const arrayBuffer = await blob.arrayBuffer();
-          const bytes = new Uint8Array(arrayBuffer);
-          const base64Audio = btoa(String.fromCharCode(...bytes));
+        audio.play().catch((e) => console.error("Playback failed", e));
+      }
 
-          if (ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: "audio", payload: base64Audio }));
+      // --- WebSocket ---
+      function connect() {
+        ws = new WebSocket("ws://" + window.location.host + "/ws");
+
+        ws.onopen = () => {
+          updateStatus("connected");
+          addMessage("Connected to Server", "system");
+        };
+
+        ws.onmessage = (event) => {
+          try {
+            const data = JSON.parse(event.data);
+
+            if (data.text) {
+              addMessage(data.text, "system");
+            }
+            if (data.audio_b64) {
+              playAudioFromBase64(data.audio_b64);
+            }
+          } catch (err) {
+            console.error("Parse error", err);
           }
         };
 
-        mediaRecorder.start();
-        startRecBtn.disabled = true;
-        stopRecBtn.disabled = false;
-        addMessage("🎤 Recording started...", "system");
-      } catch (err) {
-        console.error("Microphone access denied:", err);
-        alert("Please allow microphone access.");
+        ws.onclose = () => {
+          updateStatus("disconnected");
+          addMessage("Disconnected", "system");
+          setTimeout(connect, 3000); // Auto-reconnect
+        };
       }
-    }
 
-    function stopRecording() {
-      if (mediaRecorder && mediaRecorder.state !== "inactive") {
-        mediaRecorder.stop();
-        startRecBtn.disabled = false;
-        stopRecBtn.disabled = true;
-        addMessage("🎤 Recording stopped", "system");
+      // --- Text Input ---
+      textInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          const text = textInput.value.trim();
+          if (text && ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ type: "text", payload: text }));
+            addMessage(text, "user");
+            textInput.value = "";
+          }
+        }
+      });
+
+      // --- Recording Logic ---
+      async function startRecording() {
+        try {
+          initVisualizer();
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+          });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+
+          // Connect stream to visualizer
+          microphoneStream = audioContext.createMediaStreamSource(stream);
+          microphoneStream.connect(analyser);
+          isVisActive = true;
+          drawVisualizer();
+
+          mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+
+          mediaRecorder.onstop = async () => {
+            isVisActive = false;
+            // cleanup visualizer
+            if (microphoneStream) microphoneStream.disconnect();
+
+            const blob = new Blob(audioChunks, { type: "audio/wav" });
+            const reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onloadend = () => {
+              const base64Audio = reader.result.split(",")[1];
+              if (ws.readyState === WebSocket.OPEN) {
+                ws.send(
+                  JSON.stringify({ type: "audio", payload: base64Audio })
+                );
+              }
+            };
+
+            // Stop tracks to release mic
+            stream.getTracks().forEach((track) => track.stop());
+          };
+
+          mediaRecorder.start();
+          micBtn.classList.add("recording");
+          micBtn.innerHTML = "⏹"; // Stop icon
+          updateStatus("listening");
+        } catch (err) {
+          console.error("Mic error", err);
+          alert("Could not access microphone");
+        }
       }
-    }
 
-    startRecBtn.addEventListener("click", startRecording);
-    stopRecBtn.addEventListener("click", stopRecording);
+      function stopRecording() {
+        if (mediaRecorder && mediaRecorder.state !== "inactive") {
+          mediaRecorder.stop();
+          micBtn.classList.remove("recording");
+          micBtn.innerHTML = "🎤"; // Mic icon
+          updateStatus("connected");
+        }
+      }
 
-    // ------------------ Init ------------------ //
-    connectWebSocket();
-  </script>
-</body>
+      micBtn.addEventListener("click", () => {
+        if (micBtn.classList.contains("recording")) {
+          stopRecording();
+        } else {
+          startRecording();
+        }
+      });
+
+      // --- Init ---
+      connect();
+    </script>
+  </body>
 </html>

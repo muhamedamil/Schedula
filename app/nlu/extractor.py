@@ -140,11 +140,17 @@ async def extract_fields(
     title = validate_meeting_title(fields.meeting_title)
 
     logger.info(
-        "Extracted fields - name: %s, title: %s, datetime_text: %s",
         name,
         title,
         fields.meeting_datetime_text,
     )
+
+    # ---------------- Confirmation Status ---------------- #
+    if fields.confirmation_status:
+        val = fields.confirmation_status.lower().strip()
+        if val in {"yes", "no", "uncertain"}:
+            state.confirmation_status = val
+            logger.info("Updated state.confirmation_status to: %s", val)
 
     meeting_datetime: Optional[datetime] = None
 
