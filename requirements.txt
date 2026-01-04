@@ -21,6 +21,8 @@ faster-whisper==1.1.1
 kokoro==0.9.4
 soundfile==0.13.1
 pydub
+ffmpeg
+libsndfile1
 
 # Date & time parsing (critical later)
 python-dateutil==2.9.0.post0
