@@ -61,7 +61,7 @@ def _fetch_google_user_info(access_token: str) -> Optional[dict]:
 
 
 async def websocket_endpoint(
-    websocket: WebSocket, token: Optional[str] = Query(None)  # Receive token from URL
+    websocket: WebSocket, token: Optional[str] = Query(None)  # token from URL
 ):
     """Main WebSocket endpoint for voice interaction."""
     await websocket.accept()
@@ -72,29 +72,35 @@ async def websocket_endpoint(
     state = ConversationState()
 
     # Handle initial authentication
-    if token:
-        logger.info("Found token in connection params")
+    # Enforce Authentication
+    if not token:
+        logger.warning("Connection rejected: No token provided")
+        await websocket.close(code=1008, reason="Authentication Required")
+        return
 
-        # Validate token by fetching user info
-        loop = asyncio.get_running_loop()
-        user_info = await loop.run_in_executor(
-            _executor, _fetch_google_user_info, token
-        )
+    logger.info("Found token in connection params. Validating...")
 
-        if user_info:
-            # Token is valid
-            state.google_access_token = token
-            if user_info.get("given_name"):
-                state.name = user_info.get("given_name")
-                logger.info("Authenticated as: %s", state.name)
-                # We don't change step to ASK_DATETIME here, we let start_node handle it
-                # But the state now has the name!
-        else:
-            logger.warning("Provided token was invalid or expired - ignoring")
-            try:
-                await websocket.send_json({"type": "auth_error"})
-            except Exception:
-                logger.warning("Could not send auth_error (client likely disconnected)")
+    # Validate token by fetching user info
+    loop = asyncio.get_running_loop()
+    user_info = await loop.run_in_executor(_executor, _fetch_google_user_info, token)
+
+    if not user_info:
+        logger.warning("Connection rejected: Invalid or expired token")
+        # Notify frontend to clear invalid token
+        try:
+            await websocket.send_json({"type": "auth_error"})
+            # Small delay to ensure message is sent before close
+            await asyncio.sleep(0.1)
+        except Exception:
+            pass
+        await websocket.close(code=1008, reason="Invalid Token")
+        return
+
+    # Token is valid - Proceed
+    state.google_access_token = token
+    if user_info.get("given_name"):
+        state.name = user_info.get("given_name")
+        logger.info("Authenticated as: %s", state.name)
 
     user_states[user_id] = state
 
@@ -131,7 +137,7 @@ async def websocket_endpoint(
         return
     except Exception:
         logger.exception("Failed to send initial greeting")
-        # Try to send error if possible, but ignore failure
+
         try:
             state.system_message = "Sorry, something went wrong."
             await websocket.send_json(
@@ -200,10 +206,10 @@ async def websocket_endpoint(
             # ---------------- LangGraph Workflow ---------------- #
             state.last_user_message = user_text
             logger.info(
-                "[WEBSOCKET] Current state.step before run_step: %s", state.step
+                "Current state.step before run_step: %s", state.step
             )
             logger.info(
-                "[WEBSOCKET] Calling run_step with last_user_message: %s", user_text
+                "Calling run_step with last_user_message: %s", user_text
             )
             updated_state_dict: Optional[dict] = None
 
@@ -211,7 +217,7 @@ async def websocket_endpoint(
                 # Ensure we pass a plain dict to LangGraph
                 updated_state_dict = await run_step(state)
                 logger.info(
-                    "[WEBSOCKET] run_step completed. Result type: %s",
+                    "run_step completed. Result type: %s",
                     type(updated_state_dict),
                 )
                 if isinstance(updated_state_dict, dict):
@@ -219,14 +225,14 @@ async def websocket_endpoint(
                 else:
                     # Fallback if workflow returns a model
                     state = updated_state_dict
-                logger.info("[WEBSOCKET] New state.step after run_step: %s", state.step)
+                logger.info("New state.step after run_step: %s", state.step)
                 logger.info(
-                    "[WEBSOCKET] New state.system_message: %s", state.system_message
+                    "New state.system_message: %s", state.system_message
                 )
 
             except Exception:
                 logger.exception("LangGraph execution failed")
-                # Always fallback safely
+
                 state.system_message = "Sorry, something went wrong."
 
             # Save updated state

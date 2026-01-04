@@ -391,7 +391,7 @@
 
       // Google OAuth
       let googleAccessToken = null;
-      const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID_HERE"; // User should replace this
+      const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID_HERE";
 
       // --- Audio Visualizer ---
       function initVisualizer() {
@@ -518,14 +518,14 @@
             fetchUserEmail(googleAccessToken);
             
             // Reconnect WebSocket with new token if already connected
+            // Reconnect WebSocket with new token immediately
             if (ws) {
-                console.log("Reconnecting WebSocket with new token");
-                ws.close(); // validation will trigger reconnect in onclose
-                // or we can just send the auth message if we don't want to reconnect
-                // But to reset the graph state to START with user info, reconnecting is cleaner
-            } else {
-                sendAuthToken();
+                // Remove onclose handler to avoid the 3s delay or double connect
+                ws.onclose = null;
+                ws.close();
             }
+            // Connect immediately
+            setTimeout(connect, 100);
           },
         });
 
@@ -585,6 +585,8 @@
 
       // --- WebSocket ---
       function connect() {
+        if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) return;
+
         // Add token to query params if available
         let wsUrl = "ws://" + window.location.host + "/ws";
         if (googleAccessToken) {
@@ -638,7 +640,11 @@
       textInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
           const text = textInput.value.trim();
-          if (text && ws.readyState === WebSocket.OPEN) {
+          if (!ws || ws.readyState !== WebSocket.OPEN) {
+             addMessage("Please Sign In with Google to verify your identity.", "system");
+             return;
+          }
+          if (text) {
             ws.send(JSON.stringify({ type: "text", payload: text }));
             addMessage(text, "user");
             textInput.value = "";
@@ -705,6 +711,11 @@
       }
 
       micBtn.addEventListener("click", () => {
+        if (!ws || ws.readyState !== WebSocket.OPEN) {
+            addMessage("Please Sign In with Google to verify your identity.", "system");
+            return;
+        }
+
         if (micBtn.classList.contains("recording")) {
           stopRecording();
         } else {
@@ -714,7 +725,15 @@
 
       // --- Init ---
       initGoogleAuth();
-      connect();
+      
+      // Auto-connect ONLY if we have a saved token (Authenticated User)
+      if (sessionStorage.getItem('google_access_token')) {
+          connect();
+      } else {
+          // Unauthenticated: Show Login Instructions
+          updateStatus("disconnected");
+          addMessage("Welcome! To ensure security, please Sign In with Google to access the scheduling assistant.", "system");
+      }
     </script>
   </body>
 </html>

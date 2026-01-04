@@ -120,7 +120,6 @@ class GoogleAuth:
 
         try:
             # Create credentials object with the user's token
-            # Note: We don't have a refresh token here, so the token cannot be refreshed
             self._creds = Credentials(
                 token=self.user_access_token,
                 scopes=self.scopes,
@@ -131,8 +130,7 @@ class GoogleAuth:
                 logger.warning(
                     "User-provided access token appears to be expired or invalid"
                 )
-                # We still allow it through - the API call will fail if truly invalid
-                # This gives better error messages to the user
+                
 
             logger.info("Credentials created from user token successfully")
 
@@ -162,7 +160,7 @@ class GoogleAuth:
                 self._refresh_credentials()
 
         elif not self._creds.valid:
-            # Token expired - refresh if we have a refresh token
+
             if self.user_access_token:
                 # User tokens cannot be refreshed - they must get a new one from frontend
                 logger.warning("User-provided token expired; re-creating credentials")

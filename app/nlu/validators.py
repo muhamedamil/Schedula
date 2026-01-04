@@ -3,7 +3,7 @@ from typing import Optional
 import re
 
 
-# ---------------- Name Validation ----------------
+#  Name Validation --------------------------------
 def validate_name(name: Optional[str]) -> Optional[str]:
     if not name:
         return None
@@ -23,7 +23,7 @@ def validate_name(name: Optional[str]) -> Optional[str]:
     return name
 
 
-# ---------------- Datetime Validation ---------------- #
+# Datetime Validation --------------------------------
 
 
 def validate_meeting_datetime(
@@ -50,7 +50,7 @@ def validate_meeting_datetime(
     return meeting_datetime
 
 
-# ---------------- Title Validation ---------------- #
+# Title Validation --------------------------------
 
 
 def validate_meeting_title(title: Optional[str]) -> Optional[str]:
@@ -63,7 +63,6 @@ def validate_meeting_title(title: Optional[str]) -> Optional[str]:
     if len(title) < 3 or len(title) > 100:
         return None
 
-    # Prevent prompt injection / system misuse
     forbidden_phrases = [
         "ignore previous",
         "system message",

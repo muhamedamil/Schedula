@@ -40,7 +40,6 @@ async def generate_response(
         str: The generated response text
     """
     try:
-        # Construct dynamic context
         user_msg = state.last_user_message or "(No message yet)"
 
         # Build prompt inputs
@@ -68,14 +67,13 @@ Generate the response now:
         # Call Groq
         chat_completion = await client.chat.completions.create(
             messages=messages,
-            model=MODEL_NAME,  # Fast and cheap
+            model=MODEL_NAME, 
             temperature=0.7,
             max_tokens=60,
         )
 
         response_text = chat_completion.choices[0].message.content.strip()
 
-        # Clean up quotes if present
         if response_text.startswith('"') and response_text.endswith('"'):
             response_text = response_text[1:-1]
 
@@ -84,5 +82,4 @@ Generate the response now:
 
     except Exception as e:
         logger.error("[GENERATOR] Failed to generate response: %s", e)
-        # Fallback to a safe static response if LLM fails
         return "I'm sorry, I process that. Could you please repeat?"

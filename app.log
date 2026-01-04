@@ -3749,3 +3749,786 @@ RuntimeError: Event loop is closed
 2026-01-04 22:09:16 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, I've successfully scheduled the CEO meeting for January 5th at 3:00 PM IST. Would you like to schedule another event?
 2026-01-04 22:09:16 | WARNING | phonemizer | words count mismatch on 100.0% of the lines (1/1)
 2026-01-04 22:10:56 | INFO | app.websocket | WebSocket client disconnected: 2526037342048
+2026-01-04 22:19:49 | INFO | root | Logging initialized successfully
+2026-01-04 22:19:49 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 22:19:55 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 22:19:55 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 22:19:55 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 22:19:58 | INFO | app.main | All models preloaded successfully
+2026-01-04 22:20:14 | INFO | app.websocket | WebSocket client connected: 1814563974608
+2026-01-04 22:20:14 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:20:14 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:20:14 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:20:14 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:20:15 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:20:15 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 22:20:15 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:20:16 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, welcome to the scheduling service. Can you please tell me your name so I can assist you in finding a suitable time for your meeting?'
+2026-01-04 22:20:16 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 22:20:16 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 22:20:24 | INFO | app.websocket | WebSocket client connected: 1812627172192
+2026-01-04 22:20:24 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:20:24 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:20:24 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:20:24 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:20:24 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:20:24 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 22:20:25 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:20:25 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello and welcome, I'm happy to help you schedule your meeting. Can you please tell me your name so I can get started?'
+2026-01-04 22:20:25 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 22:20:25 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 22:20:27 | INFO | app.websocket | Client disconnected during startup
+2026-01-04 22:20:35 | INFO | app.websocket | Sent initial greeting to user 1812627172192
+2026-01-04 22:23:18 | INFO | app.websocket | WebSocket client disconnected: 1812627172192
+2026-01-04 22:23:21 | INFO | app.websocket | WebSocket client connected: 1814563975472
+2026-01-04 22:23:21 | INFO | app.websocket | Found token in connection params
+2026-01-04 22:23:21 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-04 22:23:21 | INFO | app.websocket | Authenticated as: rihan
+2026-01-04 22:23:21 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:23:21 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:23:22 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:23:22 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:23:22 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:23:22 | INFO | app.graph | User authenticated as rihan. Skipping ASK_NAME.
+2026-01-04 22:23:22 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet rihan warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-04 22:23:22 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:23:22 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi rihan, it's great to hear back from you, I'm all set to schedule a meeting on your calendar. What date and time work best for you?'
+2026-01-04 22:23:22 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-04 22:23:22 | INFO | app.workflow | Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 22:23:31 | INFO | app.websocket | WebSocket client connected: 1812631982080
+2026-01-04 22:23:31 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:23:31 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:23:31 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:23:31 | INFO | app.websocket | Client disconnected during startup
+2026-01-04 22:23:31 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:23:31 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:23:31 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 22:23:32 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:23:32 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Good morning, how are you today? I'd be happy to help you schedule a meeting, could you please tell me your name so I can get started?'
+2026-01-04 22:23:32 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 22:23:32 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 22:23:38 | INFO | app.websocket | Client disconnected during startup
+2026-01-04 22:24:23 | INFO | root | Logging initialized successfully
+2026-01-04 22:24:23 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 22:24:27 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 22:24:27 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 22:24:27 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 22:24:31 | INFO | app.main | All models preloaded successfully
+2026-01-04 22:24:31 | INFO | app.websocket | WebSocket client connected: 2963155114384
+2026-01-04 22:24:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:24:35 | INFO | app.websocket | WebSocket client connected: 2963155121248
+2026-01-04 22:24:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:24:39 | INFO | app.websocket | WebSocket client connected: 2961387356512
+2026-01-04 22:24:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:24:43 | INFO | app.websocket | WebSocket client connected: 2961387359680
+2026-01-04 22:24:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:24:47 | INFO | app.websocket | WebSocket client connected: 2961387362848
+2026-01-04 22:24:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:24:51 | INFO | app.websocket | WebSocket client connected: 2961387366016
+2026-01-04 22:24:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:24:55 | INFO | app.websocket | WebSocket client connected: 2963155120240
+2026-01-04 22:24:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:24:59 | INFO | app.websocket | WebSocket client connected: 2963155118896
+2026-01-04 22:24:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:03 | INFO | app.websocket | WebSocket client connected: 2961387362704
+2026-01-04 22:25:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:07 | INFO | app.websocket | WebSocket client connected: 2961387359584
+2026-01-04 22:25:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:11 | INFO | app.websocket | WebSocket client connected: 2961387356224
+2026-01-04 22:25:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:15 | INFO | app.websocket | WebSocket client connected: 2961387369472
+2026-01-04 22:25:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:19 | INFO | app.websocket | WebSocket client connected: 2961387503776
+2026-01-04 22:25:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:23 | INFO | app.websocket | WebSocket client connected: 2961387357568
+2026-01-04 22:25:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:27 | INFO | app.websocket | WebSocket client connected: 2961387359584
+2026-01-04 22:25:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:31 | INFO | app.websocket | WebSocket client connected: 2961387367168
+2026-01-04 22:25:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:35 | INFO | app.websocket | WebSocket client connected: 2963155119280
+2026-01-04 22:25:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:39 | INFO | app.websocket | WebSocket client connected: 2963155122352
+2026-01-04 22:25:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:43 | INFO | app.websocket | WebSocket client connected: 2963155123792
+2026-01-04 22:25:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:47 | INFO | app.websocket | WebSocket client connected: 2961387440736
+2026-01-04 22:25:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:51 | INFO | app.websocket | WebSocket client connected: 2963155119952
+2026-01-04 22:25:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:55 | INFO | app.websocket | WebSocket client connected: 2963155115248
+2026-01-04 22:25:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:25:59 | INFO | app.websocket | WebSocket client connected: 2961387359392
+2026-01-04 22:25:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:03 | INFO | app.websocket | WebSocket client connected: 2961387358672
+2026-01-04 22:26:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:07 | INFO | app.websocket | WebSocket client connected: 2961387357376
+2026-01-04 22:26:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:11 | INFO | app.websocket | WebSocket client connected: 2961387440448
+2026-01-04 22:26:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:15 | INFO | app.websocket | WebSocket client connected: 2961387443184
+2026-01-04 22:26:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:19 | INFO | app.websocket | WebSocket client connected: 2961387356416
+2026-01-04 22:26:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:23 | INFO | app.websocket | WebSocket client connected: 2961387359440
+2026-01-04 22:26:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:27 | INFO | app.websocket | WebSocket client connected: 2961387362848
+2026-01-04 22:26:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:31 | INFO | app.websocket | WebSocket client connected: 2963155117264
+2026-01-04 22:26:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:35 | INFO | app.websocket | WebSocket client connected: 2963155122352
+2026-01-04 22:26:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:39 | INFO | app.websocket | WebSocket client connected: 2961387440304
+2026-01-04 22:26:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:43 | INFO | app.websocket | WebSocket client connected: 2961387445632
+2026-01-04 22:26:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:47 | INFO | app.websocket | WebSocket client connected: 2963155123024
+2026-01-04 22:26:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:51 | INFO | app.websocket | WebSocket client connected: 2963155116688
+2026-01-04 22:26:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:55 | INFO | app.websocket | WebSocket client connected: 2961387362128
+2026-01-04 22:26:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:26:59 | INFO | app.websocket | WebSocket client connected: 2961387358576
+2026-01-04 22:26:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:03 | INFO | app.websocket | WebSocket client connected: 2961387367504
+2026-01-04 22:27:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:08 | INFO | app.websocket | WebSocket client connected: 2961387441072
+2026-01-04 22:27:08 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:12 | INFO | app.websocket | WebSocket client connected: 2961387448032
+2026-01-04 22:27:12 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:16 | INFO | app.websocket | WebSocket client connected: 2961387362608
+2026-01-04 22:27:16 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:20 | INFO | app.websocket | WebSocket client connected: 2961387362368
+2026-01-04 22:27:20 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:24 | INFO | app.websocket | WebSocket client connected: 2961387363088
+2026-01-04 22:27:24 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:28 | INFO | app.websocket | WebSocket client connected: 2963155120864
+2026-01-04 22:27:28 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:32 | INFO | app.websocket | WebSocket client connected: 2963155122976
+2026-01-04 22:27:32 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:36 | INFO | app.websocket | WebSocket client connected: 2961387445728
+2026-01-04 22:27:36 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:40 | INFO | app.websocket | WebSocket client connected: 2961387450432
+2026-01-04 22:27:40 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:44 | INFO | app.websocket | WebSocket client connected: 2963155119088
+2026-01-04 22:27:44 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:48 | INFO | app.websocket | WebSocket client connected: 2961387362656
+2026-01-04 22:27:48 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:52 | INFO | app.websocket | WebSocket client connected: 2961387363616
+2026-01-04 22:27:52 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:27:56 | INFO | app.websocket | WebSocket client connected: 2961387356464
+2026-01-04 22:27:56 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:00 | INFO | app.websocket | WebSocket client connected: 2961387370384
+2026-01-04 22:28:00 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:04 | INFO | app.websocket | WebSocket client connected: 2961387445200
+2026-01-04 22:28:04 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:08 | INFO | app.websocket | WebSocket client connected: 2961387452832
+2026-01-04 22:28:08 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:12 | INFO | app.websocket | WebSocket client connected: 2961387363712
+2026-01-04 22:28:12 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:16 | INFO | app.websocket | WebSocket client connected: 2961387361216
+2026-01-04 22:28:16 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:20 | INFO | app.websocket | WebSocket client connected: 2963155116592
+2026-01-04 22:28:20 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:24 | INFO | app.websocket | WebSocket client connected: 2963155120432
+2026-01-04 22:28:24 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:28 | INFO | app.websocket | WebSocket client connected: 2961387452736
+2026-01-04 22:28:28 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:32 | INFO | app.websocket | WebSocket client connected: 2961387445536
+2026-01-04 22:28:32 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:36 | INFO | app.websocket | WebSocket client connected: 2961387619136
+2026-01-04 22:28:36 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:40 | INFO | app.websocket | WebSocket client connected: 2961387445200
+2026-01-04 22:28:40 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:44 | INFO | app.websocket | WebSocket client connected: 2963155122736
+2026-01-04 22:28:44 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:48 | INFO | app.websocket | WebSocket client connected: 2963155121920
+2026-01-04 22:28:48 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:52 | INFO | app.websocket | WebSocket client connected: 2961387361984
+2026-01-04 22:28:52 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:28:56 | INFO | app.websocket | WebSocket client connected: 2961387358864
+2026-01-04 22:28:56 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:00 | INFO | app.websocket | WebSocket client connected: 2961387368176
+2026-01-04 22:29:00 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:04 | INFO | app.websocket | WebSocket client connected: 2961387621536
+2026-01-04 22:29:04 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:08 | INFO | app.websocket | WebSocket client connected: 2961387366880
+2026-01-04 22:29:08 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:12 | INFO | app.websocket | WebSocket client connected: 2961387366784
+2026-01-04 22:29:12 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:16 | INFO | app.websocket | WebSocket client connected: 2963155115248
+2026-01-04 22:29:16 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:20 | INFO | app.websocket | WebSocket client connected: 2963155123408
+2026-01-04 22:29:20 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:24 | INFO | app.websocket | WebSocket client connected: 2961387443424
+2026-01-04 22:29:24 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:28 | INFO | app.websocket | WebSocket client connected: 2961387621536
+2026-01-04 22:29:28 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:32 | INFO | app.websocket | WebSocket client connected: 2961387623984
+2026-01-04 22:29:32 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:36 | INFO | app.websocket | WebSocket client connected: 2961387453456
+2026-01-04 22:29:36 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:40 | INFO | app.websocket | WebSocket client connected: 2963155120432
+2026-01-04 22:29:40 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:44 | INFO | app.websocket | WebSocket client connected: 2961387365776
+2026-01-04 22:29:44 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:48 | INFO | app.websocket | WebSocket client connected: 2961387366736
+2026-01-04 22:29:48 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:52 | INFO | app.websocket | WebSocket client connected: 2961387357472
+2026-01-04 22:29:52 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:29:56 | INFO | app.websocket | WebSocket client connected: 2961387621296
+2026-01-04 22:29:56 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:00 | INFO | app.websocket | WebSocket client connected: 2961387626384
+2026-01-04 22:30:00 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:04 | INFO | app.websocket | WebSocket client connected: 2961387366016
+2026-01-04 22:30:04 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:08 | INFO | app.websocket | WebSocket client connected: 2961387366592
+2026-01-04 22:30:08 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:12 | INFO | app.websocket | WebSocket client connected: 2963155118800
+2026-01-04 22:30:12 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:16 | INFO | app.websocket | WebSocket client connected: 2963155121104
+2026-01-04 22:30:16 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:20 | INFO | app.websocket | WebSocket client connected: 2961387452592
+2026-01-04 22:30:20 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:24 | INFO | app.websocket | WebSocket client connected: 2961387624272
+2026-01-04 22:30:24 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:28 | INFO | app.websocket | WebSocket client connected: 2961387628784
+2026-01-04 22:30:28 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:32 | INFO | app.websocket | WebSocket client connected: 2963155116880
+2026-01-04 22:30:32 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:36 | INFO | app.websocket | WebSocket client connected: 2961387443568
+2026-01-04 22:30:36 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:40 | INFO | app.websocket | WebSocket client connected: 2961387443184
+2026-01-04 22:30:40 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:44 | INFO | app.websocket | WebSocket client connected: 2961387452256
+2026-01-04 22:30:44 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:48 | INFO | app.websocket | WebSocket client connected: 2961387447264
+2026-01-04 22:30:48 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:52 | INFO | app.websocket | WebSocket client connected: 2961387442272
+2026-01-04 22:30:52 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:30:56 | INFO | app.websocket | WebSocket client connected: 2961387361504
+2026-01-04 22:30:56 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:00 | INFO | app.websocket | WebSocket client connected: 2961387446304
+2026-01-04 22:31:00 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:04 | INFO | app.websocket | WebSocket client connected: 2961387452064
+2026-01-04 22:31:04 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:08 | INFO | app.websocket | WebSocket client connected: 2961387450144
+2026-01-04 22:31:08 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:12 | INFO | app.websocket | WebSocket client connected: 2961387443856
+2026-01-04 22:31:12 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:16 | INFO | app.websocket | WebSocket client connected: 2963155121008
+2026-01-04 22:31:16 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:20 | INFO | app.websocket | WebSocket client connected: 2963155123696
+2026-01-04 22:31:20 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:24 | INFO | app.websocket | WebSocket client connected: 2961387365824
+2026-01-04 22:31:24 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:27 | INFO | app.websocket | WebSocket client connected: 2963155123888
+2026-01-04 22:31:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:31 | INFO | app.websocket | WebSocket client connected: 2961387452832
+2026-01-04 22:31:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:35 | INFO | app.websocket | WebSocket client connected: 2961387440592
+2026-01-04 22:31:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:39 | INFO | app.websocket | WebSocket client connected: 2961387450912
+2026-01-04 22:31:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:43 | INFO | app.websocket | WebSocket client connected: 2961387442608
+2026-01-04 22:31:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:47 | INFO | app.websocket | WebSocket client connected: 2961387361984
+2026-01-04 22:31:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:51 | INFO | app.websocket | WebSocket client connected: 2961387368320
+2026-01-04 22:31:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:55 | INFO | app.websocket | WebSocket client connected: 2961387447168
+2026-01-04 22:31:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:31:59 | INFO | app.websocket | WebSocket client connected: 2961387451968
+2026-01-04 22:31:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:03 | INFO | app.websocket | WebSocket client connected: 2961387443184
+2026-01-04 22:32:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:07 | INFO | app.websocket | WebSocket client connected: 2963155123312
+2026-01-04 22:32:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:11 | INFO | app.websocket | WebSocket client connected: 2963155117600
+2026-01-04 22:32:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:15 | INFO | app.websocket | WebSocket client connected: 2961387358768
+2026-01-04 22:32:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:19 | INFO | app.websocket | WebSocket client connected: 2961387357136
+2026-01-04 22:32:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:23 | INFO | app.websocket | WebSocket client connected: 2963155114384
+2026-01-04 22:32:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:27 | INFO | app.websocket | WebSocket client connected: 2961387453072
+2026-01-04 22:32:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:31 | INFO | app.websocket | WebSocket client connected: 2961387445104
+2026-01-04 22:32:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:35 | INFO | app.websocket | WebSocket client connected: 2961387453360
+2026-01-04 22:32:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:39 | INFO | app.websocket | WebSocket client connected: 2961387446496
+2026-01-04 22:32:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:43 | INFO | app.websocket | WebSocket client connected: 2961387361264
+2026-01-04 22:32:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:47 | INFO | app.websocket | WebSocket client connected: 2961387370144
+2026-01-04 22:32:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:51 | INFO | app.websocket | WebSocket client connected: 2961387443136
+2026-01-04 22:32:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:55 | INFO | app.websocket | WebSocket client connected: 2961387451392
+2026-01-04 22:32:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:32:59 | INFO | app.websocket | WebSocket client connected: 2961387441024
+2026-01-04 22:32:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:03 | INFO | app.websocket | WebSocket client connected: 2963155120960
+2026-01-04 22:33:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:07 | INFO | app.websocket | WebSocket client connected: 2963155122880
+2026-01-04 22:33:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:11 | INFO | app.websocket | WebSocket client connected: 2961387359632
+2026-01-04 22:33:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:15 | INFO | app.websocket | WebSocket client connected: 2961387628448
+2026-01-04 22:33:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:19 | INFO | app.websocket | WebSocket client connected: 2963155117600
+2026-01-04 22:33:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:23 | INFO | app.websocket | WebSocket client connected: 2963155120960
+2026-01-04 22:33:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:27 | INFO | app.websocket | WebSocket client connected: 2961387445536
+2026-01-04 22:33:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:31 | INFO | app.websocket | WebSocket client connected: 2961387443088
+2026-01-04 22:33:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:35 | INFO | app.websocket | WebSocket client connected: 2961387440448
+2026-01-04 22:33:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:39 | INFO | app.websocket | WebSocket client connected: 2961387442560
+2026-01-04 22:33:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:43 | INFO | app.websocket | WebSocket client connected: 2961387621296
+2026-01-04 22:33:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:47 | INFO | app.websocket | WebSocket client connected: 2961387450912
+2026-01-04 22:33:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:51 | INFO | app.websocket | WebSocket client connected: 2961387454416
+2026-01-04 22:33:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:55 | INFO | app.websocket | WebSocket client connected: 2961387445104
+2026-01-04 22:33:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:33:59 | INFO | app.websocket | WebSocket client connected: 2963155114960
+2026-01-04 22:33:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:03 | INFO | app.websocket | WebSocket client connected: 2963155123312
+2026-01-04 22:34:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:07 | INFO | app.websocket | WebSocket client connected: 2961387625856
+2026-01-04 22:34:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:11 | INFO | app.websocket | WebSocket client connected: 2961387624560
+2026-01-04 22:34:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:15 | INFO | app.websocket | WebSocket client connected: 2963155124080
+2026-01-04 22:34:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:19 | INFO | app.websocket | WebSocket client connected: 2963155117168
+2026-01-04 22:34:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:23 | INFO | app.websocket | WebSocket client connected: 2961387441168
+2026-01-04 22:34:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:27 | INFO | app.websocket | WebSocket client connected: 2961387453216
+2026-01-04 22:34:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:31 | INFO | app.websocket | WebSocket client connected: 2961387443136
+2026-01-04 22:34:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:35 | INFO | app.websocket | WebSocket client connected: 2961387624704
+2026-01-04 22:34:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:39 | INFO | app.websocket | WebSocket client connected: 2961387620720
+2026-01-04 22:34:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:43 | INFO | app.websocket | WebSocket client connected: 2961387443712
+2026-01-04 22:34:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:47 | INFO | app.websocket | WebSocket client connected: 2961387452064
+2026-01-04 22:34:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:51 | INFO | app.websocket | WebSocket client connected: 2961387452496
+2026-01-04 22:34:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:55 | INFO | app.websocket | WebSocket client connected: 2963155119616
+2026-01-04 22:34:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:34:59 | INFO | app.websocket | WebSocket client connected: 2961387356560
+2026-01-04 22:34:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:03 | INFO | app.websocket | WebSocket client connected: 2961387624416
+2026-01-04 22:35:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:07 | INFO | app.websocket | WebSocket client connected: 2961387630176
+2026-01-04 22:35:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:11 | INFO | app.websocket | WebSocket client connected: 2963155120240
+2026-01-04 22:35:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:15 | INFO | app.websocket | WebSocket client connected: 2963155115488
+2026-01-04 22:35:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:19 | INFO | app.websocket | WebSocket client connected: 2961387445536
+2026-01-04 22:35:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:23 | INFO | app.websocket | WebSocket client connected: 2961387448656
+2026-01-04 22:35:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:27 | INFO | app.websocket | WebSocket client connected: 2961387444720
+2026-01-04 22:35:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:31 | INFO | app.websocket | WebSocket client connected: 2961387621200
+2026-01-04 22:35:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:35 | INFO | app.websocket | WebSocket client connected: 2961387632576
+2026-01-04 22:35:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:39 | INFO | app.websocket | WebSocket client connected: 2961387442944
+2026-01-04 22:35:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:43 | INFO | app.websocket | WebSocket client connected: 2961387445392
+2026-01-04 22:35:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:47 | INFO | app.websocket | WebSocket client connected: 2961387447744
+2026-01-04 22:35:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:51 | INFO | app.websocket | WebSocket client connected: 2963155121536
+2026-01-04 22:35:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:55 | INFO | app.websocket | WebSocket client connected: 2961387370528
+2026-01-04 22:35:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:35:59 | INFO | app.websocket | WebSocket client connected: 2961387618800
+2026-01-04 22:35:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:03 | INFO | app.websocket | WebSocket client connected: 2961387749920
+2026-01-04 22:36:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:07 | INFO | app.websocket | WebSocket client connected: 2961387626720
+2026-01-04 22:36:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:11 | INFO | app.websocket | WebSocket client connected: 2961387620096
+2026-01-04 22:36:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:15 | INFO | app.websocket | WebSocket client connected: 2961387621008
+2026-01-04 22:36:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:19 | INFO | app.websocket | WebSocket client connected: 2963155117072
+2026-01-04 22:36:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:23 | INFO | app.websocket | WebSocket client connected: 2963155120864
+2026-01-04 22:36:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:27 | INFO | app.websocket | WebSocket client connected: 2961387359680
+2026-01-04 22:36:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:31 | INFO | app.websocket | WebSocket client connected: 2961387367504
+2026-01-04 22:36:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:35 | INFO | app.websocket | WebSocket client connected: 2963155122640
+2026-01-04 22:36:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:39 | INFO | app.websocket | WebSocket client connected: 2961387623504
+2026-01-04 22:36:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:43 | INFO | app.websocket | WebSocket client connected: 2961387619712
+2026-01-04 22:36:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:47 | INFO | app.websocket | WebSocket client connected: 2961387631904
+2026-01-04 22:36:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:51 | INFO | app.websocket | WebSocket client connected: 2961387632768
+2026-01-04 22:36:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:55 | INFO | app.websocket | WebSocket client connected: 2961387369904
+2026-01-04 22:36:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:36:59 | INFO | app.websocket | WebSocket client connected: 2961387368272
+2026-01-04 22:36:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:03 | INFO | app.websocket | WebSocket client connected: 2961387619904
+2026-01-04 22:37:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:07 | INFO | app.websocket | WebSocket client connected: 2961387622832
+2026-01-04 22:37:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:11 | INFO | app.websocket | WebSocket client connected: 2961387626048
+2026-01-04 22:37:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:15 | INFO | app.websocket | WebSocket client connected: 2963155123024
+2026-01-04 22:37:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:19 | INFO | app.websocket | WebSocket client connected: 2963155122208
+2026-01-04 22:37:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:23 | INFO | app.websocket | WebSocket client connected: 2961387368992
+2026-01-04 22:37:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:27 | INFO | app.websocket | WebSocket client connected: 2961387365776
+2026-01-04 22:37:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:31 | INFO | app.websocket | WebSocket client connected: 2963155120816
+2026-01-04 22:37:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:35 | INFO | app.websocket | WebSocket client connected: 2961387628688
+2026-01-04 22:37:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:39 | INFO | app.websocket | WebSocket client connected: 2961387629456
+2026-01-04 22:37:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:43 | INFO | app.websocket | WebSocket client connected: 2961387632192
+2026-01-04 22:37:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:47 | INFO | app.websocket | WebSocket client connected: 2961387365776
+2026-01-04 22:37:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:51 | INFO | app.websocket | WebSocket client connected: 2961387367072
+2026-01-04 22:37:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:55 | INFO | app.websocket | WebSocket client connected: 2961387440208
+2026-01-04 22:37:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:37:59 | INFO | app.websocket | WebSocket client connected: 2961387369760
+2026-01-04 22:37:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:03 | INFO | app.websocket | WebSocket client connected: 2961387620576
+2026-01-04 22:38:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:07 | INFO | app.websocket | WebSocket client connected: 2961387618416
+2026-01-04 22:38:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:11 | INFO | app.websocket | WebSocket client connected: 2961387625616
+2026-01-04 22:38:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:15 | INFO | app.websocket | WebSocket client connected: 2963155117744
+2026-01-04 22:38:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:19 | INFO | app.websocket | WebSocket client connected: 2963155121056
+2026-01-04 22:38:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:23 | INFO | app.websocket | WebSocket client connected: 2961387454320
+2026-01-04 22:38:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:27 | INFO | app.websocket | WebSocket client connected: 2963155117792
+2026-01-04 22:38:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:31 | INFO | app.websocket | WebSocket client connected: 2961387622976
+2026-01-04 22:38:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:35 | INFO | app.websocket | WebSocket client connected: 2961387630848
+2026-01-04 22:38:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:39 | INFO | app.websocket | WebSocket client connected: 2961387633008
+2026-01-04 22:38:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:43 | INFO | app.websocket | WebSocket client connected: 2961387356800
+2026-01-04 22:38:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:47 | INFO | app.websocket | WebSocket client connected: 2961387442800
+2026-01-04 22:38:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:51 | INFO | app.websocket | WebSocket client connected: 2961387447264
+2026-01-04 22:38:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:55 | INFO | app.websocket | WebSocket client connected: 2961387367840
+2026-01-04 22:38:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:38:59 | INFO | app.websocket | WebSocket client connected: 2961387631232
+2026-01-04 22:38:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:03 | INFO | app.websocket | WebSocket client connected: 2961387619088
+2026-01-04 22:39:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:07 | INFO | app.websocket | WebSocket client connected: 2961387625328
+2026-01-04 22:39:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:11 | INFO | app.websocket | WebSocket client connected: 2963155122640
+2026-01-04 22:39:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:15 | INFO | app.websocket | WebSocket client connected: 2961387445536
+2026-01-04 22:39:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:19 | INFO | app.websocket | WebSocket client connected: 2961387451008
+2026-01-04 22:39:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:23 | INFO | app.websocket | WebSocket client connected: 2963155117024
+2026-01-04 22:39:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:27 | INFO | app.websocket | WebSocket client connected: 2961387625712
+2026-01-04 22:39:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:31 | INFO | app.websocket | WebSocket client connected: 2961387618944
+2026-01-04 22:39:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:35 | INFO | app.websocket | WebSocket client connected: 2961387621824
+2026-01-04 22:39:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:39 | INFO | app.websocket | WebSocket client connected: 2961387359680
+2026-01-04 22:39:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:43 | INFO | app.websocket | WebSocket client connected: 2961387449232
+2026-01-04 22:39:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:47 | INFO | app.websocket | WebSocket client connected: 2961387442608
+2026-01-04 22:39:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:51 | INFO | app.websocket | WebSocket client connected: 2961387632864
+2026-01-04 22:39:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:55 | INFO | app.websocket | WebSocket client connected: 2961387618704
+2026-01-04 22:39:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:39:59 | INFO | app.websocket | WebSocket client connected: 2961387619376
+2026-01-04 22:39:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:03 | INFO | app.websocket | WebSocket client connected: 2961387620048
+2026-01-04 22:40:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:07 | INFO | app.websocket | WebSocket client connected: 2963155119184
+2026-01-04 22:40:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:11 | INFO | app.websocket | WebSocket client connected: 2961387448560
+2026-01-04 22:40:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:15 | INFO | app.websocket | WebSocket client connected: 2961387439872
+2026-01-04 22:40:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:19 | INFO | app.websocket | WebSocket client connected: 2961387619328
+2026-01-04 22:40:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:23 | INFO | app.websocket | WebSocket client connected: 2961387628976
+2026-01-04 22:40:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:27 | INFO | app.websocket | WebSocket client connected: 2961387622976
+2026-01-04 22:40:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:31 | INFO | app.websocket | WebSocket client connected: 2961387632720
+2026-01-04 22:40:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:35 | INFO | app.websocket | WebSocket client connected: 2961387368752
+2026-01-04 22:40:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:39 | INFO | app.websocket | WebSocket client connected: 2961387452208
+2026-01-04 22:40:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:43 | INFO | app.websocket | WebSocket client connected: 2961387751456
+2026-01-04 22:40:43 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:47 | INFO | app.websocket | WebSocket client connected: 2961387441552
+2026-01-04 22:40:47 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:51 | INFO | app.websocket | WebSocket client connected: 2961387370624
+2026-01-04 22:40:51 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:55 | INFO | app.websocket | WebSocket client connected: 2961387632672
+2026-01-04 22:40:55 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:40:59 | INFO | app.websocket | WebSocket client connected: 2961387625712
+2026-01-04 22:40:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:03 | INFO | app.websocket | WebSocket client connected: 2961387621488
+2026-01-04 22:41:03 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:07 | INFO | app.websocket | WebSocket client connected: 2963155113136
+2026-01-04 22:41:07 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:11 | INFO | app.websocket | WebSocket client connected: 2961387753856
+2026-01-04 22:41:11 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:15 | INFO | app.websocket | WebSocket client connected: 2961387625760
+2026-01-04 22:41:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:19 | INFO | app.websocket | WebSocket client connected: 2961387631952
+2026-01-04 22:41:19 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:23 | INFO | app.websocket | WebSocket client connected: 2961387622208
+2026-01-04 22:41:23 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:27 | INFO | app.websocket | WebSocket client connected: 2961387368704
+2026-01-04 22:41:27 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:31 | INFO | app.websocket | WebSocket client connected: 2961387440448
+2026-01-04 22:41:31 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:35 | INFO | app.websocket | WebSocket client connected: 2961387753760
+2026-01-04 22:41:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:41:39 | INFO | app.websocket | WebSocket client connected: 2961387756352
+2026-01-04 22:41:39 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:49:25 | INFO | root | Logging initialized successfully
+2026-01-04 22:49:25 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 22:49:30 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 22:49:30 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 22:49:30 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 22:49:34 | INFO | app.main | All models preloaded successfully
+2026-01-04 22:54:44 | INFO | root | Logging initialized successfully
+2026-01-04 22:54:44 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 22:54:51 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 22:54:51 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 22:54:51 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 22:54:56 | INFO | app.main | All models preloaded successfully
+2026-01-04 22:55:48 | INFO | app.websocket | WebSocket client connected: 2391588285136
+2026-01-04 22:55:48 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-04 22:55:51 | INFO | app.websocket | WebSocket client connected: 2391588288448
+2026-01-04 22:55:51 | INFO | app.websocket | Found token in connection params. Validating...
+2026-01-04 22:55:51 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-04 22:55:52 | INFO | app.websocket | Authenticated as: rihan
+2026-01-04 22:55:52 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:55:52 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:55:53 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:55:53 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:55:53 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:55:53 | INFO | app.graph | User authenticated as rihan. Skipping ASK_NAME.
+2026-01-04 22:55:53 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet rihan warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-04 22:55:54 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:55:55 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi rihan, it's great to catch up with you. I'm all set to schedule something on your calendar, what date and time work best for you?'
+2026-01-04 22:55:55 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-04 22:55:55 | INFO | app.workflow | Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 22:56:11 | INFO | app.websocket | Sent initial greeting to user 2391588288448
+2026-01-04 22:57:05 | INFO | faster_whisper | Processing audio with duration 00:06.840
+2026-01-04 22:57:10 | INFO | faster_whisper | VAD filter removed 00:03.736 of audio
+2026-01-04 22:57:17 | INFO | app.websocket | STT output: tomorrow at 11 p.m.
+2026-01-04 22:57:17 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 22:57:17 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: tomorrow at 11 p.m.
+2026-01-04 22:57:17 | INFO | app.workflow | Starting with state.step: ASK_DATETIME
+2026-01-04 22:57:17 | INFO | app.workflow | state.last_user_message: tomorrow at 11 p.m.
+2026-01-04 22:57:17 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 22:57:17 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 22:57:17 | INFO | app.graph | Executing with last_user_message: tomorrow at 11 p.m.
+2026-01-04 22:57:17 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: tomorrow at 11 p.m.
+2026-01-04 22:57:18 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:57:18 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'tomorrow at 11 p.m.', 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:57:18 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Attempting to parse: text='tomorrow at 11 p.m.', now='2026-01-04T22:57:18.170485+05:30', tz='Asia/Kolkata'
+2026-01-04 22:57:18 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Using timezone string: Asia/Kolkata
+2026-01-04 22:57:18 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser settings: {'RELATIVE_BASE': datetime.datetime(2026, 1, 4, 22, 57, 18, 170485, tzinfo=zoneinfo.ZoneInfo(key='Asia/Kolkata')), 'TIMEZONE': 'Asia/Kolkata', 'RETURN_AS_TIMEZONE_AWARE': True, 'PREFER_DATES_FROM': 'future'}
+2026-01-04 22:57:18 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser returned: 2026-01-05 23:00:00+05:30
+2026-01-04 22:57:18 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] ✅ SUCCESS: 'tomorrow at 11 p.m.' -> '2026-01-05T23:00:00+05:30'
+2026-01-04 22:57:18 | INFO | app.nlu.extractor | Updated state.meeting_datetime to: 2026-01-05 23:00:00+05:30
+2026-01-04 22:57:18 | INFO | app.graph | After extraction, meeting_datetime: 2026-01-05 23:00:00+05:30
+2026-01-04 22:57:18 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Acknowledge the date/time and ask if they want to add a meeting title (or say no to skip).'
+2026-01-04 22:57:18 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:57:18 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi rihan, so tomorrow at 11 p.m. is the scheduled time. Would you like to add a title to this meeting or would you like to skip it?'
+2026-01-04 22:57:18 | INFO | app.graph | [ASK_DATETIME_NODE] DateTime found, moving to ASK_TITLE
+2026-01-04 22:57:18 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:57:18 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:57:18 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:57:18 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hi rihan, so tomorrow at 11 p.m. is the scheduled time. Would you like to add a title to this meeting or would you like to skip it?
+2026-01-04 22:57:39 | INFO | faster_whisper | Processing audio with duration 00:02.160
+2026-01-04 22:57:39 | INFO | faster_whisper | VAD filter removed 00:00.112 of audio
+2026-01-04 22:57:44 | INFO | app.websocket | STT output: skip it
+2026-01-04 22:57:44 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: skip it
+2026-01-04 22:57:44 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.workflow | state.last_user_message: skip it
+2026-01-04 22:57:44 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:57:44 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: skip it
+2026-01-04 22:57:44 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:57:44 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:57:44 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely ask for the title again, or remind them they can say 'no' to skip.'
+2026-01-04 22:57:44 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:57:44 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Rihan, I think there might have been a misunderstanding. Would you like to give your meeting a title, or would you like to skip setting one?'
+2026-01-04 22:57:44 | INFO | app.graph | Staying in ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:57:44 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:57:44 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, I think there might have been a misunderstanding. Would you like to give your meeting a title, or would you like to skip setting one?
+2026-01-04 22:58:00 | INFO | faster_whisper | Processing audio with duration 00:04.620
+2026-01-04 22:58:00 | INFO | faster_whisper | VAD filter removed 00:00.080 of audio
+2026-01-04 22:58:06 | INFO | app.websocket | STT output: I know I don't have the title so skip it
+2026-01-04 22:58:06 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:58:06 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: I know I don't have the title so skip it
+2026-01-04 22:58:06 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:58:06 | INFO | app.workflow | state.last_user_message: I know I don't have the title so skip it
+2026-01-04 22:58:06 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:58:06 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:58:06 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:58:06 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: I know I don't have the title so skip it
+2026-01-04 22:58:07 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:58:07 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:58:07 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely ask for the title again, or remind them they can say 'no' to skip.'
+2026-01-04 22:58:07 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:58:07 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Rihan, just to confirm, you'd like to skip setting a title for this meeting, is that right?'
+2026-01-04 22:58:07 | INFO | app.graph | Staying in ASK_TITLE
+2026-01-04 22:58:07 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 22:58:07 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:58:07 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:58:07 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:58:07 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, just to confirm, you'd like to skip setting a title for this meeting, is that right?
+2026-01-04 22:58:19 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: yes
+2026-01-04 22:58:19 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.workflow | state.last_user_message: yes
+2026-01-04 22:58:19 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:58:19 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: yes
+2026-01-04 22:58:19 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:58:19 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': 'yes'}
+2026-01-04 22:58:19 | INFO | app.nlu.extractor | Updated state.confirmation_status to: yes
+2026-01-04 22:58:19 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely ask for the title again, or remind them they can say 'no' to skip.'
+2026-01-04 22:58:19 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:58:19 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Rihan, just to confirm, what would you like to call this meeting, or would you like to skip scheduling it altogether?'
+2026-01-04 22:58:19 | INFO | app.graph | Staying in ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:58:19 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:58:19 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, just to confirm, what would you like to call this meeting, or would you like to skip scheduling it altogether?
+2026-01-04 22:58:45 | INFO | faster_whisper | Processing audio with duration 00:06.600
+2026-01-04 22:58:45 | INFO | faster_whisper | VAD filter removed 00:02.344 of audio
+2026-01-04 22:58:51 | INFO | app.websocket | STT output: Right now I don't have the title. So skip it.
+2026-01-04 22:58:51 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:58:51 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Right now I don't have the title. So skip it.
+2026-01-04 22:58:51 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:58:51 | INFO | app.workflow | state.last_user_message: Right now I don't have the title. So skip it.
+2026-01-04 22:58:51 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:58:51 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:58:51 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:58:51 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Right now I don't have the title. So skip it.
+2026-01-04 22:58:52 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:58:52 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:58:52 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely ask for the title again, or remind them they can say 'no' to skip.'
+2026-01-04 22:58:52 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:58:52 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Rihan, I understand you'd like to skip setting the title for now. If you're ready to move forward, we can use a default title, or feel free to add one later if you'd like.'
+2026-01-04 22:58:52 | INFO | app.graph | Staying in ASK_TITLE
+2026-01-04 22:58:52 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 22:58:52 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:58:52 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:58:52 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:58:52 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, I understand you'd like to skip setting the title for now. If you're ready to move forward, we can use a default title, or feel free to add one later if you'd like.
+2026-01-04 22:59:15 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: okay
+2026-01-04 22:59:15 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.workflow | state.last_user_message: okay
+2026-01-04 22:59:15 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:59:15 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: okay
+2026-01-04 22:59:15 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:59:15 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:59:15 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely ask for the title again, or remind them they can say 'no' to skip.'
+2026-01-04 22:59:15 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:59:15 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi rihan, I think we might have gotten a bit mixed up. Could you please let me know what you'd like to call this meeting.'
+2026-01-04 22:59:15 | INFO | app.graph | Staying in ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:59:15 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:59:15 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hi rihan, I think we might have gotten a bit mixed up. Could you please let me know what you'd like to call this meeting.
+2026-01-04 22:59:33 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:59:33 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: boss meeting
+2026-01-04 22:59:33 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:59:33 | INFO | app.workflow | state.last_user_message: boss meeting
+2026-01-04 22:59:33 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:59:33 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:59:33 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:59:33 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: boss meeting
+2026-01-04 22:59:33 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:59:33 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': 'boss meeting', 'confirmation_status': None}
+2026-01-04 22:59:33 | INFO | app.nlu.extractor | Updated state.meeting_title to: boss meeting
+2026-01-04 22:59:33 | INFO | app.graph | Moving to CONFIRM_DETAILS
+2026-01-04 22:59:33 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: CONFIRM_DETAILS
+2026-01-04 22:59:33 | INFO | app.graph | [CONFIRM_DETAILS_NODE] Executing
+2026-01-04 22:59:33 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Ask user to confirm these EXACT details: boss meeting on Monday, 05 January at 11:00 PM. Ask 'Should I create it?'. Be precise.'
+2026-01-04 22:59:33 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:59:33 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Rihan, I have the details of the meeting. It's a boss meeting on Monday, 05 January at 11:00 PM, is that correct? Should I create it?'
+2026-01-04 22:59:33 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 22:59:33 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:59:34 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 22:59:34 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, I have the details of the meeting. It's a boss meeting on Monday, 05 January at 11:00 PM, is that correct? Should I create it?
+2026-01-04 22:59:34 | WARNING | phonemizer | words count mismatch on 100.0% of the lines (1/1)
+2026-01-04 23:00:05 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 23:00:05 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: no cancel the schedule
+2026-01-04 23:00:05 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 23:00:05 | INFO | app.workflow | state.last_user_message: no cancel the schedule
+2026-01-04 23:00:05 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 23:00:05 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 23:00:05 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: no cancel the schedule
+2026-01-04 23:00:05 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: no cancel the schedule
+2026-01-04 23:00:05 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 23:00:05 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': 'no'}
+2026-01-04 23:00:05 | INFO | app.nlu.extractor | Updated state.confirmation_status to: no
+2026-01-04 23:00:05 | INFO | app.graph | Confirmation intent extracted: no
+2026-01-04 23:00:05 | INFO | app.workflow | Graph execution completed. Result step: END
+2026-01-04 23:00:05 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 23:00:05 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: END
+2026-01-04 23:00:05 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Okay, I've cancelled the request. Let me know if you need anything else.
+2026-01-04 23:00:19 | INFO | app.websocket | WebSocket client disconnected: 2391588288448

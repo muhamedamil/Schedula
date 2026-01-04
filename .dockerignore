@@ -1,0 +1,16 @@
+__pycache__
+*.pyc
+.git
+.gitignore
+.env
+.env.example
+.vscode
+myvenv
+venv
+env
+*.log
+docker-compose.yml
+Dockerfile
+README.md
+SETUP_GUIDE.md
+tests

@@ -22,10 +22,10 @@ from app.nlu.schemas import ExtractionFields
 from app.utils.logger import setup_logging
 
 
-# ------------------ Logging ------------------ #
+# Logging ------------------------------------
 
 logger = logging.getLogger(__name__)
-# ------------------ Groq Client ------------------ #
+# Groq Client ------------------------------------
 
 GROQ_API_KEY = settings.GROQ_API_KEY
 
@@ -38,7 +38,7 @@ GROQ_TEMPERATURE = settings.GROQ_TEMPERATURE
 GROQ_MAX_TOKENS = settings.GROQ_MAX_TOKENS
 GROQ_TOP_P = settings.GROQ_TOP_P
 
-# ------------------ Helpers ------------------ #
+# Helpers ---------------------------------------------
 
 
 def _safe_json_parse(text: str) -> Dict[str, Any]:
@@ -106,7 +106,7 @@ async def _run_with_retries(user_message: str) -> Dict[str, Any]:
     return {}
 
 
-# ------------------ Main Extraction ------------------ #
+# Main Extraction ------------------------------------
 
 
 async def extract_fields(

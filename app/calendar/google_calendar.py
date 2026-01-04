@@ -90,7 +90,7 @@ class GoogleCalendarService:
                 )
 
             except GoogleCalendarError:
-                raise  # already logged
+                raise  
 
             except Exception as e:
                 logger.exception("Calendar event creation failed (attempt %s)", attempt)
