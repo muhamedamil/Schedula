@@ -8,7 +8,6 @@ Responsibilities:
 """
 
 import asyncio
-import logging
 from datetime import datetime, timedelta
 from typing import Optional, Dict, Any
 from concurrent.futures import ThreadPoolExecutor
@@ -18,8 +17,9 @@ from googleapiclient.errors import HttpError
 
 from app.calendar.google_auth import GoogleAuth, GoogleAuthError
 from app.config import settings
+from app.utils.logger import setup_logging  
 
-logger = logging.getLogger(__name__)
+logger = setup_logging(__name__)
 
 
 class GoogleCalendarError(Exception):

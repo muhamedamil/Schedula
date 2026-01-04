@@ -4,7 +4,6 @@ Kokoro Text-to-Speech Service
 
 import asyncio
 import base64
-import logging
 from io import BytesIO
 from typing import Optional
 
@@ -13,9 +12,9 @@ import soundfile as sf
 from kokoro import KPipeline
 
 from app.config import settings
+from app.utils.logger import setup_logging  
 
-logger = logging.getLogger(__name__)
-
+logger = setup_logging(__name__)
 
 class TTSError(Exception):
     """

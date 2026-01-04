@@ -19,9 +19,11 @@ from app.nlu.validators import (
 from app.utils.datetime_parser import parse_datetime
 from app.nlu.prompts import SYSTEM_PROMPT, USER_PROMPT
 from app.nlu.schemas import ExtractionFields  
+from app.utils.logger import setup_logging  
+
 
 # ------------------ Logging ------------------ #
-logger = logging.getLogger(__name__)
+logger = setup_logging(__name__)
 
 # ------------------ Groq Client ------------------ #
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")

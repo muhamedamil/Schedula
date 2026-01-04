@@ -1,6 +1,5 @@
 import asyncio
 import io
-import logging
 from concurrent.futures import ThreadPoolExecutor
 from typing import Optional
 
@@ -9,8 +8,10 @@ import soundfile as sf
 from faster_whisper import WhisperModel
 
 from app.config import settings
+from app.utils.logger import setup_logging  
 
-logger = logging.getLogger(__name__)
+logger = setup_logging(__name__)
+
 
 
 class STTError(Exception):

@@ -22,6 +22,7 @@ soundfile==0.13.1
 # Date & time parsing (critical later)
 python-dateutil==2.9.0.post0
 pendulum==3.0.0
+dateparser
 
 # Google Calendar (Step 2/3)
 google-api-python-client==2.122.0

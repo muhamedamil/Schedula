@@ -14,9 +14,9 @@ from app.graph import (
     handle_confirmation_node,
 )
 from app.state import ConversationState
-import logging
+from app.utils.logger import setup_logging  
 
-logger = logging.getLogger(__name__)
+logger = setup_logging(__name__)
 
 # ---------------- Node Mapping ---------------- #
 # Maps state.step strings to corresponding async node functions

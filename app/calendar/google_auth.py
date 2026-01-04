@@ -8,15 +8,16 @@ Responsibilities:
 - Surface actionable authentication errors
 """
 
-import logging
 from typing import Optional
 
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 
 from app.config import settings
+from app.utils.logger import setup_logging  
 
-logger = logging.getLogger(__name__)
+logger = setup_logging(__name__)
+
 
 
 class GoogleAuthError(Exception):

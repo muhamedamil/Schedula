@@ -7,11 +7,12 @@ Responsibilities:
 
 from datetime import datetime, timezone
 from typing import Optional
-import logging
-
 import dateparser
 
-logger = logging.getLogger(__name__)
+from app.utils.logger import setup_logging  
+
+logger = setup_logging(__name__)
+
 
 
 def parse_datetime(
