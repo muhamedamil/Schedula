@@ -143,17 +143,55 @@
         box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
       }
 
-      #user-info {
-        display: none;
-        font-size: 12px;
-        color: var(--text-muted);
-        padding: 6px 12px;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
+      #user-info.visible {
+        display: flex;
+        align-items: center;
       }
 
-      #user-info.visible {
-        display: block;
+      /* --- Launch Overlay --- */
+      #launch-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 12, 41, 0.9);
+        backdrop-filter: blur(10px);
+        z-index: 100;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 24px;
+        padding: 40px;
+      }
+
+      #launch-overlay.visible {
+        display: flex;
+      }
+
+      #launch-btn {
+        padding: 16px 32px;
+        font-size: 18px;
+        font-weight: 600;
+        background: linear-gradient(
+          135deg,
+          var(--accent-color),
+          var(--accent-secondary)
+        );
+        color: #0f0c29;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-bottom: 20px;
+        box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+      }
+
+      #launch-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
       }
 
       #signout-btn {
@@ -326,11 +364,28 @@
         <div id="auth-container">
           <!-- Google Sign-In Button (hidden when authenticated) -->
           <button id="google-signin-btn">
-            <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+            <svg
+              width="18"
+              height="18"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+            >
+              <path
+                fill="#EA4335"
+                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+              ></path>
+              <path
+                fill="#4285F4"
+                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+              ></path>
+              <path
+                fill="#FBBC05"
+                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+              ></path>
+              <path
+                fill="#34A853"
+                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+              ></path>
               <path fill="none" d="M0 0h48v48H0z"></path>
             </svg>
             Sign in with Google
@@ -349,6 +404,16 @@
 
       <div id="visualizer-container">
         <canvas id="visualizer"></canvas>
+      </div>
+
+      <div id="launch-overlay">
+        <h2 style="margin-bottom: 10px">
+          Ready to help, <span id="launch-username">User</span>!
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px">
+          Click below to activate the voice assistant and start scheduling.
+        </p>
+        <button id="launch-btn">Start Voice Assistant</button>
       </div>
 
       <div id="chat-scroll">
@@ -380,6 +445,9 @@
       const userInfo = document.getElementById("user-info");
       const userEmail = document.getElementById("user-email");
       const signoutBtn = document.getElementById("signout-btn");
+      const launchOverlay = document.getElementById("launch-overlay");
+      const launchUsername = document.getElementById("launch-username");
+      const launchBtn = document.getElementById("launch-btn");
 
       let ws;
       let mediaRecorder;
@@ -488,7 +556,7 @@
 
       // --- Google OAuth 2.0 ---
       function initGoogleAuth() {
-        if (typeof google === 'undefined') {
+        if (typeof google === "undefined") {
           console.warn("Google Identity Services not loaded yet, retrying...");
           setTimeout(initGoogleAuth, 500);
           return;
@@ -497,75 +565,87 @@
         // Initialize Token Client for OAuth 2.0
         const tokenClient = google.accounts.oauth2.initTokenClient({
           client_id: GOOGLE_CLIENT_ID,
-          scope: 'https://www.googleapis.com/auth/calendar.events openid profile email',
+          scope:
+            "https://www.googleapis.com/auth/calendar.events openid profile email",
           callback: (response) => {
             if (response.error) {
-              console.error('OAuth error:', response);
-              alert('Failed to sign in with Google');
+              console.error("OAuth error:", response);
+              alert("Failed to sign in with Google");
               return;
             }
 
             // Store the access token
             googleAccessToken = response.access_token;
-            sessionStorage.setItem('google_access_token', googleAccessToken); // Persist
-            console.log('Google OAuth successful, token received');
+            sessionStorage.setItem("google_access_token", googleAccessToken);
+            console.log("Google OAuth successful");
 
             // Update UI
-            googleSignInBtn.style.display = 'none';
-            userInfo.classList.add('visible');
-            
-            // Get user email using the ID token endpoint (optional, for display)
+            googleSignInBtn.style.display = "none";
+            userInfo.classList.add("visible");
+
             fetchUserEmail(googleAccessToken);
-            
-            // Reconnect WebSocket with new token if already connected
-            // Reconnect WebSocket with new token immediately
-            if (ws) {
-                // Remove onclose handler to avoid the 3s delay or double connect
-                ws.onclose = null;
-                ws.close();
-            }
-            // Connect immediately
-            setTimeout(connect, 100);
+            showLaunchOverlay(); // Show the new START button
           },
         });
 
         // Check for persisted token on load
-        const storedToken = sessionStorage.getItem('google_access_token');
+        const storedToken = sessionStorage.getItem("google_access_token");
         if (storedToken) {
-             googleAccessToken = storedToken;
-             googleSignInBtn.style.display = 'none';
-             userInfo.classList.add('visible');
-             fetchUserEmail(googleAccessToken);
+          googleAccessToken = storedToken;
+          googleSignInBtn.style.display = "none";
+          userInfo.classList.add("visible");
+          fetchUserEmail(googleAccessToken);
         }
 
         // Sign-in button click handler
-        googleSignInBtn.addEventListener('click', () => {
-          tokenClient.requestAccessToken({ prompt: 'consent' });
+        googleSignInBtn.addEventListener("click", () => {
+          tokenClient.requestAccessToken({ prompt: "consent" });
         });
 
         // Sign-out button
-        signoutBtn.addEventListener('click', () => {
+        signoutBtn.addEventListener("click", () => {
           googleAccessToken = null;
-          sessionStorage.removeItem('google_access_token');
-          googleSignInBtn.style.display = 'flex';
-          userInfo.classList.remove('visible');
-          userEmail.textContent = '';
-          console.log('Signed out');
+          sessionStorage.removeItem("google_access_token");
+          googleSignInBtn.style.display = "flex";
+          userInfo.classList.remove("visible");
+          userEmail.textContent = "";
+          console.log("Signed out");
           // Reconnect to clear backend state
           if (ws) ws.close();
         });
       }
-      
 
+      function showLaunchOverlay(name = "User") {
+        if (ws && ws.readyState === WebSocket.OPEN) return;
+        launchUsername.textContent = name;
+        launchOverlay.classList.add("visible");
+      }
+
+      launchBtn.addEventListener('click', () => {
+        console.log("Launch button clicked. Activating assistant...");
+        launchOverlay.classList.remove('visible');
+        
+        // Ensure AudioContext is active for playback/recording
+        initVisualizer();
+        if (audioContext && audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+        
+        connect();
+      });
 
       function fetchUserEmail(token) {
-        // Use the userinfo endpoint to get email
+        console.log("Fetching user profile info...");
         fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
           headers: { Authorization: `Bearer ${token}` }
         })
         .then(res => res.json())
         .then(data => {
           userEmail.textContent = `Signed in as ${data.email}`;
+          if (data.given_name) {
+              launchUsername.textContent = data.given_name;
+              console.log("User name found:", data.given_name);
+          }
         })
         .catch(err => {
           console.error('Failed to fetch user email:', err);
@@ -576,25 +656,38 @@
       function sendAuthToken() {
         // Legacy message-based auth (backup)
         if (ws && ws.readyState === WebSocket.OPEN && googleAccessToken) {
-          ws.send(JSON.stringify({
-            type: 'auth',
-            payload: { google_token: googleAccessToken }
-          }));
+          console.log("Sending auth message...");
+          ws.send(
+            JSON.stringify({
+              type: "auth",
+              payload: { google_token: googleAccessToken },
+            })
+          );
         }
       }
 
       // --- WebSocket ---
       function connect() {
-        if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) return;
+        if (
+          ws &&
+          (ws.readyState === WebSocket.OPEN ||
+            ws.readyState === WebSocket.CONNECTING)
+        )
+          return;
+
+        console.log("Attempting WebSocket connection...");
+        updateStatus("disconnected");
+        statusText.textContent = "Connecting...";
 
         // Add token to query params if available
         let wsUrl = "ws://" + window.location.host + "/ws";
         if (googleAccessToken) {
-            wsUrl += "?token=" + encodeURIComponent(googleAccessToken);
+          wsUrl += "?token=" + encodeURIComponent(googleAccessToken);
         }
         ws = new WebSocket(wsUrl);
 
         ws.onopen = () => {
+          console.log("WebSocket connection established.");
           updateStatus("connected");
           addMessage("Connected to Server", "system");
           // No need to sendAuthToken if we passed it in URL, but harmless redundancy
@@ -603,19 +696,20 @@
         ws.onmessage = (event) => {
           try {
             const data = JSON.parse(event.data);
+            console.log("Message received from server:", data.text ? data.text.substring(0, 30) + "..." : "Audio data");
 
-            if (data.type === 'auth_error') {
-                console.warn("Server rejected auth token - clearing persistence");
-                sessionStorage.removeItem('google_access_token');
-                googleAccessToken = null;
-                googleSignInBtn.style.display = 'flex';
-                userInfo.classList.remove('visible');
-                userEmail.textContent = '';
-                addMessage("Authentication invalid - signed out", "system");
+            if (data.type === "auth_error") {
+              console.warn("Server rejected auth token - clearing persistence");
+              sessionStorage.removeItem("google_access_token");
+              googleAccessToken = null;
+              googleSignInBtn.style.display = "flex";
+              userInfo.classList.remove("visible");
+              userEmail.textContent = "";
+              addMessage("Authentication invalid - signed out", "system");
             }
-            
-            if (data.status === 'authenticated') {
-                 // Handled by message-based auth if needed
+
+            if (data.status === "authenticated") {
+              // Handled by message-based auth if needed
             }
 
             if (data.text) {
@@ -641,8 +735,11 @@
         if (e.key === "Enter") {
           const text = textInput.value.trim();
           if (!ws || ws.readyState !== WebSocket.OPEN) {
-             addMessage("Please Sign In with Google to verify your identity.", "system");
-             return;
+            addMessage(
+              "Please Sign In with Google to verify your identity.",
+              "system"
+            );
+            return;
           }
           if (text) {
             ws.send(JSON.stringify({ type: "text", payload: text }));
@@ -712,8 +809,11 @@
 
       micBtn.addEventListener("click", () => {
         if (!ws || ws.readyState !== WebSocket.OPEN) {
-            addMessage("Please Sign In with Google to verify your identity.", "system");
-            return;
+          addMessage(
+            "Please Sign In with Google to verify your identity.",
+            "system"
+          );
+          return;
         }
 
         if (micBtn.classList.contains("recording")) {
@@ -725,15 +825,17 @@
 
       // --- Init ---
       initGoogleAuth();
-      
-      // Auto-connect ONLY if we have a saved token (Authenticated User)
-      if (sessionStorage.getItem('google_access_token')) {
-          connect();
+
+      // If we have a stored token, show the Start Assistant button
+      if (sessionStorage.getItem("google_access_token")) {
+        showLaunchOverlay();
       } else {
-          // Unauthenticated: Show Login Instructions
-          updateStatus("disconnected");
-          addMessage("Welcome! To ensure security, please Sign In with Google to access the scheduling assistant.", "system");
+        updateStatus("disconnected");
+        // Just a status message, the real greeting comes after login/start
+        addMessage("Welcome! Please Sign In with Google to begin.", "system");
       }
     </script>
   </body>
 </html>
+
+

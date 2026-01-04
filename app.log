@@ -4532,3 +4532,135 @@ RuntimeError: Event loop is closed
 2026-01-04 23:00:05 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: END
 2026-01-04 23:00:05 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Okay, I've cancelled the request. Let me know if you need anything else.
 2026-01-04 23:00:19 | INFO | app.websocket | WebSocket client disconnected: 2391588288448
+2026-01-05 03:04:23 | INFO | root | Logging initialized successfully
+2026-01-05 03:04:23 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-05 03:04:31 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-05 03:04:31 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-05 03:04:31 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-05 03:04:41 | INFO | app.main | All models preloaded successfully
+2026-01-05 03:05:31 | INFO | app.websocket | WebSocket client connected: 1788623103280
+2026-01-05 03:05:31 | INFO | app.websocket | Found token in connection params. Validating...
+2026-01-05 03:05:31 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-05 03:05:31 | INFO | app.websocket | [AUTH] Token valid. User Name: Muhammed
+2026-01-05 03:05:31 | INFO | app.websocket | [STARTUP] Running initial START turn for user 1788623103280
+2026-01-05 03:05:31 | INFO | app.workflow | Starting with state.step: START
+2026-01-05 03:05:31 | INFO | app.workflow | state.last_user_message: None
+2026-01-05 03:05:32 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-05 03:05:32 | INFO | app.workflow | [ROUTE_START] No valid step found. Routing to: START
+2026-01-05 03:05:32 | INFO | app.graph | [START_NODE] Executing
+2026-01-05 03:05:32 | INFO | app.graph | User authenticated as Muhammed. Skipping ASK_NAME.
+2026-01-05 03:05:32 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet Muhammed warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-05 03:05:33 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 03:05:33 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello Muhammed, it's great to hear from you, we're all set to schedule your meeting. When were you thinking of booking time, what date and time works best for you?'
+2026-01-05 03:05:33 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-05 03:05:33 | INFO | app.workflow | [RUN_STEP] Edge traversal complete. Output Step: ASK_DATETIME
+2026-01-05 03:05:33 | INFO | app.websocket | [STARTUP] Workflow started. Initial Step: ASK_DATETIME, Message: Hello Muhammed, it's great to hear from you, we're all set to schedule your meeting. When were you thinking of booking time, what date and time works best for you?
+2026-01-05 03:05:44 | INFO | app.websocket | [STARTUP] Initial greeting sent to user 1788623103280
+2026-01-05 03:06:03 | INFO | app.websocket | WebSocket client disconnected: 1788623103280
+2026-01-05 03:06:06 | INFO | app.websocket | WebSocket client connected: 1786765940512
+2026-01-05 03:06:06 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:09 | INFO | app.websocket | WebSocket client connected: 1786766165472
+2026-01-05 03:06:09 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:12 | INFO | app.websocket | WebSocket client connected: 1786735772624
+2026-01-05 03:06:12 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:15 | INFO | app.websocket | WebSocket client connected: 1786766499536
+2026-01-05 03:06:15 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:18 | INFO | app.websocket | WebSocket client connected: 1786766506736
+2026-01-05 03:06:18 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:22 | INFO | app.websocket | WebSocket client connected: 1786868975408
+2026-01-05 03:06:22 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:25 | INFO | app.websocket | WebSocket client connected: 1786766507120
+2026-01-05 03:06:25 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:28 | INFO | app.websocket | WebSocket client connected: 1786766502416
+2026-01-05 03:06:28 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:32 | INFO | app.websocket | WebSocket client connected: 1786766166384
+2026-01-05 03:06:32 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:35 | INFO | app.websocket | WebSocket client connected: 1786765937392
+2026-01-05 03:06:35 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:38 | INFO | app.websocket | WebSocket client connected: 1788623103808
+2026-01-05 03:06:38 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:42 | INFO | app.websocket | WebSocket client connected: 1786868977760
+2026-01-05 03:06:42 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:46 | INFO | app.websocket | WebSocket client connected: 1786868980832
+2026-01-05 03:06:46 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:50 | INFO | app.websocket | WebSocket client connected: 1786765937056
+2026-01-05 03:06:50 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:53 | INFO | app.websocket | WebSocket client connected: 1786766178192
+2026-01-05 03:06:53 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:56 | INFO | app.websocket | WebSocket client connected: 1786766502992
+2026-01-05 03:06:56 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:06:59 | INFO | app.websocket | WebSocket client connected: 1786766506688
+2026-01-05 03:06:59 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:07:02 | INFO | app.websocket | WebSocket client connected: 1786868980352
+2026-01-05 03:07:02 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:07:05 | INFO | app.websocket | WebSocket client connected: 1786868978624
+2026-01-05 03:07:05 | WARNING | app.websocket | Connection rejected: No token provided
+2026-01-05 03:07:08 | INFO | app.websocket | WebSocket client connected: 1786868983136
+2026-01-05 03:07:08 | INFO | app.websocket | Found token in connection params. Validating...
+2026-01-05 03:07:08 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-05 03:07:08 | INFO | app.websocket | [AUTH] Token valid. User Name: Muhammed
+2026-01-05 03:07:08 | INFO | app.websocket | [STARTUP] Running initial START turn for user 1786868983136
+2026-01-05 03:07:08 | INFO | app.workflow | Starting with state.step: START
+2026-01-05 03:07:08 | INFO | app.workflow | state.last_user_message: None
+2026-01-05 03:07:09 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-05 03:07:09 | INFO | app.workflow | [ROUTE_START] No valid step found. Routing to: START
+2026-01-05 03:07:09 | INFO | app.graph | [START_NODE] Executing
+2026-01-05 03:07:09 | INFO | app.graph | User authenticated as Muhammed. Skipping ASK_NAME.
+2026-01-05 03:07:09 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet Muhammed warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-05 03:07:09 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 03:07:09 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi Muhammed, great to catch up with you, I'm all set to schedule something on your calendar, what date and time were you thinking of?'
+2026-01-05 03:07:09 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-05 03:07:09 | INFO | app.workflow | [RUN_STEP] Edge traversal complete. Output Step: ASK_DATETIME
+2026-01-05 03:07:09 | INFO | app.websocket | [STARTUP] Workflow started. Initial Step: ASK_DATETIME, Message: Hi Muhammed, great to catch up with you, I'm all set to schedule something on your calendar, what date and time were you thinking of?
+2026-01-05 03:07:20 | INFO | app.websocket | [STARTUP] Initial greeting sent to user 1786868983136
+2026-01-05 03:07:52 | INFO | app.websocket | WebSocket client disconnected: 1786868983136
+2026-01-05 03:42:23 | INFO | root | Logging initialized successfully
+2026-01-05 03:42:23 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-05 03:42:30 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-05 03:42:30 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-05 03:42:30 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-05 03:42:33 | INFO | app.main | All models preloaded successfully
+2026-01-05 03:44:08 | INFO | app.websocket | WebSocket client connected: 1779986672096
+2026-01-05 03:44:08 | INFO | app.websocket | Found token in connection params. Validating...
+2026-01-05 03:44:08 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-05 03:44:09 | INFO | app.websocket | [AUTH] Token valid. User Name: Muhammed
+2026-01-05 03:44:09 | INFO | app.websocket | [STARTUP] Running initial START turn for user 1779986672096
+2026-01-05 03:44:09 | INFO | app.workflow | Starting with state.step: START
+2026-01-05 03:44:09 | INFO | app.workflow | state.last_user_message: None
+2026-01-05 03:44:09 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-05 03:44:09 | INFO | app.workflow | [ROUTE_START] No valid step found. Routing to: START
+2026-01-05 03:44:10 | INFO | app.graph | [START_NODE] Executing
+2026-01-05 03:44:10 | INFO | app.graph | User authenticated as Muhammed. Skipping ASK_NAME.
+2026-01-05 03:44:10 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet Muhammed warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-05 03:44:10 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 03:44:11 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello Muhammed, it's great to catch up with you. I'm all set to schedule a meeting on your calendar, when were you thinking of meeting this week?'
+2026-01-05 03:44:11 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-05 03:44:11 | INFO | app.workflow | [RUN_STEP] Edge traversal complete. Output Step: ASK_DATETIME
+2026-01-05 03:44:11 | INFO | app.websocket | [STARTUP] Workflow started. Initial Step: ASK_DATETIME, Message: Hello Muhammed, it's great to catch up with you. I'm all set to schedule a meeting on your calendar, when were you thinking of meeting this week?
+2026-01-05 03:44:21 | INFO | app.websocket | [STARTUP] Initial greeting sent to user 1779986672096
+2026-01-05 03:44:36 | INFO | app.websocket | WebSocket client disconnected: 1779986672096
+2026-01-05 04:20:54 | INFO | root | Logging initialized successfully
+2026-01-05 04:20:54 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-05 04:20:57 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-05 04:20:57 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-05 04:20:57 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-05 04:21:00 | INFO | app.main | All models preloaded successfully
+2026-01-05 04:22:24 | INFO | app.websocket | WebSocket client connected: 1643112570384
+2026-01-05 04:22:24 | INFO | app.websocket | Found token in connection params. Validating...
+2026-01-05 04:22:24 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-05 04:22:25 | INFO | app.websocket | [AUTH] Token valid. User Name: Muhammed
+2026-01-05 04:22:25 | INFO | app.websocket | [STARTUP] Running initial START turn for user 1643112570384
+2026-01-05 04:22:25 | INFO | app.workflow | Starting with state.step: START
+2026-01-05 04:22:25 | INFO | app.workflow | state.last_user_message: None
+2026-01-05 04:22:25 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-05 04:22:25 | INFO | app.workflow | [ROUTE_START] No valid step found. Routing to: START
+2026-01-05 04:22:25 | INFO | app.graph | [START_NODE] Executing
+2026-01-05 04:22:25 | INFO | app.graph | User authenticated as Muhammed. Skipping ASK_NAME.
+2026-01-05 04:22:25 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet Muhammed warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-05 04:22:26 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-05 04:22:26 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello Muhammed, great to speak with you again, how are you today? I'm ready to schedule a meeting on your calendar, what date and time works best for you?'
+2026-01-05 04:22:26 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-05 04:22:26 | INFO | app.workflow | [RUN_STEP] Edge traversal complete. Output Step: ASK_DATETIME
+2026-01-05 04:22:26 | INFO | app.websocket | [STARTUP] Workflow started. Initial Step: ASK_DATETIME, Message: Hello Muhammed, great to speak with you again, how are you today? I'm ready to schedule a meeting on your calendar, what date and time works best for you?
+2026-01-05 04:22:38 | INFO | app.websocket | [STARTUP] Initial greeting sent to user 1643112570384
+2026-01-05 04:23:04 | INFO | app.websocket | WebSocket client disconnected: 1643112570384

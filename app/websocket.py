@@ -14,6 +14,7 @@ Error handling:
 - STT/TTS/Workflow errors are caught and returned to frontend without crashing
 """
 
+
 import base64
 import json
 import logging
@@ -100,18 +101,28 @@ async def websocket_endpoint(
     state.google_access_token = token
     if user_info.get("given_name"):
         state.name = user_info.get("given_name")
-        logger.info("Authenticated as: %s", state.name)
+        logger.info("[AUTH] Token valid. User Name: %s", state.name)
+    else:
+        logger.info("[AUTH] Token valid. No name provided in info.")
 
     user_states[user_id] = state
 
     # Run START node immediately to set the greeting before any user input
     try:
+        logger.info("[STARTUP] Running initial START turn for user %s", user_id)
         initial_state_dict = await run_step(state)
+
         if isinstance(initial_state_dict, dict):
             state = ConversationState(**initial_state_dict)
         else:
             state = initial_state_dict
+
         user_states[user_id] = state
+        logger.info(
+            "[STARTUP] Workflow started. Initial Step: %s, Message: %s",
+            state.step,
+            state.system_message,
+        )
 
         # Generate TTS for initial greeting
         audio_b64: Optional[str] = None
@@ -119,7 +130,7 @@ async def websocket_endpoint(
             try:
                 audio_b64 = await KokoroTTSService.synthesize(state.system_message)
             except TTSError as e:
-                logger.error("TTS generation failed for initial greeting: %s", e)
+                logger.error("[STARTUP] TTS failed for user %s: %s", user_id, e)
                 audio_b64 = None
 
         # Send initial greeting to client
@@ -130,7 +141,7 @@ async def websocket_endpoint(
                 "step": state.step,
             }
         )
-        logger.info("Sent initial greeting to user %s", user_id)
+        logger.info("[STARTUP] Initial greeting sent to user %s", user_id)
 
     except (WebSocketDisconnect, RuntimeError):
         logger.info("Client disconnected during startup")
@@ -205,12 +216,8 @@ async def websocket_endpoint(
 
             # ---------------- LangGraph Workflow ---------------- #
             state.last_user_message = user_text
-            logger.info(
-                "Current state.step before run_step: %s", state.step
-            )
-            logger.info(
-                "Calling run_step with last_user_message: %s", user_text
-            )
+            logger.info("Current state.step before run_step: %s", state.step)
+            logger.info("Calling run_step with last_user_message: %s", user_text)
             updated_state_dict: Optional[dict] = None
 
             try:
@@ -226,9 +233,7 @@ async def websocket_endpoint(
                     # Fallback if workflow returns a model
                     state = updated_state_dict
                 logger.info("New state.step after run_step: %s", state.step)
-                logger.info(
-                    "New state.system_message: %s", state.system_message
-                )
+                logger.info("New state.system_message: %s", state.system_message)
 
             except Exception:
                 logger.exception("LangGraph execution failed")

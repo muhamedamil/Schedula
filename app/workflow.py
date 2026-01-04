@@ -41,11 +41,11 @@ def route_start(state: ConversationState) -> str:
         "ASK_TITLE",
         "CONFIRM_DETAILS",
         "AWAIT_CONFIRMATION",
-        "HANDLE_NEW_LOOP",  # New state
+        "HANDLE_NEW_LOOP",
     }:
-        logger.info("[ROUTE_START] Routing to: %s", state.step)
+        logger.info("[ROUTE_START] Routing directly to existing step: %s", state.step)
         return state.step
-    logger.info("[ROUTE_START] Routing to: START")
+    logger.info("[ROUTE_START] No valid step found. Routing to: START")
     return "START"
 
 
@@ -116,7 +116,9 @@ async def run_step(state: ConversationState) -> dict:
             state.dict(),
             config={"recursion_limit": 3},
         )
-        logger.info("Graph execution completed. Result step: %s", result.get("step"))
+        logger.info(
+            "[RUN_STEP] Edge traversal complete. Output Step: %s", result.get("step")
+        )
         return result
 
     except Exception:
