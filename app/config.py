@@ -2,10 +2,11 @@ import os
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
     # ---- Environment ----
     ENV: str = Field(default="development", env="ENV")
-    
+
     # ---- LLM ----
     GROQ_API_KEY: str = Field(..., env="GROQ_API_KEY")
     GROQ_MODEL_NAME: str = Field(default="llama-3.1-8b-instant", env="GROQ_MODEL_NAME")
@@ -29,9 +30,9 @@ class Settings(BaseSettings):
     TTS_SAMPLE_RATE: int = Field(default=24000, env="TTS_SAMPLE_RATE")
 
     # ---- Calendar ----
-    GOOGLE_CLIENT_ID: str = Field(..., env="GOOGLE_CLIENT_ID")
-    GOOGLE_CLIENT_SECRET: str = Field(..., env="GOOGLE_CLIENT_SECRET")
-    GOOGLE_REFRESH_TOKEN: str = Field(..., env="GOOGLE_REFRESH_TOKEN")
+    GOOGLE_CLIENT_ID: str = Field(default="", env="GOOGLE_CLIENT_ID")
+    GOOGLE_CLIENT_SECRET: str = Field(default="", env="GOOGLE_CLIENT_SECRET")
+    GOOGLE_REFRESH_TOKEN: str = Field(default="", env="GOOGLE_REFRESH_TOKEN")
     GOOGLE_CALENDAR_ID: str = Field(default="primary", env="GOOGLE_CALENDAR_ID")
 
     # ---- App / Deployment ----

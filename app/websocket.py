@@ -17,9 +17,12 @@ Error handling:
 import base64
 import json
 import logging
+import urllib.request
+import asyncio
 from typing import Dict, Optional
+from concurrent.futures import ThreadPoolExecutor
 
-from fastapi import WebSocket, WebSocketDisconnect
+from fastapi import WebSocket, WebSocketDisconnect, Query
 
 from app.state import ConversationState
 from app.workflow import run_step
@@ -30,9 +33,36 @@ logger = logging.getLogger(__name__)
 
 # In-memory conversation store
 user_states: Dict[str, ConversationState] = {}
+_executor = ThreadPoolExecutor(max_workers=2)
 
 
-async def websocket_endpoint(websocket: WebSocket):
+def _fetch_google_user_info(access_token: str) -> Optional[dict]:
+    """Fetch user info from Google API."""
+    try:
+        logger.info(f"Validating token starting with: {access_token[:10]}...")
+        url = "https://www.googleapis.com/oauth2/v3/userinfo"
+        req = urllib.request.Request(
+            url,
+            headers={
+                "Authorization": f"Bearer {access_token}",
+                "User-Agent": "VoiceSchedulingAgent/1.0",
+                "Accept": "application/json",
+            },
+        )
+        with urllib.request.urlopen(req) as response:
+            return json.loads(response.read().decode())
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode()
+        logger.error(f"Google API Error {e.code}: {e.reason} - Body: {error_body}")
+        return None
+    except Exception as e:
+        logger.error(f"Failed to fetch Google user info: {e}")
+        return None
+
+
+async def websocket_endpoint(
+    websocket: WebSocket, token: Optional[str] = Query(None)  # Receive token from URL
+):
     """Main WebSocket endpoint for voice interaction."""
     await websocket.accept()
     user_id = str(id(websocket))
@@ -40,6 +70,32 @@ async def websocket_endpoint(websocket: WebSocket):
 
     # Initialize conversation state
     state = ConversationState()
+
+    # Handle initial authentication
+    if token:
+        logger.info("Found token in connection params")
+
+        # Validate token by fetching user info
+        loop = asyncio.get_running_loop()
+        user_info = await loop.run_in_executor(
+            _executor, _fetch_google_user_info, token
+        )
+
+        if user_info:
+            # Token is valid
+            state.google_access_token = token
+            if user_info.get("given_name"):
+                state.name = user_info.get("given_name")
+                logger.info("Authenticated as: %s", state.name)
+                # We don't change step to ASK_DATETIME here, we let start_node handle it
+                # But the state now has the name!
+        else:
+            logger.warning("Provided token was invalid or expired - ignoring")
+            try:
+                await websocket.send_json({"type": "auth_error"})
+            except Exception:
+                logger.warning("Could not send auth_error (client likely disconnected)")
+
     user_states[user_id] = state
 
     # Run START node immediately to set the greeting before any user input
@@ -70,16 +126,23 @@ async def websocket_endpoint(websocket: WebSocket):
         )
         logger.info("Sent initial greeting to user %s", user_id)
 
+    except (WebSocketDisconnect, RuntimeError):
+        logger.info("Client disconnected during startup")
+        return
     except Exception:
         logger.exception("Failed to send initial greeting")
-        state.system_message = "Sorry, something went wrong."
-        await websocket.send_json(
-            {
-                "text": state.system_message,
-                "audio_b64": None,
-                "step": state.step,
-            }
-        )
+        # Try to send error if possible, but ignore failure
+        try:
+            state.system_message = "Sorry, something went wrong."
+            await websocket.send_json(
+                {
+                    "text": state.system_message,
+                    "audio_b64": None,
+                    "step": state.step,
+                }
+            )
+        except Exception:
+            pass
 
     try:
         while True:
@@ -89,6 +152,24 @@ async def websocket_endpoint(websocket: WebSocket):
             msg_type = data.get("type")
             payload = data.get("payload")
             user_text: Optional[str] = None
+
+            # ---------------- Authentication ---------------- #
+            if msg_type == "auth":
+                # Frontend sends Google OAuth token
+                google_token = (
+                    payload.get("google_token") if isinstance(payload, dict) else None
+                )
+                if google_token:
+                    state.google_access_token = google_token
+                    user_states[user_id] = state
+                    logger.info(
+                        "Google access token received and stored for user %s", user_id
+                    )
+                    await websocket.send_json({"status": "authenticated"})
+                else:
+                    logger.warning("Auth message received but no google_token found")
+                    await websocket.send_json({"error": "No token provided"})
+                continue
 
             # ---------------- STT ---------------- #
             if msg_type == "audio":

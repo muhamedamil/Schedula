@@ -19,7 +19,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-
 class GoogleAuthError(Exception):
     """
     Raised when Google authentication or token refresh fails.
@@ -27,6 +26,7 @@ class GoogleAuthError(Exception):
     This indicates a configuration issue, revoked credentials,
     or a Google-side outage.
     """
+
     pass
 
 
@@ -39,23 +39,30 @@ class GoogleAuth:
         creds = auth.get_credentials()
     """
 
-    def __init__(self) -> None:
+    def __init__(self, access_token: Optional[str] = None) -> None:
+        """
+        Initialize GoogleAuth.
+
+        Args:
+            access_token: Optional user-provided access token. If provided, this will be used
+                         instead of the refresh token from environment variables.
+        """
         self.client_id = settings.GOOGLE_CLIENT_ID
         self.client_secret = settings.GOOGLE_CLIENT_SECRET
         self.refresh_token = settings.GOOGLE_REFRESH_TOKEN
+        self.user_access_token = access_token  
 
-        self.scopes = [
-            "https://www.googleapis.com/auth/calendar.events"
-        ]
+        self.scopes = ["https://www.googleapis.com/auth/calendar.events"]
 
         self._creds: Optional[Credentials] = None
 
         logger.debug(
-            "GoogleAuth initialized (client_id present=%s, refresh_token present=%s)",
+            "GoogleAuth initialized (client_id present=%s, refresh_token present=%s, user_token present=%s)",
             bool(self.client_id),
             bool(self.refresh_token),
+            bool(self.user_access_token),
         )
-        
+
     # Internal helpers ------------------------------------------------------------------
 
     def _refresh_credentials(self) -> None:
@@ -96,24 +103,75 @@ class GoogleAuth:
 
         except Exception as e:
             logger.exception("Unexpected failure during Google token refresh")
+            raise GoogleAuthError("Failed to refresh Google OAuth token") from e
+
+    def _create_credentials_from_token(self) -> None:
+        """
+        Create credentials from user-provided access token.
+
+        This is used when the user provides their own token via frontend OAuth.
+        No refresh happens here - the token is used as-is.
+        """
+        if not self.user_access_token:
+            logger.error("Cannot create credentials: no user access token provided")
+            raise GoogleAuthError("No user access token available")
+
+        logger.info("Creating credentials from user-provided access token")
+
+        try:
+            # Create credentials object with the user's token
+            # Note: We don't have a refresh token here, so the token cannot be refreshed
+            self._creds = Credentials(
+                token=self.user_access_token,
+                scopes=self.scopes,
+            )
+
+            # Verify the token is valid (has not expired)
+            if not self._creds.valid:
+                logger.warning(
+                    "User-provided access token appears to be expired or invalid"
+                )
+                # We still allow it through - the API call will fail if truly invalid
+                # This gives better error messages to the user
+
+            logger.info("Credentials created from user token successfully")
+
+        except Exception as e:
+            logger.exception("Failed to create credentials from user token")
             raise GoogleAuthError(
-                "Failed to refresh Google OAuth token"
+                "Failed to create credentials from user access token"
             ) from e
-            
+
     # Public API ------------------------------------------------------------------
     def get_credentials(self) -> Credentials:
         """
         Return valid Google OAuth credentials.
 
-        Automatically refreshes the token if expired or missing.
+        If a user access token was provided, uses that.
+        Otherwise, falls back to refresh token from environment variables.
         """
         if self._creds is None:
-            logger.debug("No cached Google credentials found; refreshing")
-            self._refresh_credentials()
+            # Decide which authentication method to use
+            if self.user_access_token:
+                logger.debug("No cached credentials; using user-provided access token")
+                self._create_credentials_from_token()
+            else:
+                logger.debug(
+                    "No cached credentials; using refresh token from environment"
+                )
+                self._refresh_credentials()
 
         elif not self._creds.valid:
-            logger.warning("Cached Google credentials expired; refreshing")
-            self._refresh_credentials()
+            # Token expired - refresh if we have a refresh token
+            if self.user_access_token:
+                # User tokens cannot be refreshed - they must get a new one from frontend
+                logger.warning("User-provided token expired; re-creating credentials")
+                self._create_credentials_from_token()
+            else:
+                logger.warning(
+                    "Cached credentials expired; refreshing from environment"
+                )
+                self._refresh_credentials()
 
         return self._creds
 

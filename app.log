@@ -2973,3 +2973,779 @@ starlette.websockets.WebSocketDisconnect
 2026-01-04 19:46:19 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
 2026-01-04 19:46:19 | INFO | app.websocket | [WEBSOCKET] New state.system_message: I'm sorry, Mohammed, but I didn't get the date and time for the meeting. Could you please tell me the date and time you'd like to schedule the meeting, such as tomorrow at 3pm?
 2026-01-04 19:48:34 | INFO | app.websocket | WebSocket client disconnected: 2257110689984
+2026-01-04 20:53:12 | INFO | root | Logging initialized successfully
+2026-01-04 20:53:12 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 20:53:18 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 20:53:18 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 20:53:18 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 20:53:24 | INFO | app.main | All models preloaded successfully
+2026-01-04 20:53:24 | INFO | app.websocket | WebSocket client connected: 1552971425984
+2026-01-04 20:53:24 | INFO | app.websocket | Found token in connection params
+2026-01-04 20:53:24 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 20:53:24 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 20:53:24 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 20:53:24 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 20:53:25 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 20:53:25 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 20:53:25 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 20:53:25 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 20:53:26 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 20:53:26 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, thank you for reaching out. Can you please tell me your name so I can help you schedule a meeting?'
+2026-01-04 20:53:26 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 20:53:26 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 20:53:35 | INFO | app.websocket | Sent initial greeting to user 1552971425984
+2026-01-04 20:58:02 | INFO | app.websocket | WebSocket client disconnected: 1552971425984
+2026-01-04 20:58:25 | INFO | root | Logging initialized successfully
+2026-01-04 20:58:25 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 20:58:29 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 20:58:29 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 20:58:29 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 20:58:35 | INFO | app.main | All models preloaded successfully
+2026-01-04 20:58:35 | INFO | app.websocket | WebSocket client connected: 2251112113024
+2026-01-04 20:58:35 | INFO | app.websocket | Found token in connection params
+2026-01-04 20:58:35 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 20:58:35 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 20:58:35 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 20:58:35 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 20:58:35 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 20:58:35 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 20:58:35 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 20:58:35 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 20:58:36 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 20:58:36 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's lovely to connect with you today. May I start by asking for your name so we can make this scheduling process as smooth and personalized as possible?'
+2026-01-04 20:58:36 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 20:58:36 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 20:58:44 | INFO | app.websocket | Sent initial greeting to user 2251112113024
+2026-01-04 20:59:16 | INFO | app.websocket | WebSocket client disconnected: 2251112113024
+2026-01-04 21:08:01 | INFO | root | Logging initialized successfully
+2026-01-04 21:08:01 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:08:06 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:08:06 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:08:06 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:08:09 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:08:33 | INFO | app.websocket | WebSocket client connected: 2092211240720
+2026-01-04 21:08:33 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:08:34 | INFO | app.websocket | WebSocket client connected: 2092217138480
+2026-01-04 21:08:34 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:08:34 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:08:34 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:08:34 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:08:34 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:08:34 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:08:34 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:08:34 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:08:34 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:08:34 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:08:34 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:08:34 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:08:34 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:08:34 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:08:34 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:08:35 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:08:35 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:08:35 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:08:35 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, welcome to our scheduling service, I'd be happy to assist you. May I start by asking for your name, please?'
+2026-01-04 21:08:35 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:08:35 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:08:35 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's great to talk to you. May I start by asking what your name is so I can better assist you with scheduling your meeting?'
+2026-01-04 21:08:35 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:08:35 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:08:35 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:08:54 | INFO | app.websocket | Sent initial greeting to user 2092217138480
+2026-01-04 21:08:54 | INFO | app.websocket | Sent initial greeting to user 2092211240720
+2026-01-04 21:11:24 | INFO | app.websocket | WebSocket client disconnected: 2092211240720
+2026-01-04 21:11:24 | INFO | app.websocket | WebSocket client disconnected: 2092217138480
+2026-01-04 21:11:41 | INFO | root | Logging initialized successfully
+2026-01-04 21:11:41 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:11:44 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:11:44 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:11:44 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:11:50 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:12:13 | INFO | app.websocket | WebSocket client connected: 1851536862048
+2026-01-04 21:12:13 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:12:14 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:12:14 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:12:14 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:12:14 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:12:14 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:12:14 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:12:14 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:12:14 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:12:15 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:12:16 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello and welcome, I'm glad you're here. Can you please tell me your name, and I'll get started on scheduling a meeting for you?'
+2026-01-04 21:12:16 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:12:16 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:12:24 | INFO | app.websocket | WebSocket client connected: 1851754389584
+2026-01-04 21:12:24 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:12:24 | INFO | app.websocket | WebSocket client connected: 1851754073968
+2026-01-04 21:12:24 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:12:25 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:12:25 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:12:25 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:12:25 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:12:25 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:12:26 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:12:26 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:12:26 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:12:26 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:12:26 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:12:26 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:12:26 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:12:26 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:12:26 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:12:26 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:12:26 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:12:26 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:12:26 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, welcome to our scheduling service. Can you please tell me your name so we can get started on setting up your meeting?'
+2026-01-04 21:12:26 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:12:26 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:12:26 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Welcome to our scheduling service, it's great to have you on board. Can you please tell me your name so I can get started on arranging the perfect meeting for you?'
+2026-01-04 21:12:26 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:12:26 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:12:26 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:12:41 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 21:12:43 | INFO | app.websocket | Sent initial greeting to user 1851754073968
+2026-01-04 21:12:43 | ERROR | app.websocket | Failed to send initial greeting
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 331, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\websockets\legacy\protocol.py", line 921, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\websockets.py", line 88, in send
+    await self._send(message)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\_exception_handler.py", line 50, in sender
+    await send(message)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 344, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 108, in websocket_endpoint
+    await websocket.send_json(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\websockets.py", line 179, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\websockets.py", line 91, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+2026-01-04 21:12:46 | ERROR | app.websocket | Failed to send initial greeting
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 331, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\websockets\legacy\protocol.py", line 921, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\websockets.py", line 88, in send
+    await self._send(message)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\_exception_handler.py", line 50, in sender
+    await send(message)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 344, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 108, in websocket_endpoint
+    await websocket.send_json(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\websockets.py", line 179, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\starlette\websockets.py", line 91, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+2026-01-04 21:13:36 | INFO | app.websocket | WebSocket client connected: 1851537080720
+2026-01-04 21:13:36 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:13:36 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:13:36 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:13:36 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:13:36 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:13:37 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:13:37 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:13:37 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:13:37 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:13:37 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:13:37 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's great to talk to you. May I have your name, please, so I can get started on scheduling a meeting that suits you?'
+2026-01-04 21:13:37 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:13:37 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:13:45 | INFO | app.websocket | Sent initial greeting to user 1851537080720
+2026-01-04 21:15:40 | INFO | app.websocket | WebSocket client disconnected: 1851537080720
+2026-01-04 21:15:41 | INFO | app.websocket | WebSocket client disconnected: 1851754073968
+2026-01-04 21:16:15 | INFO | root | Logging initialized successfully
+2026-01-04 21:16:15 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:16:19 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:16:19 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:16:19 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:16:21 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:16:40 | INFO | root | Logging initialized successfully
+2026-01-04 21:16:40 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:16:44 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:16:44 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:16:44 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:16:47 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:16:59 | INFO | app.websocket | WebSocket client connected: 2276060068784
+2026-01-04 21:16:59 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:16:59 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:16:59 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:16:59 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:16:59 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:16:59 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:16:59 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:16:59 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:16:59 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:17:00 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:17:00 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Good morning, it's a pleasure to speak with you. May I start by asking what your name is so we can get started with your schedule?'
+2026-01-04 21:17:00 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:17:00 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:17:08 | INFO | app.websocket | Sent initial greeting to user 2276060068784
+2026-01-04 21:23:08 | INFO | app.websocket | WebSocket client disconnected: 2276060068784
+2026-01-04 21:23:30 | INFO | root | Logging initialized successfully
+2026-01-04 21:23:30 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:23:36 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:23:36 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:23:36 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:23:39 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:23:40 | INFO | app.websocket | WebSocket client connected: 2395601563952
+2026-01-04 21:23:40 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:23:41 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:23:41 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:23:41 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:23:41 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:23:41 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:23:41 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:23:41 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:23:41 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:23:41 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:23:41 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, welcome to our scheduling service. May I please have your name so we can get started on planning your meeting?'
+2026-01-04 21:23:41 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:23:41 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:23:51 | INFO | app.websocket | Sent initial greeting to user 2395601563952
+2026-01-04 21:24:08 | INFO | app.websocket | WebSocket client disconnected: 2395601563952
+2026-01-04 21:24:15 | INFO | app.websocket | WebSocket client connected: 2395607448928
+2026-01-04 21:24:15 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:24:16 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:24:16 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:24:16 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:24:16 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:24:16 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:24:16 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:24:16 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:24:16 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:24:16 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:24:16 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi there, it's great to talk to you. Can you please tell me your name so we can get started on scheduling a meeting?'
+2026-01-04 21:24:16 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:24:16 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:24:24 | INFO | app.websocket | WebSocket client connected: 2395774153200
+2026-01-04 21:24:24 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:24:26 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:24:26 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:24:26 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:24:26 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:24:28 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:24:28 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:24:28 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:24:28 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:24:28 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:24:28 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, I'm so glad you're here. Can you please tell me your name, and we can get started on setting up a meeting?'
+2026-01-04 21:24:28 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:24:28 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:24:41 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 21:24:44 | INFO | app.websocket | Sent initial greeting to user 2395774153200
+2026-01-04 21:24:51 | INFO | app.websocket | Sent initial greeting to user 2395607448928
+2026-01-04 21:25:40 | INFO | app.websocket | WebSocket client disconnected: 2395774153200
+2026-01-04 21:25:40 | INFO | app.websocket | WebSocket client disconnected: 2395607448928
+2026-01-04 21:27:57 | INFO | root | Logging initialized successfully
+2026-01-04 21:27:57 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:28:03 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:28:03 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:28:03 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:28:06 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:28:06 | INFO | app.websocket | WebSocket client connected: 2139149201856
+2026-01-04 21:28:06 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:28:06 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:28:06 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:28:06 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:28:06 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:28:07 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:28:07 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:28:07 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:28:07 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:28:07 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:28:07 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Welcome to our scheduling service, I'm happy to help you plan your meeting. Can you please tell me your name so I can get started?'
+2026-01-04 21:28:07 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:28:07 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:28:14 | INFO | app.websocket | Sent initial greeting to user 2139149201856
+2026-01-04 21:28:33 | INFO | app.websocket | WebSocket client disconnected: 2139149201856
+2026-01-04 21:28:36 | INFO | app.websocket | WebSocket client connected: 2139155067568
+2026-01-04 21:28:36 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:28:36 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:28:36 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:28:36 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:28:36 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:28:37 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:28:37 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:28:37 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:28:37 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:28:37 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:28:37 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello and welcome to our scheduling service, I'd be happy to assist you with arranging a meeting. Can you please tell me your name so I can get started?'
+2026-01-04 21:28:37 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:28:37 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:28:43 | INFO | app.websocket | Sent initial greeting to user 2139155067568
+2026-01-04 21:34:29 | INFO | app.websocket | WebSocket client disconnected: 2139155067568
+2026-01-04 21:34:29 | INFO | app.websocket | WebSocket client connected: 2139366295728
+2026-01-04 21:34:29 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:34:30 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:34:30 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:34:30 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:34:30 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:34:30 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:34:30 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:34:30 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:34:30 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:34:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:34:31 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello and welcome to our scheduling service. May I please have your name so we can get started?'
+2026-01-04 21:34:31 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:34:31 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:34:41 | INFO | app.websocket | Sent initial greeting to user 2139366295728
+2026-01-04 21:41:40 | INFO | app.websocket | WebSocket client disconnected: 2139366295728
+2026-01-04 21:43:22 | INFO | root | Logging initialized successfully
+2026-01-04 21:43:22 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:43:25 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:43:25 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:43:25 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:43:29 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:43:29 | INFO | app.websocket | WebSocket client connected: 1259430993136
+2026-01-04 21:43:29 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:43:29 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:43:29 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:43:29 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:43:29 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:43:30 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:43:30 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:43:30 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:43:30 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:43:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:43:31 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's so great to connect with you today, I'm here to help you schedule a meeting that suits your needs. Can you please tell me your name so I can tailor our conversation to you?'
+2026-01-04 21:43:31 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:43:31 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:43:35 | INFO | app.websocket | WebSocket client connected: 1259661609328
+2026-01-04 21:43:35 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:43:36 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:43:36 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:43:36 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:43:36 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:43:36 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:43:36 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:43:36 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:43:36 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:43:36 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:43:36 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, welcome to our scheduling service. May I please have the pleasure of knowing your name so we can get started on arranging a meeting for you?'
+2026-01-04 21:43:36 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:43:36 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:43:41 | INFO | app.websocket | Client disconnected during startup
+2026-01-04 21:43:50 | INFO | app.websocket | Sent initial greeting to user 1259661609328
+2026-01-04 21:44:00 | INFO | app.websocket | WebSocket client disconnected: 1259661609328
+2026-01-04 21:44:03 | INFO | app.websocket | WebSocket client connected: 1259770838752
+2026-01-04 21:44:03 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:44:04 | ERROR | app.websocket | Failed to fetch Google user info: HTTP Error 401: Unauthorized
+2026-01-04 21:44:04 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:44:04 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:44:04 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:44:04 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:44:04 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:44:04 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:44:04 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:44:04 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:44:04 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, welcome to our scheduling service. Can you please tell me your name so I can get started on finding a suitable time for your meeting?'
+2026-01-04 21:44:04 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:44:04 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:44:13 | INFO | app.websocket | Sent initial greeting to user 1259770838752
+2026-01-04 21:52:37 | INFO | app.websocket | WebSocket client disconnected: 1259770838752
+2026-01-04 21:52:56 | INFO | root | Logging initialized successfully
+2026-01-04 21:52:56 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:53:00 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:53:00 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:53:00 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:53:03 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:53:03 | INFO | app.websocket | WebSocket client connected: 1868623176000
+2026-01-04 21:53:03 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:53:03 | ERROR | app.websocket | Google API Error 401: Unauthorized - Body: {
+  "error": "invalid_request",
+  "error_description": "Invalid Credentials"
+}
+2026-01-04 21:53:03 | ERROR | concurrent.futures | exception calling callback for <Future at 0x1b312f7fc70 state=finished returned NoneType>
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\_base.py", line 329, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\futures.py", line 398, in _call_set_state
+    dest_loop.call_soon_threadsafe(_set_state, destination, source)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\base_events.py", line 790, in call_soon_threadsafe
+    self._check_closed()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\base_events.py", line 510, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+2026-01-04 21:53:34 | INFO | root | Logging initialized successfully
+2026-01-04 21:53:34 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:53:41 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:53:41 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:53:41 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:53:45 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:53:46 | INFO | app.websocket | WebSocket client connected: 2313647807248
+2026-01-04 21:53:46 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:53:46 | ERROR | app.websocket | Google API Error 401: Unauthorized - Body: {
+  "error": "invalid_request",
+  "error_description": "Invalid Credentials"
+}
+2026-01-04 21:53:46 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:53:46 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:53:46 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:53:47 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:53:47 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:53:47 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:53:47 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:53:47 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:53:48 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Welcome to our scheduling service, I'm so glad you're here. Can you please tell me your name, so we can get started with booking your meeting?'
+2026-01-04 21:53:48 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:53:48 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:53:55 | INFO | app.websocket | Sent initial greeting to user 2313647807248
+2026-01-04 21:55:33 | INFO | app.websocket | WebSocket client disconnected: 2313647807248
+2026-01-04 21:55:33 | INFO | app.websocket | WebSocket client connected: 2313858566848
+2026-01-04 21:55:33 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:55:34 | ERROR | app.websocket | Google API Error 401: Unauthorized - Body: {
+  "error": "invalid_request",
+  "error_description": "Invalid Credentials"
+}
+2026-01-04 21:55:34 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:55:34 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:55:34 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:55:34 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:55:34 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:55:34 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:55:34 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:55:35 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:55:35 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Good morning, I'm so glad you're here. To get started, could you please tell me your name so we can make sure everything is tailored just for you?'
+2026-01-04 21:55:35 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:55:35 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:55:46 | INFO | app.websocket | Sent initial greeting to user 2313858566848
+2026-01-04 21:55:51 | INFO | app.websocket | WebSocket client disconnected: 2313858566848
+2026-01-04 21:55:54 | INFO | app.websocket | WebSocket client connected: 2313859070656
+2026-01-04 21:55:54 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:55:55 | ERROR | app.websocket | Google API Error 401: Unauthorized - Body: {
+  "error": "invalid_request",
+  "error_description": "Invalid Credentials"
+}
+2026-01-04 21:55:55 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:55:55 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:55:55 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:55:55 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:55:55 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:55:55 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:55:55 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:55:55 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:55:55 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, welcome to our scheduling service. May I start by asking what your name is so we can get started on finding a meeting time that suits you?'
+2026-01-04 21:55:55 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:55:55 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:56:02 | INFO | app.websocket | Sent initial greeting to user 2313859070656
+2026-01-04 21:58:10 | INFO | app.websocket | WebSocket client disconnected: 2313859070656
+2026-01-04 21:58:40 | INFO | root | Logging initialized successfully
+2026-01-04 21:58:40 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 21:58:48 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 21:58:48 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 21:58:48 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 21:58:53 | INFO | app.main | All models preloaded successfully
+2026-01-04 21:58:53 | INFO | app.websocket | WebSocket client connected: 2296080823488
+2026-01-04 21:58:53 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:58:53 | ERROR | app.websocket | Failed to fetch Google user info: 'Query' object is not subscriptable
+2026-01-04 21:58:54 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:58:54 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:58:54 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:58:54 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:58:54 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:58:54 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:58:54 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:58:54 | INFO | app.websocket | WebSocket client connected: 2296252467424
+2026-01-04 21:58:54 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:58:54 | ERROR | app.websocket | Failed to fetch Google user info: 'Query' object is not subscriptable
+2026-01-04 21:58:54 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:58:54 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:58:54 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:58:54 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:58:54 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:58:54 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:58:54 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:58:55 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:58:55 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, thank you for reaching out. May I start by getting your name, please?'
+2026-01-04 21:58:55 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:58:55 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:58:55 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's lovely to connect with you today. Can you please tell me your name, so I can tailor our conversation to your needs?'
+2026-01-04 21:58:55 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:58:55 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:58:55 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:59:12 | INFO | app.websocket | Sent initial greeting to user 2296252467424
+2026-01-04 21:59:12 | INFO | app.websocket | Client disconnected during startup
+2026-01-04 21:59:14 | INFO | app.websocket | WebSocket client disconnected: 2296252467424
+2026-01-04 21:59:17 | INFO | app.websocket | WebSocket client connected: 2296086707264
+2026-01-04 21:59:17 | INFO | app.websocket | Found token in connection params
+2026-01-04 21:59:17 | ERROR | app.websocket | Failed to fetch Google user info: 'Query' object is not subscriptable
+2026-01-04 21:59:17 | WARNING | app.websocket | Provided token was invalid or expired - ignoring
+2026-01-04 21:59:17 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 21:59:17 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 21:59:17 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 21:59:17 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 21:59:17 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 21:59:17 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 21:59:17 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 21:59:17 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's lovely to meet you. Can you please tell me your name, so I can get started on scheduling a meeting for you?'
+2026-01-04 21:59:17 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 21:59:18 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 21:59:26 | INFO | app.websocket | Sent initial greeting to user 2296086707264
+2026-01-04 22:01:32 | INFO | app.websocket | WebSocket client disconnected: 2296086707264
+2026-01-04 22:01:45 | INFO | root | Logging initialized successfully
+2026-01-04 22:01:45 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 22:01:49 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 22:01:49 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 22:01:49 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 22:01:52 | INFO | app.main | All models preloaded successfully
+2026-01-04 22:01:52 | INFO | app.websocket | WebSocket client connected: 2267471878256
+2026-01-04 22:01:52 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:01:52 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:02:14 | INFO | root | Logging initialized successfully
+2026-01-04 22:02:14 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 22:02:20 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 22:02:20 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 22:02:20 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 22:02:24 | INFO | app.main | All models preloaded successfully
+2026-01-04 22:02:24 | INFO | app.websocket | WebSocket client connected: 2525832554592
+2026-01-04 22:02:24 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:02:24 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:02:24 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:02:24 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:02:24 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:02:24 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 22:02:25 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:02:26 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's nice to speak with you today. Can you please tell me your name so we can get started on scheduling your meeting?'
+2026-01-04 22:02:26 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 22:02:26 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 22:02:39 | INFO | app.websocket | Sent initial greeting to user 2525832554592
+2026-01-04 22:02:43 | INFO | app.websocket | WebSocket client disconnected: 2525832554592
+2026-01-04 22:02:46 | INFO | app.websocket | WebSocket client connected: 2526031933840
+2026-01-04 22:02:46 | INFO | app.websocket | Found token in connection params
+2026-01-04 22:02:46 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-04 22:02:46 | INFO | app.websocket | Authenticated as: Muhammed
+2026-01-04 22:02:46 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:02:46 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:02:47 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:02:47 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:02:47 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:02:47 | INFO | app.graph | User authenticated as Muhammed. Skipping ASK_NAME.
+2026-01-04 22:02:47 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet Muhammed warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-04 22:02:47 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:02:47 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello Muhammed, it's great to hear from you again. I'm ready to schedule a meeting at your convenience, could you please let me know what date and time work best for you?'
+2026-01-04 22:02:47 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-04 22:02:47 | INFO | app.workflow | Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 22:02:59 | INFO | app.websocket | Client disconnected during startup
+2026-01-04 22:03:00 | INFO | app.websocket | WebSocket client connected: 2526036574464
+2026-01-04 22:03:00 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:03:00 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:03:01 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:03:01 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:03:01 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:03:01 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 22:03:02 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:03:02 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello, it's great to connect with you today. To get started, could you please tell me your name so we can tailor the scheduling to your preferences?'
+2026-01-04 22:03:02 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 22:03:02 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 22:03:16 | INFO | app.websocket | Sent initial greeting to user 2526036574464
+2026-01-04 22:06:03 | INFO | app.websocket | WebSocket client disconnected: 2526036574464
+2026-01-04 22:06:03 | INFO | app.websocket | WebSocket client connected: 2526036965504
+2026-01-04 22:06:03 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:06:03 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:06:04 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:06:04 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:06:04 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:06:04 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet the user warmly and ask for their name to start scheduling.'
+2026-01-04 22:06:04 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:06:04 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Welcome to our scheduling service, I'm happy to assist you. May I start by asking for your name, please?'
+2026-01-04 22:06:04 | INFO | app.graph | Set step to ASK_NAME
+2026-01-04 22:06:04 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 22:06:16 | INFO | app.websocket | Sent initial greeting to user 2526036965504
+2026-01-04 22:06:32 | INFO | app.websocket | WebSocket client disconnected: 2526036965504
+2026-01-04 22:06:38 | INFO | app.websocket | WebSocket client connected: 2526037342048
+2026-01-04 22:06:38 | INFO | app.websocket | Found token in connection params
+2026-01-04 22:06:38 | INFO | app.websocket | Validating token starting with: ya29.a0Aa7...
+2026-01-04 22:06:40 | INFO | app.websocket | Authenticated as: rihan
+2026-01-04 22:06:40 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 22:06:40 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 22:06:41 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 22:06:41 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 22:06:41 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 22:06:41 | INFO | app.graph | User authenticated as rihan. Skipping ASK_NAME.
+2026-01-04 22:06:41 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Greet rihan warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.'
+2026-01-04 22:06:42 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:06:42 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi rihan, it's so great to catch up with you again. I'm all set up and ready to schedule a meeting on your calendar - what date and time work best for you?'
+2026-01-04 22:06:42 | INFO | app.graph | Set step to ASK_DATETIME
+2026-01-04 22:06:42 | INFO | app.workflow | Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 22:06:55 | INFO | app.websocket | Sent initial greeting to user 2526037342048
+2026-01-04 22:06:55 | INFO | faster_whisper | Processing audio with duration 00:03.900
+2026-01-04 22:06:56 | INFO | faster_whisper | VAD filter removed 00:00.208 of audio
+2026-01-04 22:07:04 | INFO | app.websocket | STT output: My name is Mohammad Rihan.
+2026-01-04 22:07:04 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 22:07:04 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Mohammad Rihan.
+2026-01-04 22:07:04 | INFO | app.workflow | Starting with state.step: ASK_DATETIME
+2026-01-04 22:07:04 | INFO | app.workflow | state.last_user_message: My name is Mohammad Rihan.
+2026-01-04 22:07:05 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 22:07:05 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 22:07:05 | INFO | app.graph | Executing with last_user_message: My name is Mohammad Rihan.
+2026-01-04 22:07:05 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: My name is Mohammad Rihan.
+2026-01-04 22:07:05 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:07:05 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': 'Mohammad Rihan', 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:07:05 | INFO | app.graph | After extraction, meeting_datetime: None
+2026-01-04 22:07:05 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely explain the date was invalid or missing, and ask for the date and time again (e.g. tomorrow at 3pm).'
+2026-01-04 22:07:05 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:07:05 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi Mohammad Rihan, I couldn't understand the date and time you provided, could you please tell me the date and time you'd like to schedule the meeting for, such as tomorrow at 3pm?'
+2026-01-04 22:07:05 | INFO | app.graph | [ASK_DATETIME_NODE] No datetime found, staying in ASK_DATETIME
+2026-01-04 22:07:06 | INFO | app.workflow | Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 22:07:06 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:07:06 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 22:07:06 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hi Mohammad Rihan, I couldn't understand the date and time you provided, could you please tell me the date and time you'd like to schedule the meeting for, such as tomorrow at 3pm?
+2026-01-04 22:07:17 | INFO | faster_whisper | Processing audio with duration 00:04.920
+2026-01-04 22:07:18 | INFO | faster_whisper | VAD filter removed 00:00.464 of audio
+2026-01-04 22:07:24 | INFO | app.websocket | STT output: tomorrow at 3 p.m
+2026-01-04 22:07:24 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 22:07:24 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: tomorrow at 3 p.m
+2026-01-04 22:07:24 | INFO | app.workflow | Starting with state.step: ASK_DATETIME
+2026-01-04 22:07:24 | INFO | app.workflow | state.last_user_message: tomorrow at 3 p.m
+2026-01-04 22:07:24 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 22:07:24 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 22:07:24 | INFO | app.graph | Executing with last_user_message: tomorrow at 3 p.m
+2026-01-04 22:07:24 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: tomorrow at 3 p.m
+2026-01-04 22:07:24 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:07:24 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'tomorrow at 3 p.m', 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:07:24 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Attempting to parse: text='tomorrow at 3 p.m', now='2026-01-04T22:07:24.466175+05:30', tz='Asia/Kolkata'
+2026-01-04 22:07:24 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Using timezone string: Asia/Kolkata
+2026-01-04 22:07:24 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser settings: {'RELATIVE_BASE': datetime.datetime(2026, 1, 4, 22, 7, 24, 466175, tzinfo=zoneinfo.ZoneInfo(key='Asia/Kolkata')), 'TIMEZONE': 'Asia/Kolkata', 'RETURN_AS_TIMEZONE_AWARE': True, 'PREFER_DATES_FROM': 'future'}
+2026-01-04 22:07:24 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser returned: 2026-01-05 15:00:00+05:30
+2026-01-04 22:07:24 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] ✅ SUCCESS: 'tomorrow at 3 p.m' -> '2026-01-05T15:00:00+05:30'
+2026-01-04 22:07:24 | INFO | app.nlu.extractor | Updated state.meeting_datetime to: 2026-01-05 15:00:00+05:30
+2026-01-04 22:07:24 | INFO | app.graph | After extraction, meeting_datetime: 2026-01-05 15:00:00+05:30
+2026-01-04 22:07:24 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Acknowledge the date/time and ask if they want to add a meeting title (or say no to skip).'
+2026-01-04 22:07:25 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:07:25 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hello rihan, tomorrow's meeting is scheduled for January 5th at 3:00 PM. Would you like to add a title to the meeting?'
+2026-01-04 22:07:25 | INFO | app.graph | [ASK_DATETIME_NODE] DateTime found, moving to ASK_TITLE
+2026-01-04 22:07:25 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:07:25 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:07:25 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:07:25 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hello rihan, tomorrow's meeting is scheduled for January 5th at 3:00 PM. Would you like to add a title to the meeting?
+2026-01-04 22:07:25 | WARNING | phonemizer | words count mismatch on 100.0% of the lines (1/1)
+2026-01-04 22:07:33 | INFO | faster_whisper | Processing audio with duration 00:05.040
+2026-01-04 22:07:33 | INFO | faster_whisper | VAD filter removed 00:01.712 of audio
+2026-01-04 22:07:39 | INFO | app.websocket | STT output: tomorrow at 3 p.m
+2026-01-04 22:07:39 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:07:39 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: tomorrow at 3 p.m
+2026-01-04 22:07:39 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:07:39 | INFO | app.workflow | state.last_user_message: tomorrow at 3 p.m
+2026-01-04 22:07:39 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:07:39 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:07:39 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:07:39 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: tomorrow at 3 p.m
+2026-01-04 22:07:39 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:07:39 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'tomorrow at 3 p.m', 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:07:39 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Attempting to parse: text='tomorrow at 3 p.m', now='2026-01-04T22:07:39.845615+05:30', tz='Asia/Kolkata'
+2026-01-04 22:07:39 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Using timezone string: Asia/Kolkata
+2026-01-04 22:07:39 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser settings: {'RELATIVE_BASE': datetime.datetime(2026, 1, 4, 22, 7, 39, 845615, tzinfo=zoneinfo.ZoneInfo(key='Asia/Kolkata')), 'TIMEZONE': 'Asia/Kolkata', 'RETURN_AS_TIMEZONE_AWARE': True, 'PREFER_DATES_FROM': 'future'}
+2026-01-04 22:07:39 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser returned: 2026-01-05 15:00:00+05:30
+2026-01-04 22:07:39 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] ✅ SUCCESS: 'tomorrow at 3 p.m' -> '2026-01-05T15:00:00+05:30'
+2026-01-04 22:07:39 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely ask for the title again, or remind them they can say 'no' to skip.'
+2026-01-04 22:07:40 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:07:40 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Rihan, to confirm, what's the title of the meeting for tomorrow at 3 p.m.?'
+2026-01-04 22:07:40 | INFO | app.graph | Staying in ASK_TITLE
+2026-01-04 22:07:40 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 22:07:40 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:07:40 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:07:40 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:07:40 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, to confirm, what's the title of the meeting for tomorrow at 3 p.m.?
+2026-01-04 22:07:55 | INFO | faster_whisper | Processing audio with duration 00:12.120
+2026-01-04 22:07:56 | INFO | faster_whisper | VAD filter removed 00:07.448 of audio
+2026-01-04 22:08:03 | INFO | app.websocket | STT output: Yes, meeting with Adil. Meeting with Adil.
+2026-01-04 22:08:03 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:08:03 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes, meeting with Adil. Meeting with Adil.
+2026-01-04 22:08:03 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:08:03 | INFO | app.workflow | state.last_user_message: Yes, meeting with Adil. Meeting with Adil.
+2026-01-04 22:08:03 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:08:03 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:08:03 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:08:03 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Yes, meeting with Adil. Meeting with Adil.
+2026-01-04 22:08:04 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:08:04 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': None}
+2026-01-04 22:08:04 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Politely ask for the title again, or remind them they can say 'no' to skip.'
+2026-01-04 22:08:04 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:08:04 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi rihan, I think there might be some confusion. Could you please tell me the title of the meeting with Adil.'
+2026-01-04 22:08:04 | INFO | app.graph | Staying in ASK_TITLE
+2026-01-04 22:08:04 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 22:08:04 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 22:08:04 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:08:04 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 22:08:04 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hi rihan, I think there might be some confusion. Could you please tell me the title of the meeting with Adil.
+2026-01-04 22:08:30 | INFO | faster_whisper | Processing audio with duration 00:03.840
+2026-01-04 22:08:31 | INFO | faster_whisper | VAD filter removed 00:00.656 of audio
+2026-01-04 22:08:39 | INFO | app.websocket | STT output: CEO meeting
+2026-01-04 22:08:39 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 22:08:39 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: CEO meeting
+2026-01-04 22:08:39 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 22:08:39 | INFO | app.workflow | state.last_user_message: CEO meeting
+2026-01-04 22:08:39 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 22:08:39 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 22:08:39 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 22:08:39 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: CEO meeting
+2026-01-04 22:08:39 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:08:40 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': 'CEO meeting', 'confirmation_status': None}
+2026-01-04 22:08:40 | INFO | app.nlu.extractor | Updated state.meeting_title to: CEO meeting
+2026-01-04 22:08:40 | INFO | app.graph | Moving to CONFIRM_DETAILS
+2026-01-04 22:08:40 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: CONFIRM_DETAILS
+2026-01-04 22:08:40 | INFO | app.graph | [CONFIRM_DETAILS_NODE] Executing
+2026-01-04 22:08:40 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Ask user to confirm these EXACT details: CEO meeting on Monday, 05 January at 03:00 PM. Ask 'Should I create it?'. Be precise.'
+2026-01-04 22:08:40 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:08:40 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Hi rihan, I see you mentioned a CEO meeting. I have the details as follows: CEO meeting on Monday, 05 January at 03:00 PM. Should I create it?'
+2026-01-04 22:08:40 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 22:08:40 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:08:40 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 22:08:40 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hi rihan, I see you mentioned a CEO meeting. I have the details as follows: CEO meeting on Monday, 05 January at 03:00 PM. Should I create it?
+2026-01-04 22:08:42 | WARNING | phonemizer | words count mismatch on 200.0% of the lines (2/1)
+2026-01-04 22:09:14 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 22:09:14 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: yes
+2026-01-04 22:09:14 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 22:09:14 | INFO | app.workflow | state.last_user_message: yes
+2026-01-04 22:09:14 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 22:09:14 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 22:09:14 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: yes
+2026-01-04 22:09:14 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: yes
+2026-01-04 22:09:14 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:09:14 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None, 'confirmation_status': 'yes'}
+2026-01-04 22:09:14 | INFO | app.nlu.extractor | Updated state.confirmation_status to: yes
+2026-01-04 22:09:14 | INFO | app.graph | Confirmation intent extracted: yes
+2026-01-04 22:09:14 | INFO | app.calendar.google_auth | Creating credentials from user-provided access token
+2026-01-04 22:09:15 | INFO | app.calendar.google_auth | Credentials created from user token successfully
+2026-01-04 22:09:15 | INFO | app.calendar.google_calendar | Creating calendar event: title=CEO meeting start=2026-01-05T15:00:00+05:30
+2026-01-04 22:09:16 | INFO | app.calendar.google_calendar | Calendar event created successfully (event_id=cipqv337sl7h508vqebvidff3c)
+2026-01-04 22:09:16 | INFO | app.nlu.generator | [GENERATOR] Generating response for goal: 'Confirm the meeting was successfully created. Then ask if they would like to schedule ANOTHER event.'
+2026-01-04 22:09:16 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 22:09:16 | INFO | app.nlu.generator | [GENERATOR] Generated: 'Rihan, I've successfully scheduled the CEO meeting for January 5th at 3:00 PM IST. Would you like to schedule another event?'
+2026-01-04 22:09:16 | INFO | app.workflow | Graph execution completed. Result step: HANDLE_NEW_LOOP
+2026-01-04 22:09:16 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 22:09:16 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: HANDLE_NEW_LOOP
+2026-01-04 22:09:16 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Rihan, I've successfully scheduled the CEO meeting for January 5th at 3:00 PM IST. Would you like to schedule another event?
+2026-01-04 22:09:16 | WARNING | phonemizer | words count mismatch on 100.0% of the lines (1/1)
+2026-01-04 22:10:56 | INFO | app.websocket | WebSocket client disconnected: 2526037342048

@@ -6,6 +6,7 @@ Responsibilities:
 - Handle retries and transient failures
 - Surface clear, domain-specific errors
 """
+
 import logging
 import asyncio
 from datetime import datetime, timedelta
@@ -25,6 +26,7 @@ class GoogleCalendarError(Exception):
     """
     Raised when calendar event creation fails.
     """
+
     pass
 
 
@@ -41,7 +43,6 @@ class GoogleCalendarService:
 
     def __init__(self):
         self.calendar_id = settings.GOOGLE_CALENDAR_ID
-        self.auth = GoogleAuth()
 
     # Public async API -----------------------------------------------------------------
 
@@ -54,9 +55,15 @@ class GoogleCalendarService:
         description: Optional[str] = None,
         timezone: str = "Asia/Kolkata",
         retries: int = 2,
+        access_token: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Create a Google Calendar event.
+
+        Args:
+            access_token: Optional user's Google OAuth access token. If provided,
+                         creates the event in that user's calendar instead of using
+                         environment variables.
 
         Returns:
             Dict containing event_id, html_link, status
@@ -79,19 +86,17 @@ class GoogleCalendarService:
                     duration_minutes,
                     description,
                     timezone,
+                    access_token,
                 )
 
             except GoogleCalendarError:
                 raise  # already logged
 
             except Exception as e:
-                logger.exception(
-                    "Calendar event creation failed (attempt %s)", attempt
-                )
+                logger.exception("Calendar event creation failed (attempt %s)", attempt)
 
         raise GoogleCalendarError("Failed to create calendar event after retries")
 
-   
     # Internal blocking implementation ------------------------------------------------------------
 
     def _create_event_blocking(
@@ -101,12 +106,15 @@ class GoogleCalendarService:
         duration_minutes: int,
         description: Optional[str],
         timezone: str,
+        access_token: Optional[str],
     ) -> Dict[str, Any]:
         """
         Blocking Google Calendar API call.
         """
         try:
-            creds = self.auth.get_credentials()
+            # Pass the access_token to GoogleAuth
+            auth = GoogleAuth(access_token=access_token)
+            creds = auth.get_credentials()
         except GoogleAuthError as e:
             logger.error("Google auth failed: %s", e)
             raise GoogleCalendarError("Authentication with Google failed") from e
@@ -162,9 +170,7 @@ class GoogleCalendarService:
 
         except HttpError as e:
             logger.exception("Google Calendar API error")
-            raise GoogleCalendarError(
-                f"Google Calendar API error: {e}"
-            ) from e
+            raise GoogleCalendarError(f"Google Calendar API error: {e}") from e
 
         except Exception as e:
             logger.exception("Unexpected calendar error")

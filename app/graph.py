@@ -14,13 +14,28 @@ calendar_service = GoogleCalendarService()
 
 async def start_node(state: ConversationState) -> dict:
     logger.info("[START_NODE] Executing")
-    # Dynamic Greeting
-    response = await generate_response(
-        state, goal="Greet the user warmly and ask for their name to start scheduling."
-    )
-    state.system_message = response
-    state.step = "ASK_NAME"
-    logger.info("Set step to ASK_NAME")
+
+    # Logic for authenticated users (Name pre-filled from Google)
+    if state.name:
+        logger.info("User authenticated as %s. Skipping ASK_NAME.", state.name)
+        response = await generate_response(
+            state,
+            goal=f"Greet {state.name} warmly back. Mention you are ready to schedule on their calendar. Ask for the date and time.",
+        )
+        state.system_message = response
+        state.step = "ASK_DATETIME"
+        logger.info("Set step to ASK_DATETIME")
+
+    else:
+        # Standard flow for guests
+        response = await generate_response(
+            state,
+            goal="Greet the user warmly and ask for their name to start scheduling.",
+        )
+        state.system_message = response
+        state.step = "ASK_NAME"
+        logger.info("Set step to ASK_NAME")
+
     return state.dict()
 
 
@@ -155,6 +170,7 @@ async def await_confirmation_node(state: ConversationState) -> dict:
                 start_datetime=state.meeting_datetime,
                 description=f"Meeting with {state.name}",
                 duration_minutes=30,
+                access_token=state.google_access_token,
             )
 
             # Dynamic Success Message + Ask about another event

@@ -40,3 +40,9 @@ class ConversationState(BaseModel):
 
     is_confirmed: Optional[bool] = False
     confirmation_status: Optional[Literal["yes", "no", "uncertain"]] = None
+
+    # Multi-user authentication
+    google_access_token: Optional[str] = Field(
+        default=None,
+        description="User's Google OAuth access token for calendar operations",
+    )
