@@ -42,6 +42,45 @@ async def websocket_endpoint(websocket: WebSocket):
     state = ConversationState()
     user_states[user_id] = state
 
+    # Run START node immediately to set the greeting before any user input
+    try:
+        initial_state_dict = await run_step(state)
+        if isinstance(initial_state_dict, dict):
+            state = ConversationState(**initial_state_dict)
+        else:
+            state = initial_state_dict
+        user_states[user_id] = state
+
+        # Generate TTS for initial greeting
+        audio_b64: Optional[str] = None
+        if state.system_message:
+            try:
+                audio_b64 = await KokoroTTSService.synthesize(state.system_message)
+            except TTSError as e:
+                logger.error("TTS generation failed for initial greeting: %s", e)
+                audio_b64 = None
+
+        # Send initial greeting to client
+        await websocket.send_json(
+            {
+                "text": state.system_message or "",
+                "audio_b64": audio_b64,
+                "step": state.step,
+            }
+        )
+        logger.info("Sent initial greeting to user %s", user_id)
+
+    except Exception:
+        logger.exception("Failed to send initial greeting")
+        state.system_message = "Sorry, something went wrong."
+        await websocket.send_json(
+            {
+                "text": state.system_message,
+                "audio_b64": None,
+                "step": state.step,
+            }
+        )
+
     try:
         while True:
             message = await websocket.receive_text()
@@ -59,13 +98,15 @@ async def websocket_endpoint(websocket: WebSocket):
                     logger.info("STT output: %s", user_text)
                 except STTError as e:
                     logger.warning("STT failed: %s", e)
-                    await websocket.send_json({
-                        "error": f"Audio transcription failed: {str(e)}"
-                    })
+                    await websocket.send_json(
+                        {"error": f"Audio transcription failed: {str(e)}"}
+                    )
                     continue
                 except Exception as e:
                     logger.exception("Unexpected error during STT")
-                    await websocket.send_json({"error": "Unexpected server error during transcription"})
+                    await websocket.send_json(
+                        {"error": "Unexpected server error during transcription"}
+                    )
                     continue
 
             elif msg_type == "text":
@@ -77,16 +118,30 @@ async def websocket_endpoint(websocket: WebSocket):
 
             # ---------------- LangGraph Workflow ---------------- #
             state.last_user_message = user_text
+            logger.info(
+                "[WEBSOCKET] Current state.step before run_step: %s", state.step
+            )
+            logger.info(
+                "[WEBSOCKET] Calling run_step with last_user_message: %s", user_text
+            )
             updated_state_dict: Optional[dict] = None
 
             try:
                 # Ensure we pass a plain dict to LangGraph
                 updated_state_dict = await run_step(state)
+                logger.info(
+                    "[WEBSOCKET] run_step completed. Result type: %s",
+                    type(updated_state_dict),
+                )
                 if isinstance(updated_state_dict, dict):
                     state = ConversationState(**updated_state_dict)
                 else:
                     # Fallback if workflow returns a model
                     state = updated_state_dict
+                logger.info("[WEBSOCKET] New state.step after run_step: %s", state.step)
+                logger.info(
+                    "[WEBSOCKET] New state.system_message: %s", state.system_message
+                )
 
             except Exception:
                 logger.exception("LangGraph execution failed")
@@ -106,11 +161,13 @@ async def websocket_endpoint(websocket: WebSocket):
                     audio_b64 = None
 
             # ---------------- Response ---------------- #
-            await websocket.send_json({
-                "text": state.system_message or "",
-                "audio_b64": audio_b64,
-                "step": state.step,
-            })
+            await websocket.send_json(
+                {
+                    "text": state.system_message or "",
+                    "audio_b64": audio_b64,
+                    "step": state.step,
+                }
+            )
 
     except WebSocketDisconnect:
         logger.info("WebSocket client disconnected: %s", user_id)

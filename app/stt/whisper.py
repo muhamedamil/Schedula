@@ -50,7 +50,7 @@ class WhisperSTTService:
     _model: Optional[WhisperModel] = None
     _executor = ThreadPoolExecutor(max_workers=2)
 
-    # ---------------- Model Loading ---------------- #
+    # ---------------- Model Loading ----------------
     @classmethod
     def _load_model(cls):
         if cls._model is None:
@@ -62,7 +62,7 @@ class WhisperSTTService:
             )
         return cls._model
 
-    # ---------------- Public Async Method ---------------- #
+    # Public Async Method
     @classmethod
     async def transcribe(cls, audio_bytes: bytes) -> str:
         """
@@ -84,7 +84,7 @@ class WhisperSTTService:
             logger.warning("STT failed: %s", e)
             raise STTError(str(e)) from e
 
-    # ---------------- Blocking Transcription ---------------- #
+    # Blocking Transcription
     @classmethod
     def _sync_transcribe(cls, audio_bytes: bytes) -> str:
         """
@@ -128,7 +128,7 @@ class WhisperSTTService:
 
         return text
 
-    # ---------------- Audio Conversion ---------------- #
+    # Audio Conversion
     @staticmethod
     def _convert_to_wav(audio_bytes: bytes) -> bytes:
         """

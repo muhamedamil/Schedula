@@ -1589,3 +1589,837 @@ langgraph.pregel.GraphRecursionError: Recursion limit of 2 reachedwithout hittin
 2026-01-04 16:42:38 | INFO | faster_whisper | VAD filter removed 00:03.884 of audio
 2026-01-04 16:42:41 | INFO | app.websocket | STT output: My name is Mohamed Amil.
 2026-01-04 16:42:52 | INFO | app.websocket | WebSocket client disconnected: 1736662769792
+2026-01-04 16:56:39 | INFO | root | Logging initialized successfully
+2026-01-04 16:56:44 | INFO | app.websocket | WebSocket client connected: 2675161535856
+2026-01-04 16:56:49 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:56:52 | INFO | faster_whisper | Processing audio with duration 00:02.640
+2026-01-04 16:56:53 | INFO | faster_whisper | VAD filter removed 00:00.624 of audio
+2026-01-04 16:56:56 | INFO | app.websocket | STT output: Hello
+2026-01-04 16:57:01 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 16:57:20 | INFO | faster_whisper | Processing audio with duration 00:03.000
+2026-01-04 16:57:24 | INFO | faster_whisper | VAD filter removed 00:00.208 of audio
+2026-01-04 16:57:52 | INFO | app.websocket | STT output: My name is Mahmada Mild.
+2026-01-04 16:57:54 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:58:06 | INFO | faster_whisper | Processing audio with duration 00:04.260
+2026-01-04 16:58:06 | INFO | faster_whisper | VAD filter removed 00:00.432 of audio
+2026-01-04 16:58:09 | INFO | app.websocket | STT output: My name is Muhammad Amil.
+2026-01-04 16:58:09 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:58:27 | INFO | faster_whisper | Processing audio with duration 00:04.020
+2026-01-04 16:58:27 | INFO | faster_whisper | VAD filter removed 00:00.208 of audio
+2026-01-04 16:58:30 | INFO | app.websocket | STT output: My name is Muhammad Amil.
+2026-01-04 16:58:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:03:44 | INFO | app.websocket | WebSocket client disconnected: 2675161535856
+2026-01-04 17:04:12 | INFO | root | Logging initialized successfully
+2026-01-04 17:04:17 | INFO | app.websocket | WebSocket client connected: 2111217005856
+2026-01-04 17:04:22 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:04:25 | INFO | faster_whisper | Processing audio with duration 00:02.160
+2026-01-04 17:04:25 | INFO | faster_whisper | VAD filter removed 00:00.304 of audio
+2026-01-04 17:04:27 | INFO | app.websocket | STT output: Hello
+2026-01-04 17:04:31 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:04:35 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 17:04:47 | INFO | faster_whisper | Processing audio with duration 00:03.660
+2026-01-04 17:04:47 | INFO | faster_whisper | VAD filter removed 00:00.112 of audio
+2026-01-04 17:04:53 | INFO | app.websocket | STT output: My name is Mohamed Amel.
+2026-01-04 17:05:08 | INFO | faster_whisper | Processing audio with duration 00:03.540
+2026-01-04 17:05:09 | INFO | faster_whisper | VAD filter removed 00:00.112 of audio
+2026-01-04 17:05:12 | INFO | app.websocket | STT output: My name is Mohammad Aamil.
+2026-01-04 17:07:55 | INFO | app.websocket | WebSocket client disconnected: 2111217005856
+2026-01-04 17:08:08 | INFO | root | Logging initialized successfully
+2026-01-04 17:08:18 | INFO | root | Logging initialized successfully
+2026-01-04 17:08:33 | INFO | app.websocket | WebSocket client connected: 2168889597648
+2026-01-04 17:08:37 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:08:41 | INFO | faster_whisper | Processing audio with duration 00:02.880
+2026-01-04 17:08:41 | INFO | faster_whisper | VAD filter removed 00:01.728 of audio
+2026-01-04 17:08:44 | INFO | app.websocket | STT output: Hello?
+2026-01-04 17:08:50 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:08:52 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 17:09:05 | INFO | faster_whisper | Processing audio with duration 00:03.120
+2026-01-04 17:09:05 | INFO | faster_whisper | VAD filter removed 00:00.176 of audio
+2026-01-04 17:09:14 | INFO | app.websocket | STT output: My name is Mohammad Amir.
+2026-01-04 17:09:22 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 17:09:30 | WARNING | app.tts.kokoro | TTS timeout (attempt 2)
+2026-01-04 17:09:30 | ERROR | app.websocket | TTS generation failed: TTS synthesis failed after retries
+2026-01-04 17:09:58 | INFO | faster_whisper | Processing audio with duration 00:03.780
+2026-01-04 17:09:58 | INFO | faster_whisper | VAD filter removed 00:00.048 of audio
+2026-01-04 17:10:01 | INFO | app.websocket | STT output: My name is Mohamed Amil.
+2026-01-04 17:11:09 | INFO | faster_whisper | Processing audio with duration 00:03.480
+2026-01-04 17:11:11 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 17:11:17 | INFO | app.websocket | STT output: Mohammed Amir. My name is Mohammed Amir.
+2026-01-04 17:13:12 | INFO | app.websocket | WebSocket client disconnected: 2168889597648
+2026-01-04 17:13:39 | INFO | root | Logging initialized successfully
+2026-01-04 17:15:55 | INFO | root | Logging initialized successfully
+2026-01-04 17:16:41 | INFO | root | Logging initialized successfully
+2026-01-04 17:16:42 | INFO | app.websocket | WebSocket client connected: 2058382054528
+2026-01-04 17:16:47 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:16:49 | INFO | app.websocket | Sent initial greeting to user 2058382054528
+2026-01-04 17:16:56 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:17:00 | INFO | faster_whisper | Processing audio with duration 00:07.080
+2026-01-04 17:17:00 | INFO | faster_whisper | VAD filter removed 00:03.760 of audio
+2026-01-04 17:17:04 | INFO | app.websocket | STT output: My name is Mohammad Amir
+2026-01-04 17:17:32 | INFO | faster_whisper | Processing audio with duration 00:05.880
+2026-01-04 17:17:37 | INFO | faster_whisper | VAD filter removed 00:03.352 of audio
+2026-01-04 17:17:50 | INFO | app.websocket | STT output: Names Muhammad Amir
+2026-01-04 17:19:06 | INFO | app.websocket | WebSocket client disconnected: 2058382054528
+2026-01-04 17:19:20 | INFO | root | Logging initialized successfully
+2026-01-04 17:19:27 | INFO | root | Logging initialized successfully
+2026-01-04 17:19:34 | INFO | app.websocket | WebSocket client connected: 1908597174384
+2026-01-04 17:19:42 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 17:19:44 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:19:49 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:19:50 | WARNING | app.tts.kokoro | TTS timeout (attempt 2)
+2026-01-04 17:19:50 | ERROR | app.websocket | TTS generation failed for initial greeting: TTS synthesis failed after retries
+2026-01-04 17:19:50 | INFO | app.websocket | Sent initial greeting to user 1908597174384
+2026-01-04 17:19:50 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:19:55 | INFO | faster_whisper | Processing audio with duration 00:04.920
+2026-01-04 17:19:55 | INFO | faster_whisper | VAD filter removed 00:04.920 of audio
+2026-01-04 17:19:55 | WARNING | app.stt.whisper | STT failed: Empty transcription result
+2026-01-04 17:19:55 | WARNING | app.websocket | STT failed: Empty transcription result
+2026-01-04 17:19:58 | INFO | app.websocket | WebSocket client disconnected: 1908597174384
+2026-01-04 17:20:21 | INFO | root | Logging initialized successfully
+2026-01-04 17:20:24 | INFO | app.websocket | WebSocket client connected: 2314596822960
+2026-01-04 17:20:28 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:20:32 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 17:20:35 | INFO | app.websocket | Sent initial greeting to user 2314596822960
+2026-01-04 17:21:28 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:21:32 | INFO | faster_whisper | Processing audio with duration 00:03.300
+2026-01-04 17:21:33 | INFO | faster_whisper | VAD filter removed 00:00.400 of audio
+2026-01-04 17:21:35 | INFO | app.websocket | STT output: My name is Mohamed Amir.
+2026-01-04 17:25:09 | INFO | app.websocket | WebSocket client disconnected: 2314596822960
+2026-01-04 17:25:37 | INFO | root | Logging initialized successfully
+2026-01-04 17:25:56 | INFO | root | Logging initialized successfully
+2026-01-04 17:26:05 | INFO | root | Logging initialized successfully
+2026-01-04 17:26:15 | INFO | app.websocket | WebSocket client connected: 1637062641360
+2026-01-04 17:26:15 | INFO | app.workflow | [RUN_STEP] Starting with state.step: START
+2026-01-04 17:26:15 | INFO | app.workflow | [RUN_STEP] state.last_user_message: None
+2026-01-04 17:26:15 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:26:20 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:26:23 | INFO | app.websocket | Sent initial greeting to user 1637062641360
+2026-01-04 17:27:04 | INFO | app.websocket | WebSocket client disconnected: 1637062641360
+2026-01-04 17:27:25 | INFO | root | Logging initialized successfully
+2026-01-04 17:27:28 | INFO | app.websocket | WebSocket client connected: 1727248309584
+2026-01-04 17:27:28 | INFO | app.workflow | [RUN_STEP] Starting with state.step: START
+2026-01-04 17:27:28 | INFO | app.workflow | [RUN_STEP] state.last_user_message: None
+2026-01-04 17:27:29 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:27:34 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:27:37 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 17:27:38 | INFO | app.websocket | Sent initial greeting to user 1727248309584
+2026-01-04 17:27:57 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:28:00 | INFO | faster_whisper | Processing audio with duration 00:04.380
+2026-01-04 17:28:00 | INFO | faster_whisper | VAD filter removed 00:00.528 of audio
+2026-01-04 17:28:03 | INFO | app.websocket | STT output: My name is Mohammad Amil
+2026-01-04 17:28:03 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_NAME
+2026-01-04 17:28:03 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Mohammad Amil
+2026-01-04 17:28:03 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_NAME
+2026-01-04 17:28:03 | INFO | app.workflow | [RUN_STEP] state.last_user_message: My name is Mohammad Amil
+2026-01-04 17:28:03 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:28:03 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:28:03 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_NAME
+2026-01-04 17:28:03 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hi! I can help you schedule a meeting. What’s your name?
+2026-01-04 17:28:42 | INFO | faster_whisper | Processing audio with duration 00:05.160
+2026-01-04 17:28:42 | INFO | faster_whisper | VAD filter removed 00:01.520 of audio
+2026-01-04 17:28:45 | INFO | app.websocket | STT output: My name is Mohammad Amid.
+2026-01-04 17:28:45 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_NAME
+2026-01-04 17:28:45 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Mohammad Amid.
+2026-01-04 17:28:45 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_NAME
+2026-01-04 17:28:45 | INFO | app.workflow | [RUN_STEP] state.last_user_message: My name is Mohammad Amid.
+2026-01-04 17:28:45 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:28:45 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:28:45 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_NAME
+2026-01-04 17:28:45 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Hi! I can help you schedule a meeting. What’s your name?
+2026-01-04 17:31:27 | INFO | app.websocket | WebSocket client disconnected: 1727248309584
+2026-01-04 17:31:49 | INFO | root | Logging initialized successfully
+2026-01-04 17:32:30 | INFO | root | Logging initialized successfully
+2026-01-04 17:33:42 | INFO | root | Logging initialized successfully
+2026-01-04 17:33:43 | INFO | app.websocket | WebSocket client connected: 2357953884416
+2026-01-04 17:33:43 | INFO | app.workflow | [RUN_STEP] Starting with state.step: START
+2026-01-04 17:33:43 | INFO | app.workflow | [RUN_STEP] state.last_user_message: None
+2026-01-04 17:33:43 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 17:33:43 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 17:33:43 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 17:33:43 | INFO | app.graph | [START_NODE] Set step to ASK_NAME
+2026-01-04 17:33:43 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:33:46 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:33:47 | INFO | app.websocket | Sent initial greeting to user 2357953884416
+2026-01-04 17:34:00 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:34:04 | INFO | faster_whisper | Processing audio with duration 00:04.440
+2026-01-04 17:34:04 | INFO | faster_whisper | VAD filter removed 00:02.232 of audio
+2026-01-04 17:34:07 | INFO | app.websocket | STT output: My name is Mohammad Amin
+2026-01-04 17:34:07 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_NAME
+2026-01-04 17:34:07 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Mohammad Amin
+2026-01-04 17:34:07 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_NAME
+2026-01-04 17:34:07 | INFO | app.workflow | [RUN_STEP] state.last_user_message: My name is Mohammad Amin
+2026-01-04 17:34:07 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_NAME
+2026-01-04 17:34:07 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_NAME
+2026-01-04 17:34:07 | INFO | app.graph | [ASK_NAME_NODE] Executing with last_user_message: My name is Mohammad Amin
+2026-01-04 17:34:07 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: My name is Mohammad Amin
+2026-01-04 17:34:08 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:34:08 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': 'Mohammad Amin', 'meeting_datetime_text': None, 'meeting_title': None}
+2026-01-04 17:34:08 | INFO | app.nlu.extractor | Extracted fields - name: Mohammad Amin, title: None, datetime_text: None
+2026-01-04 17:34:08 | INFO | app.nlu.extractor | Updated state.name to: Mohammad Amin
+2026-01-04 17:34:08 | INFO | app.graph | [ASK_NAME_NODE] After extraction, state.name: Mohammad Amin
+2026-01-04 17:34:08 | INFO | app.graph | [ASK_NAME_NODE] Name found, moving to ASK_DATETIME
+2026-01-04 17:34:08 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 17:34:08 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:34:08 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:34:08 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Nice to meet you, Mohammad Amin. When should we schedule the meeting?
+2026-01-04 17:34:39 | INFO | faster_whisper | Processing audio with duration 00:06.540
+2026-01-04 17:34:40 | INFO | faster_whisper | VAD filter removed 00:01.788 of audio
+2026-01-04 17:34:58 | INFO | app.websocket | STT output: I would like to have the meeting for tomorrow 11pm.
+2026-01-04 17:34:58 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 17:34:58 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: I would like to have the meeting for tomorrow 11pm.
+2026-01-04 17:34:58 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_DATETIME
+2026-01-04 17:34:58 | INFO | app.workflow | [RUN_STEP] state.last_user_message: I would like to have the meeting for tomorrow 11pm.
+2026-01-04 17:34:58 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 17:34:58 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 17:34:58 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: I would like to have the meeting for tomorrow 11pm.
+2026-01-04 17:34:58 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: I would like to have the meeting for tomorrow 11pm.
+2026-01-04 17:34:58 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:34:58 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'tomorrow 11pm', 'meeting_title': None}
+2026-01-04 17:34:58 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: tomorrow 11pm
+2026-01-04 17:34:58 | INFO | app.nlu.extractor | Date parsing failed for text: tomorrow 11pm
+2026-01-04 17:34:58 | INFO | app.graph | [ASK_DATETIME_NODE] After extraction, meeting_datetime: None
+2026-01-04 17:34:58 | INFO | app.graph | [ASK_DATETIME_NODE] No datetime found, staying in ASK_DATETIME
+2026-01-04 17:34:58 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 17:34:58 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:34:58 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:34:58 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please tell me the preferred date and time (for example, 12 Jan at 3 PM).
+2026-01-04 17:35:21 | INFO | faster_whisper | Processing audio with duration 00:06.540
+2026-01-04 17:35:21 | INFO | faster_whisper | VAD filter removed 00:02.636 of audio
+2026-01-04 17:35:25 | INFO | app.websocket | STT output: tomorrow at 11 p.m.
+2026-01-04 17:35:25 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 17:35:25 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: tomorrow at 11 p.m.
+2026-01-04 17:35:25 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_DATETIME
+2026-01-04 17:35:25 | INFO | app.workflow | [RUN_STEP] state.last_user_message: tomorrow at 11 p.m.
+2026-01-04 17:35:25 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 17:35:25 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 17:35:25 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: tomorrow at 11 p.m.
+2026-01-04 17:35:25 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: tomorrow at 11 p.m.
+2026-01-04 17:35:25 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:35:25 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'tomorrow at 11 p.m.', 'meeting_title': None}
+2026-01-04 17:35:25 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: tomorrow at 11 p.m.
+2026-01-04 17:35:25 | INFO | app.nlu.extractor | Date parsing failed for text: tomorrow at 11 p.m.
+2026-01-04 17:35:25 | INFO | app.graph | [ASK_DATETIME_NODE] After extraction, meeting_datetime: None
+2026-01-04 17:35:25 | INFO | app.graph | [ASK_DATETIME_NODE] No datetime found, staying in ASK_DATETIME
+2026-01-04 17:35:25 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 17:35:25 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:35:25 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:35:25 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please tell me the preferred date and time (for example, 12 Jan at 3 PM).
+2026-01-04 17:35:41 | INFO | faster_whisper | Processing audio with duration 00:06.960
+2026-01-04 17:35:42 | INFO | faster_whisper | VAD filter removed 00:02.608 of audio
+2026-01-04 17:35:45 | INFO | app.websocket | STT output: 12th January at 3pm
+2026-01-04 17:35:45 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 17:35:45 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: 12th January at 3pm
+2026-01-04 17:35:45 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_DATETIME
+2026-01-04 17:35:45 | INFO | app.workflow | [RUN_STEP] state.last_user_message: 12th January at 3pm
+2026-01-04 17:35:45 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 17:35:45 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 17:35:45 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: 12th January at 3pm
+2026-01-04 17:35:45 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: 12th January at 3pm
+2026-01-04 17:35:46 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:35:46 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': '12th January at 3pm', 'meeting_title': None}
+2026-01-04 17:35:46 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: 12th January at 3pm
+2026-01-04 17:35:46 | INFO | app.nlu.extractor | Date parsing failed for text: 12th January at 3pm
+2026-01-04 17:35:46 | INFO | app.graph | [ASK_DATETIME_NODE] After extraction, meeting_datetime: None
+2026-01-04 17:35:46 | INFO | app.graph | [ASK_DATETIME_NODE] No datetime found, staying in ASK_DATETIME
+2026-01-04 17:35:46 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 17:35:46 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:35:46 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:35:46 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please tell me the preferred date and time (for example, 12 Jan at 3 PM).
+2026-01-04 17:35:59 | INFO | faster_whisper | Processing audio with duration 00:03.960
+2026-01-04 17:35:59 | INFO | faster_whisper | VAD filter removed 00:00.496 of audio
+2026-01-04 17:36:03 | INFO | app.websocket | STT output: Soil January at 3pm
+2026-01-04 17:36:03 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 17:36:03 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Soil January at 3pm
+2026-01-04 17:36:03 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_DATETIME
+2026-01-04 17:36:03 | INFO | app.workflow | [RUN_STEP] state.last_user_message: Soil January at 3pm
+2026-01-04 17:36:03 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 17:36:03 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 17:36:03 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: Soil January at 3pm
+2026-01-04 17:36:03 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Soil January at 3pm
+2026-01-04 17:36:03 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:36:03 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'Soil January at 3pm', 'meeting_title': None}
+2026-01-04 17:36:03 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: Soil January at 3pm
+2026-01-04 17:36:03 | INFO | app.nlu.extractor | Date parsing failed for text: Soil January at 3pm
+2026-01-04 17:36:03 | INFO | app.graph | [ASK_DATETIME_NODE] After extraction, meeting_datetime: None
+2026-01-04 17:36:03 | INFO | app.graph | [ASK_DATETIME_NODE] No datetime found, staying in ASK_DATETIME
+2026-01-04 17:36:03 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 17:36:03 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:36:03 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:36:03 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please tell me the preferred date and time (for example, 12 Jan at 3 PM).
+2026-01-04 17:39:34 | INFO | app.websocket | WebSocket client disconnected: 2357953884416
+2026-01-04 17:39:53 | INFO | root | Logging initialized successfully
+2026-01-04 17:40:12 | INFO | root | Logging initialized successfully
+2026-01-04 17:40:13 | INFO | app.websocket | WebSocket client connected: 3003548075296
+2026-01-04 17:40:13 | INFO | app.workflow | [RUN_STEP] Starting with state.step: START
+2026-01-04 17:40:13 | INFO | app.workflow | [RUN_STEP] state.last_user_message: None
+2026-01-04 17:40:13 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 17:40:13 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 17:40:13 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 17:40:13 | INFO | app.graph | [START_NODE] Set step to ASK_NAME
+2026-01-04 17:40:13 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:40:16 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:40:18 | INFO | app.websocket | Sent initial greeting to user 3003548075296
+2026-01-04 17:40:20 | INFO | app.websocket | WebSocket client disconnected: 3003548075296
+2026-01-04 17:40:21 | INFO | app.websocket | WebSocket client connected: 3003661451904
+2026-01-04 17:40:21 | INFO | app.workflow | [RUN_STEP] Starting with state.step: START
+2026-01-04 17:40:21 | INFO | app.workflow | [RUN_STEP] state.last_user_message: None
+2026-01-04 17:40:21 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 17:40:21 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 17:40:21 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 17:40:21 | INFO | app.graph | [START_NODE] Set step to ASK_NAME
+2026-01-04 17:40:21 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:40:23 | INFO | app.websocket | Sent initial greeting to user 3003661451904
+2026-01-04 17:40:42 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:40:46 | INFO | faster_whisper | Processing audio with duration 00:05.460
+2026-01-04 17:40:46 | INFO | faster_whisper | VAD filter removed 00:03.028 of audio
+2026-01-04 17:40:49 | INFO | app.websocket | STT output: My name is Muhammad Amil.
+2026-01-04 17:40:49 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_NAME
+2026-01-04 17:40:49 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Muhammad Amil.
+2026-01-04 17:40:49 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_NAME
+2026-01-04 17:40:49 | INFO | app.workflow | [RUN_STEP] state.last_user_message: My name is Muhammad Amil.
+2026-01-04 17:40:49 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_NAME
+2026-01-04 17:40:49 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_NAME
+2026-01-04 17:40:49 | INFO | app.graph | [ASK_NAME_NODE] Executing with last_user_message: My name is Muhammad Amil.
+2026-01-04 17:40:49 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: My name is Muhammad Amil.
+2026-01-04 17:40:50 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:40:50 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': 'Muhammad Amil', 'meeting_datetime_text': None, 'meeting_title': None}
+2026-01-04 17:40:50 | INFO | app.nlu.extractor | Extracted fields - name: Muhammad Amil, title: None, datetime_text: None
+2026-01-04 17:40:50 | INFO | app.nlu.extractor | Updated state.name to: Muhammad Amil
+2026-01-04 17:40:50 | INFO | app.graph | [ASK_NAME_NODE] After extraction, state.name: Muhammad Amil
+2026-01-04 17:40:50 | INFO | app.graph | [ASK_NAME_NODE] Name found, moving to ASK_DATETIME
+2026-01-04 17:40:50 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 17:40:50 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:40:50 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:40:50 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Nice to meet you, Muhammad Amil. When should we schedule the meeting?
+2026-01-04 17:41:06 | INFO | faster_whisper | Processing audio with duration 00:04.800
+2026-01-04 17:41:06 | INFO | faster_whisper | VAD filter removed 00:02.240 of audio
+2026-01-04 17:41:11 | INFO | app.websocket | STT output: Tomorrow at 11 p.m.
+2026-01-04 17:41:11 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 17:41:11 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Tomorrow at 11 p.m.
+2026-01-04 17:41:11 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_DATETIME
+2026-01-04 17:41:11 | INFO | app.workflow | [RUN_STEP] state.last_user_message: Tomorrow at 11 p.m.
+2026-01-04 17:41:12 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 17:41:12 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 17:41:13 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: Tomorrow at 11 p.m.
+2026-01-04 17:41:13 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Tomorrow at 11 p.m.
+2026-01-04 17:41:13 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:41:13 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'Tomorrow at 11 p.m.', 'meeting_title': None}
+2026-01-04 17:41:13 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: Tomorrow at 11 p.m.
+2026-01-04 17:41:13 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Attempting to parse: text='Tomorrow at 11 p.m.', now='2026-01-04T17:41:13.976163+05:30', tz='Asia/Kolkata'
+2026-01-04 17:41:13 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Using timezone string: Asia/Kolkata
+2026-01-04 17:41:13 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser settings: {'RELATIVE_BASE': datetime.datetime(2026, 1, 4, 17, 41, 13, 976163, tzinfo=zoneinfo.ZoneInfo(key='Asia/Kolkata')), 'TIMEZONE': 'Asia/Kolkata', 'RETURN_AS_TIMEZONE_AWARE': True, 'PREFER_DATES_FROM': 'future'}
+2026-01-04 17:41:14 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser returned: 2026-01-05 23:00:00+05:30
+2026-01-04 17:41:14 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] ✅ SUCCESS: 'Tomorrow at 11 p.m.' -> '2026-01-05T23:00:00+05:30'
+2026-01-04 17:41:14 | ERROR | app.workflow | Graph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 129, in run_step
+    result = await conversation_graph.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 935, in astream
+    _panic_or_proceed(done, inflight, step)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1126, in _panic_or_proceed
+    raise exc
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 2536, in ainvoke
+    input = await step.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 3983, in ainvoke
+    return await self._acall_with_config(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 1678, in _acall_with_config
+    output = await coro
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 3930, in _ainvoke
+    output = await acall_func_with_variable_args(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\graph.py", line 50, in ask_datetime_node
+    state = await extract_fields(state, state.last_user_message)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 167, in extract_fields
+    validated_dt = validate_meeting_datetime(parsed_dt)
+TypeError: validate_meeting_datetime() missing 1 required keyword-only argument: 'now'
+2026-01-04 17:41:14 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'dict'>
+2026-01-04 17:41:14 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:41:14 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Nice to meet you, Muhammad Amil. When should we schedule the meeting?
+2026-01-04 17:41:22 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 17:41:30 | WARNING | app.tts.kokoro | TTS timeout (attempt 2)
+2026-01-04 17:41:30 | ERROR | app.websocket | TTS generation failed: TTS synthesis failed after retries
+2026-01-04 17:41:55 | INFO | app.websocket | WebSocket client disconnected: 3003661451904
+2026-01-04 17:43:12 | INFO | root | Logging initialized successfully
+2026-01-04 17:43:16 | INFO | app.websocket | WebSocket client connected: 2980037893840
+2026-01-04 17:43:16 | INFO | app.workflow | [RUN_STEP] Starting with state.step: START
+2026-01-04 17:43:16 | INFO | app.workflow | [RUN_STEP] state.last_user_message: None
+2026-01-04 17:43:16 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 17:43:16 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 17:43:16 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 17:43:16 | INFO | app.graph | [START_NODE] Set step to ASK_NAME
+2026-01-04 17:43:16 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_NAME
+2026-01-04 17:43:20 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 17:43:23 | INFO | app.websocket | Sent initial greeting to user 2980037893840
+2026-01-04 17:43:54 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 17:43:58 | INFO | faster_whisper | Processing audio with duration 00:02.940
+2026-01-04 17:43:59 | INFO | faster_whisper | VAD filter removed 00:00.112 of audio
+2026-01-04 17:44:02 | INFO | app.websocket | STT output: My name is Mohamed Amil.
+2026-01-04 17:44:03 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_NAME
+2026-01-04 17:44:03 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Mohamed Amil.
+2026-01-04 17:44:03 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_NAME
+2026-01-04 17:44:03 | INFO | app.workflow | [RUN_STEP] state.last_user_message: My name is Mohamed Amil.
+2026-01-04 17:44:03 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_NAME
+2026-01-04 17:44:03 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_NAME
+2026-01-04 17:44:03 | INFO | app.graph | [ASK_NAME_NODE] Executing with last_user_message: My name is Mohamed Amil.
+2026-01-04 17:44:03 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: My name is Mohamed Amil.
+2026-01-04 17:44:03 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:44:03 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': 'Mohamed Amil', 'meeting_datetime_text': None, 'meeting_title': None}
+2026-01-04 17:44:03 | INFO | app.nlu.extractor | Extracted fields - name: Mohamed Amil, title: None, datetime_text: None
+2026-01-04 17:44:03 | INFO | app.nlu.extractor | Updated state.name to: Mohamed Amil
+2026-01-04 17:44:03 | INFO | app.graph | [ASK_NAME_NODE] After extraction, state.name: Mohamed Amil
+2026-01-04 17:44:03 | INFO | app.graph | [ASK_NAME_NODE] Name found, moving to ASK_DATETIME
+2026-01-04 17:44:03 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 17:44:03 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:44:03 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 17:44:03 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Nice to meet you, Mohamed Amil. When should we schedule the meeting?
+2026-01-04 17:44:32 | INFO | faster_whisper | Processing audio with duration 00:05.940
+2026-01-04 17:44:34 | INFO | faster_whisper | VAD filter removed 00:02.420 of audio
+2026-01-04 17:44:46 | INFO | app.websocket | STT output: scheduled the meeting for tomorrow 12 p.m
+2026-01-04 17:44:46 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 17:44:46 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: scheduled the meeting for tomorrow 12 p.m
+2026-01-04 17:44:46 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_DATETIME
+2026-01-04 17:44:46 | INFO | app.workflow | [RUN_STEP] state.last_user_message: scheduled the meeting for tomorrow 12 p.m
+2026-01-04 17:44:47 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 17:44:47 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 17:44:47 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: scheduled the meeting for tomorrow 12 p.m
+2026-01-04 17:44:47 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: scheduled the meeting for tomorrow 12 p.m
+2026-01-04 17:44:47 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:44:47 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'tomorrow 12 p.m', 'meeting_title': None}
+2026-01-04 17:44:47 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: tomorrow 12 p.m
+2026-01-04 17:44:47 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Attempting to parse: text='tomorrow 12 p.m', now='2026-01-04T17:44:47.451298+05:30', tz='Asia/Kolkata'
+2026-01-04 17:44:47 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Using timezone string: Asia/Kolkata
+2026-01-04 17:44:47 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser settings: {'RELATIVE_BASE': datetime.datetime(2026, 1, 4, 17, 44, 47, 451298, tzinfo=zoneinfo.ZoneInfo(key='Asia/Kolkata')), 'TIMEZONE': 'Asia/Kolkata', 'RETURN_AS_TIMEZONE_AWARE': True, 'PREFER_DATES_FROM': 'future'}
+2026-01-04 17:44:47 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser returned: 2026-01-05 12:00:00+05:30
+2026-01-04 17:44:47 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] ✅ SUCCESS: 'tomorrow 12 p.m' -> '2026-01-05T12:00:00+05:30'
+2026-01-04 17:44:47 | INFO | app.nlu.extractor | Updated state.meeting_datetime to: 2026-01-05 12:00:00+05:30
+2026-01-04 17:44:47 | INFO | app.graph | [ASK_DATETIME_NODE] After extraction, meeting_datetime: 2026-01-05 12:00:00+05:30
+2026-01-04 17:44:47 | INFO | app.graph | [ASK_DATETIME_NODE] DateTime found, moving to ASK_TITLE
+2026-01-04 17:44:47 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: ASK_TITLE
+2026-01-04 17:44:47 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:44:47 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 17:44:47 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Got it. Would you like to add a title for the meeting? You can say no.
+2026-01-04 17:47:05 | INFO | faster_whisper | Processing audio with duration 00:04.860
+2026-01-04 17:47:05 | INFO | faster_whisper | VAD filter removed 00:00.656 of audio
+2026-01-04 17:47:09 | INFO | app.websocket | STT output: Add the title as Agri-Smithy.
+2026-01-04 17:47:09 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 17:47:09 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Add the title as Agri-Smithy.
+2026-01-04 17:47:09 | INFO | app.workflow | [RUN_STEP] Starting with state.step: ASK_TITLE
+2026-01-04 17:47:09 | INFO | app.workflow | [RUN_STEP] state.last_user_message: Add the title as Agri-Smithy.
+2026-01-04 17:47:09 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 17:47:09 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 17:47:09 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 17:47:09 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Add the title as Agri-Smithy.
+2026-01-04 17:47:09 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 17:47:09 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': 'Agri-Smithy'}
+2026-01-04 17:47:09 | INFO | app.nlu.extractor | Extracted fields - name: None, title: Agri-Smithy, datetime_text: None
+2026-01-04 17:47:09 | INFO | app.nlu.extractor | Updated state.meeting_title to: Agri-Smithy
+2026-01-04 17:47:09 | INFO | app.graph | [ASK_TITLE_NODE] Moving to CONFIRM_DETAILS
+2026-01-04 17:47:09 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: CONFIRM_DETAILS
+2026-01-04 17:47:09 | INFO | app.graph | [CONFIRM_DETAILS_NODE] Executing
+2026-01-04 17:47:09 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 17:47:09 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:47:09 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 17:47:09 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please confirm: A meeting for Mohamed Amil on Monday, 05 January at 12:00 PM titled 'Agri-Smithy'. Should I go ahead and create it?
+2026-01-04 17:47:10 | WARNING | phonemizer | words count mismatch on 100.0% of the lines (1/1)
+2026-01-04 17:47:31 | INFO | faster_whisper | Processing audio with duration 00:03.420
+2026-01-04 17:47:31 | INFO | faster_whisper | VAD filter removed 00:00.272 of audio
+2026-01-04 17:47:34 | INFO | app.websocket | STT output: yes go ahead and create it
+2026-01-04 17:47:34 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 17:47:34 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: yes go ahead and create it
+2026-01-04 17:47:34 | INFO | app.workflow | [RUN_STEP] Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 17:47:34 | INFO | app.workflow | [RUN_STEP] state.last_user_message: yes go ahead and create it
+2026-01-04 17:47:35 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 17:47:35 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 17:47:35 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: yes go ahead and create it
+2026-01-04 17:47:35 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 17:47:35 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:47:35 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 17:47:35 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 17:47:45 | INFO | faster_whisper | Processing audio with duration 00:04.560
+2026-01-04 17:47:45 | INFO | faster_whisper | VAD filter removed 00:03.120 of audio
+2026-01-04 17:47:48 | INFO | app.websocket | STT output: Yes
+2026-01-04 17:47:48 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 17:47:48 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes
+2026-01-04 17:47:48 | INFO | app.workflow | [RUN_STEP] Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 17:47:48 | INFO | app.workflow | [RUN_STEP] state.last_user_message: Yes
+2026-01-04 17:47:48 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 17:47:48 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 17:47:48 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes
+2026-01-04 17:47:48 | INFO | app.calendar.google_auth | Refreshing Google Calendar access token
+2026-01-04 17:47:48 | ERROR | app.calendar.google_auth | Unexpected failure during Google token refresh
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\calendar\google_auth.py", line 85, in _refresh_credentials
+    self._creds.refresh(Request())
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\google\oauth2\credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\google\oauth2\reauth.py", line 365, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\google\oauth2\_client.py", line 72, in _handle_error_response
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})
+2026-01-04 17:47:48 | ERROR | app.calendar.google_calendar | Google auth failed: Failed to refresh Google OAuth token
+2026-01-04 17:47:48 | ERROR | app.graph | Calendar error
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\calendar\google_auth.py", line 85, in _refresh_credentials
+    self._creds.refresh(Request())
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\google\oauth2\credentials.py", line 431, in refresh
+    ) = reauth.refresh_grant(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\google\oauth2\reauth.py", line 365, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\google\oauth2\_client.py", line 72, in _handle_error_response
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\calendar\google_calendar.py", line 109, in _create_event_blocking
+    creds = self.auth.get_credentials()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\calendar\google_auth.py", line 112, in get_credentials
+    self._refresh_credentials()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\calendar\google_auth.py", line 99, in _refresh_credentials
+    raise GoogleAuthError(
+app.calendar.google_auth.GoogleAuthError: Failed to refresh Google OAuth token
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\graph.py", line 121, in await_confirmation_node
+    await calendar_service.create_event(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\calendar\google_calendar.py", line 74, in create_event
+    return await loop.run_in_executor(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\calendar\google_calendar.py", line 112, in _create_event_blocking
+    raise GoogleCalendarError("Authentication with Google failed") from e
+app.calendar.google_calendar.GoogleCalendarError: Authentication with Google failed
+2026-01-04 17:47:48 | INFO | app.workflow | [RUN_STEP] Graph execution completed. Result step: END
+2026-01-04 17:47:48 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 17:47:48 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: END
+2026-01-04 17:47:48 | INFO | app.websocket | [WEBSOCKET] New state.system_message: I couldn't create the meeting due to a calendar error.
+2026-01-04 17:52:03 | INFO | app.websocket | WebSocket client disconnected: 2980037893840
+2026-01-04 17:52:18 | INFO | root | Logging initialized successfully
+2026-01-04 17:52:27 | INFO | root | Logging initialized successfully
+2026-01-04 18:30:15 | INFO | root | Logging initialized successfully
+2026-01-04 18:30:15 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 18:30:19 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 18:30:19 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 18:30:19 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 18:31:01 | INFO | app.main | All models preloaded successfully
+2026-01-04 18:31:12 | INFO | app.websocket | WebSocket client connected: 1476139479296
+2026-01-04 18:31:12 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 18:31:12 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 18:31:12 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 18:31:12 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 18:31:12 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 18:31:12 | INFO | app.graph | [START_NODE] Set step to ASK_NAME
+2026-01-04 18:31:12 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 18:31:20 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 18:31:23 | INFO | app.websocket | Sent initial greeting to user 1476139479296
+2026-01-04 18:31:52 | INFO | faster_whisper | Processing audio with duration 00:03.660
+2026-01-04 18:31:53 | INFO | faster_whisper | VAD filter removed 00:00.176 of audio
+2026-01-04 18:31:56 | INFO | app.websocket | STT output: My name is Mohamed Amil.
+2026-01-04 18:31:56 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_NAME
+2026-01-04 18:31:56 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Mohamed Amil.
+2026-01-04 18:31:56 | INFO | app.workflow | Starting with state.step: ASK_NAME
+2026-01-04 18:31:56 | INFO | app.workflow | state.last_user_message: My name is Mohamed Amil.
+2026-01-04 18:31:56 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_NAME
+2026-01-04 18:31:56 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_NAME
+2026-01-04 18:31:56 | INFO | app.graph | [ASK_NAME_NODE] Executing with last_user_message: My name is Mohamed Amil.
+2026-01-04 18:31:56 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: My name is Mohamed Amil.
+2026-01-04 18:31:57 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 18:31:57 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': 'Mohamed Amil', 'meeting_datetime_text': None, 'meeting_title': None}
+2026-01-04 18:31:57 | INFO | app.nlu.extractor | Extracted fields - name: Mohamed Amil, title: None, datetime_text: None
+2026-01-04 18:31:57 | INFO | app.nlu.extractor | Updated state.name to: Mohamed Amil
+2026-01-04 18:31:57 | INFO | app.graph | [ASK_NAME_NODE] After extraction, state.name: Mohamed Amil
+2026-01-04 18:31:57 | INFO | app.graph | [ASK_NAME_NODE] Name found, moving to ASK_DATETIME
+2026-01-04 18:31:57 | INFO | app.workflow | Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 18:31:57 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:31:57 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 18:31:57 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Nice to meet you, Mohamed Amil. When should we schedule the meeting?
+2026-01-04 18:32:15 | INFO | faster_whisper | Processing audio with duration 00:04.680
+2026-01-04 18:32:15 | INFO | faster_whisper | VAD filter removed 00:00.848 of audio
+2026-01-04 18:32:19 | INFO | app.websocket | STT output: tomorrow at 11 p.m.
+2026-01-04 18:32:19 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 18:32:19 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: tomorrow at 11 p.m.
+2026-01-04 18:32:19 | INFO | app.workflow | Starting with state.step: ASK_DATETIME
+2026-01-04 18:32:19 | INFO | app.workflow | state.last_user_message: tomorrow at 11 p.m.
+2026-01-04 18:32:19 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 18:32:19 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 18:32:19 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: tomorrow at 11 p.m.
+2026-01-04 18:32:19 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: tomorrow at 11 p.m.
+2026-01-04 18:32:19 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 18:32:19 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'tomorrow at 11 p.m.', 'meeting_title': None}
+2026-01-04 18:32:19 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: tomorrow at 11 p.m.
+2026-01-04 18:32:20 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Attempting to parse: text='tomorrow at 11 p.m.', now='2026-01-04T18:32:20.008309+05:30', tz='Asia/Kolkata'
+2026-01-04 18:32:20 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Using timezone string: Asia/Kolkata
+2026-01-04 18:32:20 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser settings: {'RELATIVE_BASE': datetime.datetime(2026, 1, 4, 18, 32, 20, 8309, tzinfo=zoneinfo.ZoneInfo(key='Asia/Kolkata')), 'TIMEZONE': 'Asia/Kolkata', 'RETURN_AS_TIMEZONE_AWARE': True, 'PREFER_DATES_FROM': 'future'}
+2026-01-04 18:32:20 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser returned: 2026-01-05 23:00:00+05:30
+2026-01-04 18:32:20 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] ✅ SUCCESS: 'tomorrow at 11 p.m.' -> '2026-01-05T23:00:00+05:30'
+2026-01-04 18:32:20 | INFO | app.nlu.extractor | Updated state.meeting_datetime to: 2026-01-05 23:00:00+05:30
+2026-01-04 18:32:20 | INFO | app.graph | [ASK_DATETIME_NODE] After extraction, meeting_datetime: 2026-01-05 23:00:00+05:30
+2026-01-04 18:32:20 | INFO | app.graph | [ASK_DATETIME_NODE] DateTime found, moving to ASK_TITLE
+2026-01-04 18:32:20 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 18:32:20 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:32:20 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 18:32:20 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Got it. Would you like to add a title for the meeting? You can say no.
+2026-01-04 18:33:02 | INFO | faster_whisper | Processing audio with duration 00:05.340
+2026-01-04 18:33:02 | INFO | faster_whisper | VAD filter removed 00:00.496 of audio
+2026-01-04 18:33:15 | INFO | app.websocket | STT output: Yes, at the title of this meeting.
+2026-01-04 18:33:15 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 18:33:15 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes, at the title of this meeting.
+2026-01-04 18:33:15 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 18:33:15 | INFO | app.workflow | state.last_user_message: Yes, at the title of this meeting.
+2026-01-04 18:33:16 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 18:33:16 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 18:33:16 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 18:33:16 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Yes, at the title of this meeting.
+2026-01-04 18:33:17 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 18:33:17 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': None}
+2026-01-04 18:33:17 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: None
+2026-01-04 18:33:17 | INFO | app.graph | [ASK_TITLE_NODE] Staying in ASK_TITLE
+2026-01-04 18:33:17 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: ASK_TITLE
+2026-01-04 18:33:17 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 18:33:17 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:33:17 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 18:33:17 | INFO | app.websocket | [WEBSOCKET] New state.system_message: I didn't catch a title. Please say the title or say 'no' to skip.
+2026-01-04 18:33:32 | INFO | faster_whisper | Processing audio with duration 00:05.280
+2026-01-04 18:33:32 | INFO | faster_whisper | VAD filter removed 00:00.400 of audio
+2026-01-04 18:33:35 | INFO | app.websocket | STT output: Adil's meeting that is the title
+2026-01-04 18:33:35 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 18:33:35 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Adil's meeting that is the title
+2026-01-04 18:33:35 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 18:33:35 | INFO | app.workflow | state.last_user_message: Adil's meeting that is the title
+2026-01-04 18:33:35 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 18:33:35 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 18:33:35 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 18:33:35 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Adil's meeting that is the title
+2026-01-04 18:33:35 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 18:33:35 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': "Adil's meeting that is the title"}
+2026-01-04 18:33:35 | INFO | app.nlu.extractor | Extracted fields - name: None, title: Adil's meeting that is the title, datetime_text: None
+2026-01-04 18:33:35 | INFO | app.nlu.extractor | Updated state.meeting_title to: Adil's meeting that is the title
+2026-01-04 18:33:35 | INFO | app.graph | [ASK_TITLE_NODE] Moving to CONFIRM_DETAILS
+2026-01-04 18:33:35 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: CONFIRM_DETAILS
+2026-01-04 18:33:35 | INFO | app.graph | [CONFIRM_DETAILS_NODE] Executing
+2026-01-04 18:33:35 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:33:35 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:33:35 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:33:35 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please confirm: A meeting for Mohamed Amil on Monday, 05 January at 11:00 PM titled 'Adil's meeting that is the title'. Should I go ahead and create it?
+2026-01-04 18:33:35 | WARNING | phonemizer | words count mismatch on 100.0% of the lines (1/1)
+2026-01-04 18:33:58 | INFO | faster_whisper | Processing audio with duration 00:03.540
+2026-01-04 18:33:58 | INFO | faster_whisper | VAD filter removed 00:00.176 of audio
+2026-01-04 18:34:01 | INFO | app.websocket | STT output: Yes, go ahead and create it
+2026-01-04 18:34:01 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:01 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes, go ahead and create it
+2026-01-04 18:34:01 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:01 | INFO | app.workflow | state.last_user_message: Yes, go ahead and create it
+2026-01-04 18:34:01 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:01 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:34:02 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes, go ahead and create it
+2026-01-04 18:34:02 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:34:02 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:34:02 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:02 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 18:34:09 | INFO | faster_whisper | Processing audio with duration 00:02.640
+2026-01-04 18:34:10 | INFO | faster_whisper | VAD filter removed 00:00.176 of audio
+2026-01-04 18:34:14 | INFO | app.websocket | STT output: Yes.
+2026-01-04 18:34:14 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:14 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes.
+2026-01-04 18:34:14 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:14 | INFO | app.workflow | state.last_user_message: Yes.
+2026-01-04 18:34:14 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:14 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:34:14 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes.
+2026-01-04 18:34:14 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:34:14 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:34:14 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:14 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 18:34:21 | INFO | faster_whisper | Processing audio with duration 00:02.580
+2026-01-04 18:34:21 | INFO | faster_whisper | VAD filter removed 00:00.400 of audio
+2026-01-04 18:34:24 | INFO | app.websocket | STT output: Yes!
+2026-01-04 18:34:24 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:24 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes!
+2026-01-04 18:34:24 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:24 | INFO | app.workflow | state.last_user_message: Yes!
+2026-01-04 18:34:24 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:24 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:34:24 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes!
+2026-01-04 18:34:24 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:34:24 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:34:24 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:24 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 18:34:34 | INFO | faster_whisper | Processing audio with duration 00:03.420
+2026-01-04 18:34:35 | INFO | faster_whisper | VAD filter removed 00:00.272 of audio
+2026-01-04 18:34:39 | INFO | app.websocket | STT output: Yes, please create it.
+2026-01-04 18:34:39 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:39 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes, please create it.
+2026-01-04 18:34:39 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:39 | INFO | app.workflow | state.last_user_message: Yes, please create it.
+2026-01-04 18:34:39 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:39 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:34:39 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes, please create it.
+2026-01-04 18:34:39 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:34:39 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:34:39 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:39 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 18:34:44 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:34:44 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: yes
+2026-01-04 18:34:44 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:44 | INFO | app.workflow | state.last_user_message: yes
+2026-01-04 18:34:44 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:34:44 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:34:45 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: yes
+2026-01-04 18:34:45 | INFO | app.calendar.google_auth | Refreshing Google Calendar access token
+2026-01-04 18:34:47 | INFO | app.calendar.google_auth | Google access token refreshed successfully
+2026-01-04 18:34:47 | INFO | app.calendar.google_calendar | Creating calendar event: title=Adil's meeting that is the title start=2026-01-05T23:00:00+05:30
+2026-01-04 18:34:48 | INFO | app.calendar.google_calendar | Calendar event created successfully (event_id=10m5cmdboun70f9srdihv3vsh8)
+2026-01-04 18:34:48 | INFO | app.workflow | Graph execution completed. Result step: END
+2026-01-04 18:34:48 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:34:48 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: END
+2026-01-04 18:34:48 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Your meeting has been created successfully.
+2026-01-04 18:36:32 | INFO | app.websocket | WebSocket client disconnected: 1476139479296
+2026-01-04 18:36:56 | INFO | root | Logging initialized successfully
+2026-01-04 18:36:56 | INFO | app.main | Preloading TTS model (Kokoro)...
+2026-01-04 18:37:00 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 18:37:00 | INFO | app.main | Preloading STT model (Whisper)...
+2026-01-04 18:37:00 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 18:37:04 | INFO | app.main | All models preloaded successfully
+2026-01-04 18:37:04 | INFO | app.websocket | WebSocket client connected: 2165119117024
+2026-01-04 18:37:04 | INFO | app.workflow | Starting with state.step: START
+2026-01-04 18:37:04 | INFO | app.workflow | state.last_user_message: None
+2026-01-04 18:37:04 | INFO | app.workflow | [ROUTE_START] Called with state.step: START
+2026-01-04 18:37:04 | INFO | app.workflow | [ROUTE_START] Routing to: START
+2026-01-04 18:37:04 | INFO | app.graph | [START_NODE] Executing
+2026-01-04 18:37:04 | INFO | app.graph | [START_NODE] Set step to ASK_NAME
+2026-01-04 18:37:04 | INFO | app.workflow | Graph execution completed. Result step: ASK_NAME
+2026-01-04 18:37:07 | INFO | app.websocket | Sent initial greeting to user 2165119117024
+2026-01-04 18:37:18 | INFO | faster_whisper | Processing audio with duration 00:04.740
+2026-01-04 18:37:18 | INFO | faster_whisper | VAD filter removed 00:00.336 of audio
+2026-01-04 18:37:22 | INFO | app.websocket | STT output: My name is Mohammad Amil
+2026-01-04 18:37:22 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_NAME
+2026-01-04 18:37:22 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: My name is Mohammad Amil
+2026-01-04 18:37:22 | INFO | app.workflow | Starting with state.step: ASK_NAME
+2026-01-04 18:37:22 | INFO | app.workflow | state.last_user_message: My name is Mohammad Amil
+2026-01-04 18:37:22 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_NAME
+2026-01-04 18:37:22 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_NAME
+2026-01-04 18:37:22 | INFO | app.graph | [ASK_NAME_NODE] Executing with last_user_message: My name is Mohammad Amil
+2026-01-04 18:37:22 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: My name is Mohammad Amil
+2026-01-04 18:37:23 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 18:37:23 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': 'Mohammad Amil', 'meeting_datetime_text': None, 'meeting_title': None}
+2026-01-04 18:37:23 | INFO | app.nlu.extractor | Extracted fields - name: Mohammad Amil, title: None, datetime_text: None
+2026-01-04 18:37:23 | INFO | app.nlu.extractor | Updated state.name to: Mohammad Amil
+2026-01-04 18:37:23 | INFO | app.graph | [ASK_NAME_NODE] After extraction, state.name: Mohammad Amil
+2026-01-04 18:37:23 | INFO | app.graph | [ASK_NAME_NODE] Name found, moving to ASK_DATETIME
+2026-01-04 18:37:23 | INFO | app.workflow | Graph execution completed. Result step: ASK_DATETIME
+2026-01-04 18:37:23 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:37:23 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_DATETIME
+2026-01-04 18:37:23 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Nice to meet you, Mohammad Amil. When should we schedule the meeting?
+2026-01-04 18:37:38 | INFO | faster_whisper | Processing audio with duration 00:06.120
+2026-01-04 18:37:38 | INFO | faster_whisper | VAD filter removed 00:02.216 of audio
+2026-01-04 18:37:42 | INFO | app.websocket | STT output: Day after tomorrow at 12 a.m
+2026-01-04 18:37:42 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_DATETIME
+2026-01-04 18:37:42 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Day after tomorrow at 12 a.m
+2026-01-04 18:37:42 | INFO | app.workflow | Starting with state.step: ASK_DATETIME
+2026-01-04 18:37:42 | INFO | app.workflow | state.last_user_message: Day after tomorrow at 12 a.m
+2026-01-04 18:37:42 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_DATETIME
+2026-01-04 18:37:42 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_DATETIME
+2026-01-04 18:37:42 | INFO | app.graph | [ASK_DATETIME_NODE] Executing with last_user_message: Day after tomorrow at 12 a.m
+2026-01-04 18:37:42 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Day after tomorrow at 12 a.m
+2026-01-04 18:37:43 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 18:37:43 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': 'Day after tomorrow at 12 a.m', 'meeting_title': None}
+2026-01-04 18:37:43 | INFO | app.nlu.extractor | Extracted fields - name: None, title: None, datetime_text: Day after tomorrow at 12 a.m
+2026-01-04 18:37:43 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Attempting to parse: text='Day after tomorrow at 12 a.m', now='2026-01-04T18:37:43.072815+05:30', tz='Asia/Kolkata'
+2026-01-04 18:37:43 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] Using timezone string: Asia/Kolkata
+2026-01-04 18:37:43 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser settings: {'RELATIVE_BASE': datetime.datetime(2026, 1, 4, 18, 37, 43, 72815, tzinfo=zoneinfo.ZoneInfo(key='Asia/Kolkata')), 'TIMEZONE': 'Asia/Kolkata', 'RETURN_AS_TIMEZONE_AWARE': True, 'PREFER_DATES_FROM': 'future'}
+2026-01-04 18:37:43 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] dateparser returned: 2026-01-06 00:00:00+05:30
+2026-01-04 18:37:43 | INFO | app.utils.datetime_parser | [PARSE_DATETIME] ✅ SUCCESS: 'Day after tomorrow at 12 a.m' -> '2026-01-06T00:00:00+05:30'
+2026-01-04 18:37:43 | INFO | app.nlu.extractor | Updated state.meeting_datetime to: 2026-01-06 00:00:00+05:30
+2026-01-04 18:37:43 | INFO | app.graph | [ASK_DATETIME_NODE] After extraction, meeting_datetime: 2026-01-06 00:00:00+05:30
+2026-01-04 18:37:43 | INFO | app.graph | [ASK_DATETIME_NODE] DateTime found, moving to ASK_TITLE
+2026-01-04 18:37:43 | INFO | app.workflow | Graph execution completed. Result step: ASK_TITLE
+2026-01-04 18:37:43 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:37:43 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: ASK_TITLE
+2026-01-04 18:37:43 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Got it. Would you like to add a title for the meeting? You can say no.
+2026-01-04 18:38:00 | INFO | faster_whisper | Processing audio with duration 00:05.160
+2026-01-04 18:38:01 | INFO | faster_whisper | VAD filter removed 00:00.912 of audio
+2026-01-04 18:38:25 | INFO | app.websocket | STT output: Yes, I had the title CEO meeting.
+2026-01-04 18:38:25 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: ASK_TITLE
+2026-01-04 18:38:25 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes, I had the title CEO meeting.
+2026-01-04 18:38:25 | INFO | app.workflow | Starting with state.step: ASK_TITLE
+2026-01-04 18:38:25 | INFO | app.workflow | state.last_user_message: Yes, I had the title CEO meeting.
+2026-01-04 18:38:25 | INFO | app.workflow | [ROUTE_START] Called with state.step: ASK_TITLE
+2026-01-04 18:38:25 | INFO | app.workflow | [ROUTE_START] Routing to: ASK_TITLE
+2026-01-04 18:38:25 | INFO | app.graph | [ASK_TITLE_NODE] Executing
+2026-01-04 18:38:25 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] Called with user_message: Yes, I had the title CEO meeting.
+2026-01-04 18:38:25 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 18:38:25 | INFO | app.nlu.extractor | [EXTRACT_FIELDS] LLM raw output: {'name': None, 'meeting_datetime_text': None, 'meeting_title': 'CEO meeting'}
+2026-01-04 18:38:25 | INFO | app.nlu.extractor | Extracted fields - name: None, title: CEO meeting, datetime_text: None
+2026-01-04 18:38:25 | INFO | app.nlu.extractor | Updated state.meeting_title to: CEO meeting
+2026-01-04 18:38:25 | INFO | app.graph | [ASK_TITLE_NODE] Moving to CONFIRM_DETAILS
+2026-01-04 18:38:25 | INFO | app.workflow | [NEXT_STEP_ROUTER] Called with state.step: CONFIRM_DETAILS
+2026-01-04 18:38:25 | INFO | app.graph | [CONFIRM_DETAILS_NODE] Executing
+2026-01-04 18:38:25 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:38:25 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:38:25 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:38:25 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please confirm: A meeting for Mohammad Amil on Tuesday, 06 January at 12:00 AM titled 'CEO meeting'. Should I go ahead and create it?
+2026-01-04 18:38:26 | WARNING | phonemizer | words count mismatch on 100.0% of the lines (1/1)
+2026-01-04 18:38:54 | INFO | faster_whisper | Processing audio with duration 00:06.420
+2026-01-04 18:38:55 | INFO | faster_whisper | VAD filter removed 00:01.520 of audio
+2026-01-04 18:39:01 | INFO | app.websocket | STT output: Yes, go ahead and create the event.
+2026-01-04 18:39:01 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:39:01 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes, go ahead and create the event.
+2026-01-04 18:39:01 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:01 | INFO | app.workflow | state.last_user_message: Yes, go ahead and create the event.
+2026-01-04 18:39:01 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:01 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:39:01 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes, go ahead and create the event.
+2026-01-04 18:39:01 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:39:01 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:39:01 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:39:01 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 18:39:09 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 18:39:23 | INFO | faster_whisper | Processing audio with duration 00:03.000
+2026-01-04 18:39:24 | INFO | faster_whisper | VAD filter removed 00:00.112 of audio
+2026-01-04 18:39:28 | INFO | app.websocket | STT output: Yes, create it
+2026-01-04 18:39:28 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:39:28 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes, create it
+2026-01-04 18:39:28 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:28 | INFO | app.workflow | state.last_user_message: Yes, create it
+2026-01-04 18:39:28 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:28 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:39:28 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes, create it
+2026-01-04 18:39:28 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:39:28 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:39:28 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:39:28 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 18:39:36 | INFO | faster_whisper | Processing audio with duration 00:03.360
+2026-01-04 18:39:36 | INFO | faster_whisper | VAD filter removed 00:00.176 of audio
+2026-01-04 18:39:40 | INFO | app.websocket | STT output: Yes! Yes!
+2026-01-04 18:39:40 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:39:40 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: Yes! Yes!
+2026-01-04 18:39:40 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:40 | INFO | app.workflow | state.last_user_message: Yes! Yes!
+2026-01-04 18:39:40 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:40 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:39:40 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: Yes! Yes!
+2026-01-04 18:39:40 | INFO | app.workflow | Graph execution completed. Result step: AWAIT_CONFIRMATION
+2026-01-04 18:39:40 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:39:40 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: AWAIT_CONFIRMATION
+2026-01-04 18:39:40 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Please reply with yes or no.
+2026-01-04 18:39:45 | INFO | app.websocket | [WEBSOCKET] Current state.step before run_step: AWAIT_CONFIRMATION
+2026-01-04 18:39:45 | INFO | app.websocket | [WEBSOCKET] Calling run_step with last_user_message: yes
+2026-01-04 18:39:45 | INFO | app.workflow | Starting with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:45 | INFO | app.workflow | state.last_user_message: yes
+2026-01-04 18:39:45 | INFO | app.workflow | [ROUTE_START] Called with state.step: AWAIT_CONFIRMATION
+2026-01-04 18:39:45 | INFO | app.workflow | [ROUTE_START] Routing to: AWAIT_CONFIRMATION
+2026-01-04 18:39:45 | INFO | app.graph | [AWAIT_CONFIRMATION_NODE] Executing with response: yes
+2026-01-04 18:39:45 | INFO | app.calendar.google_auth | Refreshing Google Calendar access token
+2026-01-04 18:39:46 | INFO | app.calendar.google_auth | Google access token refreshed successfully
+2026-01-04 18:39:46 | INFO | app.calendar.google_calendar | Creating calendar event: title=CEO meeting start=2026-01-06T00:00:00+05:30
+2026-01-04 18:39:46 | INFO | app.calendar.google_calendar | Calendar event created successfully (event_id=ga7vhsq8am1jett1l2f5agpql8)
+2026-01-04 18:39:46 | INFO | app.workflow | Graph execution completed. Result step: END
+2026-01-04 18:39:46 | INFO | app.websocket | [WEBSOCKET] run_step completed. Result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2026-01-04 18:39:46 | INFO | app.websocket | [WEBSOCKET] New state.step after run_step: END
+2026-01-04 18:39:46 | INFO | app.websocket | [WEBSOCKET] New state.system_message: Your meeting has been created successfully.
+2026-01-04 18:42:28 | INFO | app.websocket | WebSocket client disconnected: 2165119117024

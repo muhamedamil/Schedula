@@ -18,8 +18,8 @@ from app.nlu.validators import (
 )
 from app.utils.datetime_parser import parse_datetime
 from app.nlu.prompts import SYSTEM_PROMPT, USER_PROMPT
-from app.nlu.schemas import ExtractionFields  
-from app.utils.logger import setup_logging  
+from app.nlu.schemas import ExtractionFields
+from app.utils.logger import setup_logging
 
 
 # ------------------ Logging ------------------ #
@@ -39,6 +39,7 @@ GROQ_MAX_TOKENS = settings.GROQ_MAX_TOKENS
 GROQ_TOP_P = settings.GROQ_TOP_P
 
 # ------------------ Helpers ------------------ #
+
 
 def _safe_json_parse(text: str) -> Dict[str, Any]:
     """
@@ -67,6 +68,7 @@ def _safe_json_parse(text: str) -> Dict[str, Any]:
     logger.warning("Failed to parse JSON from LLM output: %s", text)
     return {}
 
+
 def _call_groq(user_message: str) -> Dict[str, Any]:
     """
     Blocking Groq call. Must run in executor.
@@ -77,13 +79,14 @@ def _call_groq(user_message: str) -> Dict[str, Any]:
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
         ],
-        temperature= GROQ_TEMPERATURE,
-        max_completion_tokens= GROQ_MAX_TOKENS,
-        top_p= GROQ_TOP_P,
+        temperature=GROQ_TEMPERATURE,
+        max_completion_tokens=GROQ_MAX_TOKENS,
+        top_p=GROQ_TOP_P,
     )
 
     content = completion.choices[0].message.content
     return _safe_json_parse(content)
+
 
 async def _run_with_retries(user_message: str) -> Dict[str, Any]:
     """
@@ -102,7 +105,9 @@ async def _run_with_retries(user_message: str) -> Dict[str, Any]:
             logger.exception("Groq call failed on attempt %s: %s", attempt, e)
     return {}
 
+
 # ------------------ Main Extraction ------------------ #
+
 
 async def extract_fields(
     state: ConversationState,
@@ -112,8 +117,10 @@ async def extract_fields(
     Extract structured fields from user input using LLM.
     Fully async, retry-protected, schema-validated.
     """
+    logger.info("[EXTRACT_FIELDS] Called with user_message: %s", user_message)
 
     raw_output = await _run_with_retries(user_message)
+    logger.info("[EXTRACT_FIELDS] LLM raw output: %s", raw_output)
     if not raw_output:
         return state
 
@@ -128,20 +135,26 @@ async def extract_fields(
         )
         return state
 
-
     # ---------------- Validators ---------------- #
     name = validate_name(fields.name)
     title = validate_meeting_title(fields.meeting_title)
 
+    logger.info(
+        "Extracted fields - name: %s, title: %s, datetime_text: %s",
+        name,
+        title,
+        fields.meeting_datetime_text,
+    )
+
     meeting_datetime: Optional[datetime] = None
 
     if fields.meeting_datetime_text:
-        
+
         user_tz = ZoneInfo(state.timezone or "UTC")
         now = datetime.now(user_tz)
         parsed_dt = parse_datetime(
             fields.meeting_datetime_text,
-            now = now,
+            now=now,
             tz=user_tz,
         )
 
@@ -151,7 +164,7 @@ async def extract_fields(
                 fields.meeting_datetime_text,
             )
         else:
-            validated_dt = validate_meeting_datetime(parsed_dt)
+            validated_dt = validate_meeting_datetime(parsed_dt, now=now)
 
             if validated_dt:
                 meeting_datetime = validated_dt
@@ -160,15 +173,18 @@ async def extract_fields(
                     "Parsed datetime failed validation: %s",
                     parsed_dt,
                 )
-                
+
     # ---------------- Defensive state updates ---------------- #
     if name and not state.name:
         state.name = name
+        logger.info("Updated state.name to: %s", name)
 
     if meeting_datetime and not state.meeting_datetime:
         state.meeting_datetime = meeting_datetime
+        logger.info("Updated state.meeting_datetime to: %s", meeting_datetime)
 
     if title and not state.meeting_title:
         state.meeting_title = title
+        logger.info("Updated state.meeting_title to: %s", title)
 
     return state

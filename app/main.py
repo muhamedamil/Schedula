@@ -14,33 +14,54 @@ import asyncio
 
 from app.websocket import websocket_endpoint
 from app.utils.logger import setup_logging
+from app.tts.kokoro import KokoroTTSService
+from app.stt.whisper import WhisperSTTService
 
-# ---------------- Logging ---------------- #
+# Logging  
 setup_logging()
 
 app = FastAPI(title="Voice Scheduling Assistant")
 
-# ---------------- Middleware ---------------- #
-# Allow all origins (for dev purposes)
+
+# Startup: Preload Models  
+@app.on_event("startup")
+async def startup_event():
+    """Preload heavy models on server startup to speed up first requests."""
+    import logging
+
+    logger = logging.getLogger(__name__)
+
+    logger.info("Preloading TTS model (Kokoro)...")
+    KokoroTTSService._init_pipeline()
+
+    logger.info("Preloading STT model (Whisper)...")
+    WhisperSTTService._load_model()
+
+    logger.info("All models preloaded successfully")
+
+
+# Middleware  
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ---------------- Frontend ---------------- #
+# Frontend  
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
 
 app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
+
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_frontend():
     """Serve the main frontend HTML page."""
     return (FRONTEND_DIR / "index.html").read_text(encoding="utf-8")
 
-# ---------------- WebSocket Route ---------------- #
+
+# WebSocket Route  
 @app.websocket("/ws")
 async def ws_route(websocket: WebSocket):
     """Forward WebSocket connections to websocket.py handler."""

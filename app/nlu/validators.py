@@ -2,19 +2,20 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 import re
 
+
 # ---------------- Name Validation ----------------
 def validate_name(name: Optional[str]) -> Optional[str]:
     if not name:
         return None
-    
+
     # Reject too short or too long
-    if len(name)>2 or len(name)> 50:
+    if len(name) < 2 or len(name) > 50:
         return None
-    
+
     # Only allow letters, spaces, hyphens
     if not re.fullmatch(r"[A-Za-z\s\-']+", name):
         return None
-    
+
     # Reject common non-name replies
     blacklist = {"yes", "yeah", "ok", "okay", "no", "sure"}
     if name.lower() in blacklist:
@@ -26,9 +27,7 @@ def validate_name(name: Optional[str]) -> Optional[str]:
 
 
 def validate_meeting_datetime(
-    meeting_datetime: Optional[datetime],
-    *,
-    now: datetime
+    meeting_datetime: Optional[datetime], *, now: datetime
 ) -> Optional[datetime]:
     if not meeting_datetime:
         return None
@@ -51,8 +50,8 @@ def validate_meeting_datetime(
     return meeting_datetime
 
 
-
 # ---------------- Title Validation ---------------- #
+
 
 def validate_meeting_title(title: Optional[str]) -> Optional[str]:
     if not title:
@@ -77,4 +76,3 @@ def validate_meeting_title(title: Optional[str]) -> Optional[str]:
         return None
 
     return title
-
