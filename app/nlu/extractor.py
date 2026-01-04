@@ -23,12 +23,11 @@ from app.utils.logger import setup_logging
 
 
 # ------------------ Logging ------------------ #
-logger = setup_logging(__name__)
 
+logger = logging.getLogger(__name__)
 # ------------------ Groq Client ------------------ #
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-if not GROQ_API_KEY:
-    raise RuntimeError("GROQ_API_KEY is not set")
+
+GROQ_API_KEY = settings.GROQ_API_KEY
 
 client = Groq(api_key=GROQ_API_KEY)
 

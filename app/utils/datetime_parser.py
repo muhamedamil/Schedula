@@ -8,10 +8,11 @@ Responsibilities:
 from datetime import datetime, timezone
 from typing import Optional
 import dateparser
+import logging
 
 from app.utils.logger import setup_logging  
 
-logger = setup_logging(__name__)
+logger = logging.getLogger(__name__)
 
 
 

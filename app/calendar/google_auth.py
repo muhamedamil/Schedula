@@ -14,9 +14,9 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 
 from app.config import settings
-from app.utils.logger import setup_logging  
+import logging
 
-logger = setup_logging(__name__)
+logger = logging.getLogger(__name__)
 
 
 

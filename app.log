@@ -1,0 +1,1591 @@
+2026-01-04 13:42:20 | INFO | root | Logging initialized successfully
+2026-01-04 13:42:20 | INFO | app.main | Voice Assistant FastAPI server starting up...
+2026-01-04 13:42:20 | INFO | websockets.server | server listening on 0.0.0.0:8765
+2026-01-04 13:42:20 | INFO | app.websocket | WebSocket server started on port 8765
+2026-01-04 13:42:34 | ERROR | asyncio | Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<main() running at C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py:120> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-01-04 13:42:34 | INFO | websockets.server | server closing
+2026-01-04 13:42:34 | INFO | websockets.server | server closed
+2026-01-04 13:43:20 | INFO | app.main | Voice Assistant FastAPI server shutting down...
+2026-01-04 14:07:10 | INFO | root | Logging initialized successfully
+2026-01-04 14:07:58 | INFO | root | Logging initialized successfully
+2026-01-04 14:09:11 | INFO | root | Logging initialized successfully
+2026-01-04 14:12:47 | INFO | root | Logging initialized successfully
+2026-01-04 14:12:53 | INFO | root | Logging initialized successfully
+2026-01-04 14:13:06 | INFO | root | Logging initialized successfully
+2026-01-04 14:15:04 | INFO | root | Logging initialized successfully
+2026-01-04 14:22:47 | INFO | root | Logging initialized successfully
+2026-01-04 14:27:16 | INFO | root | Logging initialized successfully
+2026-01-04 14:27:23 | INFO | root | Logging initialized successfully
+2026-01-04 14:27:34 | INFO | root | Logging initialized successfully
+2026-01-04 14:28:28 | INFO | root | Logging initialized successfully
+2026-01-04 14:31:29 | INFO | root | Logging initialized successfully
+2026-01-04 14:31:31 | INFO | app.websocket | WebSocket client connected: 2287586373312
+2026-01-04 14:31:39 | INFO | app.websocket | WebSocket client connected: 2287586139568
+2026-01-04 14:34:06 | INFO | app.websocket | WebSocket client disconnected: 2287586373312
+2026-01-04 14:34:24 | INFO | root | Logging initialized successfully
+2026-01-04 14:34:41 | INFO | root | Logging initialized successfully
+2026-01-04 14:34:42 | INFO | app.websocket | WebSocket client connected: 3203615536464
+2026-01-04 14:39:00 | INFO | root | Logging initialized successfully
+2026-01-04 14:39:06 | INFO | root | Logging initialized successfully
+2026-01-04 14:39:16 | INFO | root | Logging initialized successfully
+2026-01-04 14:39:22 | INFO | app.websocket | WebSocket client connected: 1990369341456
+2026-01-04 14:42:51 | INFO | root | Logging initialized successfully
+2026-01-04 14:42:57 | INFO | root | Logging initialized successfully
+2026-01-04 14:43:13 | INFO | root | Logging initialized successfully
+2026-01-04 14:43:16 | INFO | app.websocket | WebSocket client connected: 2107429358896
+2026-01-04 14:43:23 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 14:43:26 | ERROR | app.stt.whisper | STT transcription failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\stt\whisper.py", line 83, in _sync_transcribe
+    audio_np, sr = sf.read(io.BytesIO(audio_bytes))
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\soundfile.py", line 305, in read
+    with SoundFile(file, 'r', samplerate, channels,
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\soundfile.py", line 690, in __init__
+    self._file = self._open(file, mode_int, closefd)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\soundfile.py", line 1265, in _open
+    raise LibsndfileError(err, prefix="Error opening {0!r}: ".format(self.name))
+soundfile.LibsndfileError: Error opening <_io.BytesIO object at 0x000001EAAC8D61B0>: Format not recognised.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\stt\whisper.py", line 64, in transcribe
+    text = await loop.run_in_executor(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\stt\whisper.py", line 85, in _sync_transcribe
+    raise STTError(f"Failed to read audio: {e}") from e
+app.stt.whisper.STTError: Failed to read audio: Error opening <_io.BytesIO object at 0x000001EAAC8D61B0>: Format not recognised.
+2026-01-04 14:48:54 | INFO | root | Logging initialized successfully
+2026-01-04 14:49:23 | INFO | root | Logging initialized successfully
+2026-01-04 14:49:37 | INFO | root | Logging initialized successfully
+2026-01-04 14:49:54 | INFO | app.websocket | WebSocket client connected: 2496120936944
+2026-01-04 14:50:01 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 14:50:05 | INFO | faster_whisper | Processing audio with duration 00:04.380
+2026-01-04 14:50:06 | ERROR | app.stt.whisper | STT transcription failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\stt\whisper.py", line 100, in _sync_transcribe
+    segments, _ = model.transcribe(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\faster_whisper\transcribe.py", line 848, in transcribe
+    speech_chunks = get_speech_timestamps(audio, vad_parameters)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\faster_whisper\vad.py", line 89, in get_speech_timestamps
+    speech_probs = model(padded_audio.reshape(1, -1)).squeeze(0)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\faster_whisper\vad.py", line 311, in __call__
+    encoder_output = self.encoder_session.run(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\onnxruntime\capi\onnxruntime_inference_collection.py", line 287, in run
+    return self._sess.run(output_names, input_feed, run_options)
+onnxruntime.capi.onnxruntime_pybind11_state.InvalidArgument: [ONNXRuntimeError] : 2 : INVALID_ARGUMENT : Unexpected input data type. Actual: (tensor(double)) , expected: (tensor(float))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\stt\whisper.py", line 65, in transcribe
+    return await loop.run_in_executor(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\stt\whisper.py", line 106, in _sync_transcribe
+    raise STTError(f"Whisper transcription failed: {e}") from e
+app.stt.whisper.STTError: Whisper transcription failed: [ONNXRuntimeError] : 2 : INVALID_ARGUMENT : Unexpected input data type. Actual: (tensor(double)) , expected: (tensor(float))
+2026-01-04 14:50:06 | WARNING | app.websocket | STT failed: Whisper transcription failed: [ONNXRuntimeError] : 2 : INVALID_ARGUMENT : Unexpected input data type. Actual: (tensor(double)) , expected: (tensor(float))
+2026-01-04 14:51:23 | INFO | app.websocket | WebSocket client disconnected: 2496120936944
+2026-01-04 14:52:47 | INFO | root | Logging initialized successfully
+2026-01-04 14:52:51 | INFO | app.websocket | WebSocket client connected: 2419405243248
+2026-01-04 14:53:01 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 14:53:04 | INFO | faster_whisper | Processing audio with duration 00:03.300
+2026-01-04 14:53:04 | INFO | faster_whisper | VAD filter removed 00:00.464 of audio
+2026-01-04 14:55:07 | INFO | root | Logging initialized successfully
+2026-01-04 14:55:18 | INFO | root | Logging initialized successfully
+2026-01-04 14:55:22 | INFO | app.websocket | WebSocket client connected: 1446757856352
+2026-01-04 14:55:29 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 14:55:33 | INFO | faster_whisper | Processing audio with duration 00:03.660
+2026-01-04 14:55:33 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 14:56:50 | INFO | root | Logging initialized successfully
+2026-01-04 14:57:02 | INFO | root | Logging initialized successfully
+2026-01-04 14:57:02 | INFO | app.websocket | WebSocket client connected: 1337060027808
+2026-01-04 14:57:10 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 14:57:13 | INFO | faster_whisper | Processing audio with duration 00:03.780
+2026-01-04 14:57:13 | INFO | faster_whisper | VAD filter removed 00:00.080 of audio
+2026-01-04 14:57:15 | INFO | app.websocket | STT output: I only need 2 skills
+2026-01-04 14:57:15 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 82, in websocket_endpoint
+    state = await run_step(state)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 115, in run_step
+    return await conversation_graph.ainvoke(state)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 935, in astream
+    _panic_or_proceed(done, inflight, step)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1126, in _panic_or_proceed
+    raise exc
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 61, in ainvoke
+    ret = await self._acall_with_config(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 1678, in _acall_with_config
+    output = await coro
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\write.py", line 86, in _awrite
+    values = await asyncio.gather(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 59, in ainvoke
+    return self.invoke(input, config)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 52, in invoke
+    ret = self.func(input, merge_configs(self.config, config), **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 169, in _get_state_key
+    raise InvalidUpdateError(f"Expected dict, got {input}")
+langgraph.channels.base.InvalidUpdateError: Expected dict, got step='START' timezone='Asia/Kolkata' name=None meeting_datetime=None meeting_title=None last_user_message='I only need 2 skills' system_message=None is_confirmed=False
+2026-01-04 14:57:15 | ERROR | app.websocket | TTS generation failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 93, in websocket_endpoint
+    audio_bytes = await KokoroTTSService.synthesize(state.system_message)
+TypeError: KokoroTTSService.synthesize() missing 1 required positional argument: 'text'
+2026-01-04 15:00:57 | INFO | app.websocket | WebSocket client disconnected: 1337060027808
+2026-01-04 15:01:10 | INFO | root | Logging initialized successfully
+2026-01-04 15:01:27 | INFO | root | Logging initialized successfully
+2026-01-04 15:01:41 | INFO | app.websocket | WebSocket client connected: 2689728068336
+2026-01-04 15:01:49 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:01:52 | INFO | faster_whisper | Processing audio with duration 00:05.040
+2026-01-04 15:01:52 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 15:01:55 | INFO | app.websocket | STT output: 20 rupees I can't give bro only 10 rupees I will give
+2026-01-04 15:01:55 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 82, in websocket_endpoint
+    state = await run_step(state)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 116, in run_step
+    updated_state = await conversation_graph.ainvoke(asdict(state))
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\dataclasses.py", line 1231, in asdict
+    raise TypeError("asdict() should be called on dataclass instances")
+TypeError: asdict() should be called on dataclass instances
+2026-01-04 15:01:55 | ERROR | app.websocket | TTS generation failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 93, in websocket_endpoint
+    audio_bytes = await KokoroTTSService.synthesize(state.system_message)
+TypeError: KokoroTTSService.synthesize() missing 1 required positional argument: 'text'
+2026-01-04 15:06:21 | INFO | app.websocket | WebSocket client disconnected: 2689728068336
+2026-01-04 15:06:43 | INFO | root | Logging initialized successfully
+2026-01-04 15:06:53 | INFO | root | Logging initialized successfully
+2026-01-04 15:08:06 | INFO | root | Logging initialized successfully
+2026-01-04 15:08:06 | INFO | app.websocket | WebSocket client connected: 1966357403136
+2026-01-04 15:08:09 | INFO | app.websocket | WebSocket client connected: 1966357205616
+2026-01-04 15:11:27 | INFO | root | Logging initialized successfully
+2026-01-04 15:11:34 | INFO | root | Logging initialized successfully
+2026-01-04 15:11:46 | INFO | root | Logging initialized successfully
+2026-01-04 15:11:52 | INFO | app.websocket | WebSocket client connected: 1452153562752
+2026-01-04 15:11:59 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:12:02 | INFO | faster_whisper | Processing audio with duration 00:03.240
+2026-01-04 15:12:02 | INFO | faster_whisper | VAD filter removed 00:00.528 of audio
+2026-01-04 15:12:05 | INFO | app.websocket | STT output: I won't be here bro, yes
+2026-01-04 15:12:05 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 83, in websocket_endpoint
+    state = await run_step(state)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 116, in run_step
+    updated_state = await conversation_graph.ainvoke(asdict(state))
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\dataclasses.py", line 1231, in asdict
+    raise TypeError("asdict() should be called on dataclass instances")
+TypeError: asdict() should be called on dataclass instances
+2026-01-04 15:12:08 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 15:12:09 | ERROR | app.websocket | TTS generation failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 95, in websocket_endpoint
+    audio_b64 = base64.b64encode(audio_bytes).decode("utf-8")
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\base64.py", line 58, in b64encode
+    encoded = binascii.b2a_base64(s, newline=False)
+TypeError: a bytes-like object is required, not 'str'
+2026-01-04 15:16:38 | INFO | app.websocket | WebSocket client disconnected: 1452153562752
+2026-01-04 15:16:56 | INFO | root | Logging initialized successfully
+2026-01-04 15:17:10 | INFO | root | Logging initialized successfully
+2026-01-04 15:17:17 | INFO | root | Logging initialized successfully
+2026-01-04 15:17:29 | INFO | root | Logging initialized successfully
+2026-01-04 15:17:37 | INFO | app.websocket | WebSocket client connected: 2262840923600
+2026-01-04 15:17:43 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:17:47 | INFO | faster_whisper | Processing audio with duration 00:04.500
+2026-01-04 15:17:47 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 15:17:50 | INFO | app.websocket | STT output: Ryan, say something, Ryan. Hello, Ramessa?
+2026-01-04 15:17:50 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 83, in websocket_endpoint
+    state = await run_step(state)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 116, in run_step
+    updated_state = await conversation_graph.ainvoke(asdict(state))
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\dataclasses.py", line 1231, in asdict
+    raise TypeError("asdict() should be called on dataclass instances")
+TypeError: asdict() should be called on dataclass instances
+2026-01-04 15:17:54 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 15:20:24 | INFO | app.websocket | WebSocket client disconnected: 2262840923600
+2026-01-04 15:20:43 | INFO | root | Logging initialized successfully
+2026-01-04 15:22:39 | INFO | root | Logging initialized successfully
+2026-01-04 15:22:47 | INFO | root | Logging initialized successfully
+2026-01-04 15:25:48 | INFO | root | Logging initialized successfully
+2026-01-04 15:25:54 | INFO | root | Logging initialized successfully
+2026-01-04 15:26:06 | INFO | root | Logging initialized successfully
+2026-01-04 15:26:41 | INFO | app.websocket | WebSocket client connected: 2513961891248
+2026-01-04 15:26:49 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:26:53 | INFO | faster_whisper | Processing audio with duration 00:04.380
+2026-01-04 15:26:54 | INFO | faster_whisper | VAD filter removed 00:02.748 of audio
+2026-01-04 15:26:57 | INFO | app.websocket | STT output: Hi, hello
+2026-01-04 15:26:57 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 80, in websocket_endpoint
+    state_dict = await run_step(state)
+UnboundLocalError: local variable 'state' referenced before assignment
+2026-01-04 15:33:09 | INFO | root | Logging initialized successfully
+2026-01-04 15:33:20 | INFO | root | Logging initialized successfully
+2026-01-04 15:33:25 | INFO | app.websocket | WebSocket client connected: 2149577463200
+2026-01-04 15:33:33 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:33:36 | INFO | faster_whisper | Processing audio with duration 00:03.600
+2026-01-04 15:33:36 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 15:33:40 | INFO | app.websocket | STT output: Hey, Rihad. How are you, Rihad?
+2026-01-04 15:33:40 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 82, in websocket_endpoint
+    updated_state_dict = await run_step(state)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 115, in run_step
+    updated_state = await conversation_graph.ainvoke(state.dict())
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 935, in astream
+    _panic_or_proceed(done, inflight, step)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1126, in _panic_or_proceed
+    raise exc
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 2536, in ainvoke
+    input = await step.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 61, in ainvoke
+    ret = await self._acall_with_config(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 1678, in _acall_with_config
+    output = await coro
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\write.py", line 86, in _awrite
+    values = await asyncio.gather(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 59, in ainvoke
+    return self.invoke(input, config)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 52, in invoke
+    ret = self.func(input, merge_configs(self.config, config), **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 169, in _get_state_key
+    raise InvalidUpdateError(f"Expected dict, got {input}")
+langgraph.channels.base.InvalidUpdateError: Expected dict, got step='START' timezone='Asia/Kolkata' name=None meeting_datetime=None meeting_title=None last_user_message='Hey, Rihad. How are you, Rihad?' system_message="Hi! I can help you schedule a meeting. Let's start with your name." is_confirmed=False
+2026-01-04 15:33:48 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 15:33:50 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 15:33:55 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 15:37:13 | INFO | app.websocket | WebSocket client disconnected: 2149577463200
+2026-01-04 15:37:29 | INFO | root | Logging initialized successfully
+2026-01-04 15:37:39 | INFO | app.websocket | WebSocket client connected: 1817801846416
+2026-01-04 15:37:49 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:37:54 | INFO | faster_whisper | Processing audio with duration 00:03.000
+2026-01-04 15:37:54 | INFO | faster_whisper | VAD filter removed 00:00.016 of audio
+2026-01-04 15:37:56 | INFO | app.websocket | STT output: Another mess up
+2026-01-04 15:37:57 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 82, in websocket_endpoint
+    updated_state_dict = await run_step(state)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 120, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 935, in astream
+    _panic_or_proceed(done, inflight, step)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1126, in _panic_or_proceed
+    raise exc
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 2536, in ainvoke
+    input = await step.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 61, in ainvoke
+    ret = await self._acall_with_config(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 1678, in _acall_with_config
+    output = await coro
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\write.py", line 86, in _awrite
+    values = await asyncio.gather(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 59, in ainvoke
+    return self.invoke(input, config)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 52, in invoke
+    ret = self.func(input, merge_configs(self.config, config), **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 169, in _get_state_key
+    raise InvalidUpdateError(f"Expected dict, got {input}")
+langgraph.channels.base.InvalidUpdateError: Expected dict, got step='START' timezone='Asia/Kolkata' name=None meeting_datetime=None meeting_title=None last_user_message='Another mess up' system_message="Hi! I can help you schedule a meeting. Let's start with your name." is_confirmed=False
+2026-01-04 15:38:05 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 15:38:05 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 15:38:09 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 15:45:16 | INFO | app.websocket | WebSocket client disconnected: 1817801846416
+2026-01-04 15:45:34 | INFO | root | Logging initialized successfully
+2026-01-04 15:45:52 | INFO | app.websocket | WebSocket client connected: 2205227207072
+2026-01-04 15:45:57 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:46:00 | INFO | faster_whisper | Processing audio with duration 00:03.720
+2026-01-04 15:46:00 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 15:46:03 | INFO | app.websocket | STT output: Hello? Hello, Moidu!
+2026-01-04 15:46:03 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 121, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 935, in astream
+    _panic_or_proceed(done, inflight, step)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1126, in _panic_or_proceed
+    raise exc
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 2536, in ainvoke
+    input = await step.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 61, in ainvoke
+    ret = await self._acall_with_config(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 1678, in _acall_with_config
+    output = await coro
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\write.py", line 86, in _awrite
+    values = await asyncio.gather(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 59, in ainvoke
+    return self.invoke(input, config)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 52, in invoke
+    ret = self.func(input, merge_configs(self.config, config), **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 169, in _get_state_key
+    raise InvalidUpdateError(f"Expected dict, got {input}")
+langgraph.channels.base.InvalidUpdateError: Expected dict, got step='START' timezone='Asia/Kolkata' name=None meeting_datetime=None meeting_title=None last_user_message='Hello? Hello, Moidu!' system_message="Hi! I can help you schedule a meeting. Let's start with your name." is_confirmed=False
+2026-01-04 15:48:54 | INFO | app.websocket | WebSocket client disconnected: 2205227207072
+2026-01-04 15:49:10 | INFO | root | Logging initialized successfully
+2026-01-04 15:49:16 | INFO | root | Logging initialized successfully
+2026-01-04 15:49:27 | INFO | root | Logging initialized successfully
+2026-01-04 15:50:20 | INFO | app.websocket | WebSocket client connected: 1312965152288
+2026-01-04 15:50:29 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 15:50:32 | INFO | faster_whisper | Processing audio with duration 00:05.580
+2026-01-04 15:50:32 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 15:50:34 | INFO | app.websocket | STT output: Yo, yo, what's up guys? What's up?
+2026-01-04 15:50:34 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 131, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 862, in astream
+    next_checkpoint, next_tasks = _prepare_next_tasks(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1276, in _prepare_next_tasks
+    val = proc.mapper(val)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 308, in _coerce_state
+    return schema(**input)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\pydantic\main.py", line 171, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ConversationState
+meeting_datetime
+  Input should be a valid datetime or date, input is too short [type=datetime_from_date_parsing, input_value='', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.6/v/datetime_from_date_parsing
+2026-01-04 15:50:35 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 86, in websocket_endpoint
+    state = ConversationState(**updated_state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\pydantic\main.py", line 171, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ConversationState
+meeting_datetime
+  Input should be a valid datetime or date, input is too short [type=datetime_from_date_parsing, input_value='', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.6/v/datetime_from_date_parsing
+2026-01-04 15:50:38 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 15:53:06 | INFO | app.websocket | WebSocket client disconnected: 1312965152288
+2026-01-04 15:53:25 | INFO | root | Logging initialized successfully
+2026-01-04 16:00:56 | INFO | root | Logging initialized successfully
+2026-01-04 16:00:57 | INFO | app.websocket | WebSocket client connected: 2424098516480
+2026-01-04 16:01:05 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:01:07 | INFO | faster_whisper | Processing audio with duration 00:03.420
+2026-01-04 16:01:08 | INFO | faster_whisper | VAD filter removed 00:00.144 of audio
+2026-01-04 16:01:10 | INFO | app.websocket | STT output: Do you guys need any snacks? No, I don't need it
+2026-01-04 16:01:10 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 131, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 862, in astream
+    next_checkpoint, next_tasks = _prepare_next_tasks(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1276, in _prepare_next_tasks
+    val = proc.mapper(val)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 308, in _coerce_state
+    return schema(**input)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\pydantic\main.py", line 171, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ConversationState
+meeting_datetime
+  Input should be a valid datetime or date, input is too short [type=datetime_from_date_parsing, input_value='', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.6/v/datetime_from_date_parsing
+2026-01-04 16:01:10 | ERROR | app.websocket | LangGraph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\websocket.py", line 86, in websocket_endpoint
+    state = ConversationState(**updated_state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\pydantic\main.py", line 171, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ConversationState
+meeting_datetime
+  Input should be a valid datetime or date, input is too short [type=datetime_from_date_parsing, input_value='', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.6/v/datetime_from_date_parsing
+2026-01-04 16:01:16 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 16:01:18 | WARNING | app.tts.kokoro | TTS timeout (attempt 1)
+2026-01-04 16:04:01 | INFO | app.websocket | WebSocket client disconnected: 2424098516480
+2026-01-04 16:04:14 | INFO | root | Logging initialized successfully
+2026-01-04 16:04:28 | INFO | app.websocket | WebSocket client connected: 1939055570672
+2026-01-04 16:04:34 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:04:37 | INFO | faster_whisper | Processing audio with duration 00:03.780
+2026-01-04 16:04:37 | INFO | faster_whisper | VAD filter removed 00:00.048 of audio
+2026-01-04 16:04:40 | INFO | app.websocket | STT output: Hey, how are you?
+2026-01-04 16:04:40 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 129, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 935, in astream
+    _panic_or_proceed(done, inflight, step)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1126, in _panic_or_proceed
+    raise exc
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 2536, in ainvoke
+    input = await step.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 61, in ainvoke
+    ret = await self._acall_with_config(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 1678, in _acall_with_config
+    output = await coro
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\write.py", line 86, in _awrite
+    values = await asyncio.gather(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 59, in ainvoke
+    return self.invoke(input, config)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 52, in invoke
+    ret = self.func(input, merge_configs(self.config, config), **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 169, in _get_state_key
+    raise InvalidUpdateError(f"Expected dict, got {input}")
+langgraph.channels.base.InvalidUpdateError: Expected dict, got step='START' timezone='Asia/Kolkata' name=None meeting_datetime=None meeting_title=None last_user_message='Hey, how are you?' system_message="Hi! I can help you schedule a meeting. Let's start with your name." is_confirmed=False
+2026-01-04 16:05:47 | INFO | app.websocket | WebSocket client disconnected: 1939055570672
+2026-01-04 16:05:57 | INFO | root | Logging initialized successfully
+2026-01-04 16:06:01 | INFO | app.websocket | WebSocket client connected: 2241059878704
+2026-01-04 16:06:07 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:06:11 | INFO | faster_whisper | Processing audio with duration 00:04.140
+2026-01-04 16:06:11 | INFO | faster_whisper | VAD filter removed 00:02.636 of audio
+2026-01-04 16:06:13 | INFO | app.websocket | STT output: Hello?
+2026-01-04 16:06:13 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 126, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 935, in astream
+    _panic_or_proceed(done, inflight, step)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1126, in _panic_or_proceed
+    raise exc
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 2536, in ainvoke
+    input = await step.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 61, in ainvoke
+    ret = await self._acall_with_config(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langchain_core\runnables\base.py", line 1678, in _acall_with_config
+    output = await coro
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\write.py", line 86, in _awrite
+    values = await asyncio.gather(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 59, in ainvoke
+    return self.invoke(input, config)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\utils.py", line 52, in invoke
+    ret = self.func(input, merge_configs(self.config, config), **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\graph\state.py", line 169, in _get_state_key
+    raise InvalidUpdateError(f"Expected dict, got {input}")
+langgraph.channels.base.InvalidUpdateError: Expected dict, got step='START' timezone='Asia/Kolkata' name=None meeting_datetime=None meeting_title=None last_user_message='Hello?' system_message="Hi! I can help you schedule a meeting. Let's start with your name." is_confirmed=False
+2026-01-04 16:08:58 | INFO | app.websocket | WebSocket client disconnected: 2241059878704
+2026-01-04 16:09:11 | INFO | root | Logging initialized successfully
+2026-01-04 16:09:15 | INFO | app.websocket | WebSocket client connected: 2482693206608
+2026-01-04 16:09:21 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:09:24 | INFO | faster_whisper | Processing audio with duration 00:04.140
+2026-01-04 16:09:24 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 16:09:26 | INFO | app.websocket | STT output: 5G, 5G, 5G, 5G, 5G
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:26 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:09:27 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 126, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 873, in astream
+    raise GraphRecursionError(
+langgraph.pregel.GraphRecursionError: Recursion limit of 25 reachedwithout hitting a stop condition. You can increase the limitby setting the `recursion_limit` config key.
+2026-01-04 16:13:04 | INFO | root | Logging initialized successfully
+2026-01-04 16:13:15 | INFO | app.websocket | WebSocket client connected: 1655533465472
+2026-01-04 16:13:20 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:13:27 | INFO | faster_whisper | Processing audio with duration 00:02.580
+2026-01-04 16:13:27 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 16:13:35 | INFO | app.websocket | STT output: Munch kele jiya chale
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 1: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | app.nlu.extractor | Groq call failed on attempt 2: '\n  "name"'
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 95, in _run_with_retries
+    return await asyncio.wait_for(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\asyncio\tasks.py", line 447, in wait_for
+    return fut.result()
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\nlu\extractor.py", line 78, in _call_groq
+    {"role": "user", "content": USER_PROMPT.format(user_message=user_message)},
+KeyError: '\n  "name"'
+2026-01-04 16:13:35 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 126, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 873, in astream
+    raise GraphRecursionError(
+langgraph.pregel.GraphRecursionError: Recursion limit of 25 reachedwithout hitting a stop condition. You can increase the limitby setting the `recursion_limit` config key.
+2026-01-04 16:17:07 | INFO | app.websocket | WebSocket client disconnected: 1655533465472
+2026-01-04 16:17:20 | INFO | root | Logging initialized successfully
+2026-01-04 16:17:27 | INFO | root | Logging initialized successfully
+2026-01-04 16:17:34 | INFO | root | Logging initialized successfully
+2026-01-04 16:17:50 | INFO | root | Logging initialized successfully
+2026-01-04 16:17:58 | INFO | app.websocket | WebSocket client connected: 2410644762160
+2026-01-04 16:18:04 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:18:10 | INFO | faster_whisper | Processing audio with duration 00:04.020
+2026-01-04 16:18:10 | INFO | faster_whisper | VAD filter removed 00:00.048 of audio
+2026-01-04 16:18:29 | INFO | app.websocket | STT output: For me, I don't know what I'm saying, but no!
+2026-01-04 16:18:29 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:29 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:29 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:29 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:30 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:31 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:31 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:31 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:31 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:31 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:31 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:32 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:32 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:32 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:32 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:32 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:32 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:33 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:33 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-04 16:18:33 | ERROR | root | Error in run_step, returning current state
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 126, in run_step
+    updated_state = await conversation_graph.ainvoke(state_dict)
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 873, in astream
+    raise GraphRecursionError(
+langgraph.pregel.GraphRecursionError: Recursion limit of 25 reachedwithout hitting a stop condition. You can increase the limitby setting the `recursion_limit` config key.
+2026-01-04 16:29:50 | INFO | app.websocket | WebSocket client disconnected: 2410644762160
+2026-01-04 16:39:05 | INFO | root | Logging initialized successfully
+2026-01-04 16:39:11 | INFO | app.websocket | WebSocket client connected: 1849705807824
+2026-01-04 16:39:16 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:39:19 | INFO | faster_whisper | Processing audio with duration 00:03.000
+2026-01-04 16:39:19 | INFO | faster_whisper | VAD filter removed 00:00.720 of audio
+2026-01-04 16:39:21 | INFO | app.websocket | STT output: Hello
+2026-01-04 16:39:21 | ERROR | app.workflow | Graph execution failed
+Traceback (most recent call last):
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\app\workflow.py", line 90, in run_step
+    result = await conversation_graph.ainvoke(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 1093, in ainvoke
+    async for chunk in self.astream(
+  File "C:\Users\amil\OneDrive\Documents\Voice scheduling agent\myvenv\lib\site-packages\langgraph\pregel\__init__.py", line 873, in astream
+    raise GraphRecursionError(
+langgraph.pregel.GraphRecursionError: Recursion limit of 2 reachedwithout hitting a stop condition. You can increase the limitby setting the `recursion_limit` config key.
+2026-01-04 16:41:30 | INFO | app.websocket | WebSocket client disconnected: 1849705807824
+2026-01-04 16:41:45 | INFO | root | Logging initialized successfully
+2026-01-04 16:41:50 | INFO | app.websocket | WebSocket client connected: 1736662769792
+2026-01-04 16:41:54 | INFO | app.stt.whisper | Loading Whisper model: small
+2026-01-04 16:41:56 | INFO | faster_whisper | Processing audio with duration 00:02.040
+2026-01-04 16:41:57 | INFO | faster_whisper | VAD filter removed 00:00.000 of audio
+2026-01-04 16:41:59 | INFO | app.websocket | STT output: Hello hello hello
+2026-01-04 16:42:02 | INFO | app.tts.kokoro | Kokoro TTS pipeline loaded with voice 'af_heart'
+2026-01-04 16:42:17 | INFO | faster_whisper | Processing audio with duration 00:03.180
+2026-01-04 16:42:17 | INFO | faster_whisper | VAD filter removed 00:00.176 of audio
+2026-01-04 16:42:20 | INFO | app.websocket | STT output: My name is Mohammad Amin.
+2026-01-04 16:42:38 | INFO | faster_whisper | Processing audio with duration 00:06.060
+2026-01-04 16:42:38 | INFO | faster_whisper | VAD filter removed 00:03.884 of audio
+2026-01-04 16:42:41 | INFO | app.websocket | STT output: My name is Mohamed Amil.
+2026-01-04 16:42:52 | INFO | app.websocket | WebSocket client disconnected: 1736662769792

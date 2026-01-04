@@ -1,6 +1,8 @@
 # Core API framework
 fastapi==0.110.0
 uvicorn[standard]==0.29.0
+requests
+
 
 # Data validation & settings
 pydantic==2.6.4
@@ -18,6 +20,7 @@ groq
 faster-whisper==1.1.1
 kokoro==0.9.4
 soundfile==0.13.1
+pydub
 
 # Date & time parsing (critical later)
 python-dateutil==2.9.0.post0

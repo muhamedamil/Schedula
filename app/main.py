@@ -1,53 +1,47 @@
 """
 main.py
 
-Entry point for the Voice Assistant application.
-Serves frontend and runs existing WebSocket server.
+FastAPI entry point for the Voice Assistant.
+Serves frontend, handles WebSocket, and applies middleware.
 """
 
-import asyncio
-from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+import asyncio
 
-from app.websocket import main as websocket_main  
-from app.utils.logger import setup_logging  
+from app.websocket import websocket_endpoint
+from app.utils.logger import setup_logging
 
+# ---------------- Logging ---------------- #
+setup_logging()
 
-logger = setup_logging(__name__)
+app = FastAPI(title="Voice Scheduling Assistant")
 
-# ---------------- FastAPI Setup ---------------- #
-app = FastAPI(title="Voice Assistant")
-
-# CORS middleware
+# ---------------- Middleware ---------------- #
+# Allow all origins (for dev purposes)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ---------------- Serve Frontend ---------------- #
-FRONTEND_PATH = Path(__file__).parent.parent / "frontend" / "index.html"
+# ---------------- Frontend ---------------- #
+BASE_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = BASE_DIR / "frontend"
 
-@app.get("/")
-async def serve_index():
-    return FileResponse(FRONTEND_PATH)
+app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
-# ---------------- Startup & Shutdown Events ---------------- #
-@app.on_event("startup")
-async def startup_event():
-    logger.info("Voice Assistant FastAPI server starting up...")
-    # Start WebSocket server in background
-    asyncio.create_task(websocket_main())
+@app.get("/", response_class=HTMLResponse)
+async def serve_frontend():
+    """Serve the main frontend HTML page."""
+    return (FRONTEND_DIR / "index.html").read_text(encoding="utf-8")
 
-@app.on_event("shutdown")
-async def shutdown_event():
-    logger.info("Voice Assistant FastAPI server shutting down...")
-
-# ---------------- Run via Uvicorn ---------------- #
-if __name__ == "__main__":
-    import uvicorn
-    logger.info("Starting Voice Assistant server on http://localhost:8000")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# ---------------- WebSocket Route ---------------- #
+@app.websocket("/ws")
+async def ws_route(websocket: WebSocket):
+    """Forward WebSocket connections to websocket.py handler."""
+    await websocket_endpoint(websocket)

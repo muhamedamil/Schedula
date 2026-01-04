@@ -1,7 +1,4 @@
-"""
-Kokoro Text-to-Speech Service
-"""
-
+import logging
 import asyncio
 import base64
 from io import BytesIO
@@ -12,43 +9,52 @@ import soundfile as sf
 from kokoro import KPipeline
 
 from app.config import settings
-from app.utils.logger import setup_logging  
 
-logger = setup_logging(__name__)
+logger = logging.getLogger(__name__)
+
 
 class TTSError(Exception):
-    """
-    Base exception for TTS-related failures.
-    Raised when speech synthesis fails or times out.
-    """
+    """Base exception for TTS-related failures."""
     pass
 
 
 class KokoroTTSService:
     """
-    This service:
+    Class-level TTS service:
     - Converts text → speech
     - Returns base64 WAV audio
     - Does NOT perform playback
     """
 
-    def __init__(self):
-        self.voice = settings.TTS_VOICE
-        self.sample_rate = 24000
+    _pipeline: Optional[KPipeline] = None
+    _voice: Optional[str] = None
+    _sample_rate: int = 24000
 
-        # Kokoro pipeline is heavy → load once
-        self._pipeline = KPipeline(lang_code="a")
+    # ---------------- Initialization ---------------- #
+    @classmethod
+    def _init_pipeline(cls):
+        """Lazy-load the heavy Kokoro pipeline once."""
+        if cls._pipeline is None:
+            cls._voice = settings.TTS_VOICE
+            cls._pipeline = KPipeline(lang_code="a")
+            logger.info("Kokoro TTS pipeline loaded with voice '%s'", cls._voice)
+        return cls._pipeline
 
     # ---------------- Internal blocking call ---------------- #
-
-    def _synthesize_blocking(self, text: str) -> bytes:
+    @classmethod
+    def _synthesize_blocking(cls, text: str) -> bytes:
         """
         Blocking Kokoro synthesis.
         Must run in executor.
         """
-        audio_chunks = []
+        if not text.strip():
+            raise TTSError("Empty text for TTS")
 
-        generator = self._pipeline(text, voice=self.voice)
+        cls._init_pipeline()
+
+        audio_chunks = []
+        generator = cls._pipeline(text, voice=cls._voice)
+
         for _, _, chunk in generator:
             if chunk is not None:
                 audio_chunks.append(chunk)
@@ -59,19 +65,19 @@ class KokoroTTSService:
         full_audio = np.concatenate(audio_chunks)
 
         with BytesIO() as buf:
-            sf.write(buf, full_audio, self.sample_rate, format="WAV")
+            sf.write(buf, full_audio, cls._sample_rate, format="WAV")
             return buf.getvalue()
 
     # ---------------- Public async API ---------------- #
-
+    @classmethod
     async def synthesize(
-        self,
+        cls,
         text: str,
         timeout: float = 8.0,
         retries: int = 2,
     ) -> str:
         """
-        Convert text to base64-encoded WAV audio.
+        Convert text to base64-encoded WAV audio asynchronously.
 
         Returns:
             base64 string
@@ -85,11 +91,10 @@ class KokoroTTSService:
             try:
                 wav_bytes = await asyncio.wait_for(
                     loop.run_in_executor(
-                        None, self._synthesize_blocking, text
+                        None, cls._synthesize_blocking, text
                     ),
                     timeout=timeout,
                 )
-
                 return base64.b64encode(wav_bytes).decode("utf-8")
 
             except asyncio.TimeoutError:

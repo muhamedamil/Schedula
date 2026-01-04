@@ -1,124 +1,117 @@
 """
 websocket.py
 
-WebSocket server for Voice Assistant.
+FastAPI WebSocket handler for the Voice Assistant.
 
 Responsibilities:
-- Accept user audio/text input from client
-- Convert audio to text (STT)
-- Run LangGraph workflow for conversation state
-- Convert system messages to speech (TTS)
-- Send back text + audio to client
+- Receive audio/text from client
+- Perform STT if audio
+- Run LangGraph workflow
+- Convert system message to TTS
+- Send text + audio back to client
+
+Error handling:
+- STT/TTS/Workflow errors are caught and returned to frontend without crashing
 """
 
-import asyncio
 import base64
 import json
-from websockets import serve, WebSocketServerProtocol
-from typing import Dict
+import logging
+from typing import Dict, Optional
+
+from fastapi import WebSocket, WebSocketDisconnect
 
 from app.state import ConversationState
 from app.workflow import run_step
-from app.tts.kokoro import KokoroTTSService
-from app.stt.whisper import WhisperSTTService
-from app.utils.logger import setup_logging  
+from app.stt.whisper import WhisperSTTService, STTError
+from app.tts.kokoro import KokoroTTSService, TTSError
 
+logger = logging.getLogger(__name__)
 
-logger = setup_logging(__name__)
-
-
-# ---------------- In-Memory State Store ---------------- #
-# For this assignment, simple dict keyed by websocket object
+# In-memory conversation store
 user_states: Dict[str, ConversationState] = {}
 
-# ---------------- WebSocket Handler ---------------- #
-async def handle_client(websocket: WebSocketServerProtocol):
-    user_id = str(websocket.remote_address)
-    logger.info("Client connected: %s", user_id)
 
-    # Initialize user state
-    if user_id not in user_states:
-        user_states[user_id] = ConversationState()
+async def websocket_endpoint(websocket: WebSocket):
+    """Main WebSocket endpoint for voice interaction."""
+    await websocket.accept()
+    user_id = str(id(websocket))
+    logger.info("WebSocket client connected: %s", user_id)
+
+    # Initialize conversation state
+    state = ConversationState()
+    user_states[user_id] = state
 
     try:
-        async for message in websocket:
-            """
-            Expecting message as JSON:
-            {
-                "type": "text" | "audio",
-                "payload": "..."  # text or base64 audio
-            }
-            """
-            try:
-                data = json.loads(message)
-                msg_type = data.get("type")
-                payload = data.get("payload")
-            except Exception as e:
-                logger.warning("Invalid message format: %s", e)
-                continue
+        while True:
+            message = await websocket.receive_text()
+            data = json.loads(message)
 
-            # ---------------- Speech-to-Text ---------------- #
-            user_text = ""
+            msg_type = data.get("type")
+            payload = data.get("payload")
+            user_text: Optional[str] = None
+
+            # ---------------- STT ---------------- #
             if msg_type == "audio":
                 try:
                     audio_bytes = base64.b64decode(payload)
                     user_text = await WhisperSTTService.transcribe(audio_bytes)
-                    logger.info("STT recognized: %s", user_text)
-                except Exception as e:
-                    logger.exception("STT failed: %s", e)
-                    await websocket.send(
-                        json.dumps({"error": "STT failed"})
-                    )
+                    logger.info("STT output: %s", user_text)
+                except STTError as e:
+                    logger.warning("STT failed: %s", e)
+                    await websocket.send_json({
+                        "error": f"Audio transcription failed: {str(e)}"
+                    })
                     continue
+                except Exception as e:
+                    logger.exception("Unexpected error during STT")
+                    await websocket.send_json({"error": "Unexpected server error during transcription"})
+                    continue
+
             elif msg_type == "text":
                 user_text = payload
+
             else:
-                await websocket.send(
-                    json.dumps({"error": "Unknown message type"})
-                )
+                await websocket.send_json({"error": "Invalid message type"})
                 continue
 
-            # ---------------- Update Conversation State ---------------- #
-            state = user_states[user_id]
+            # ---------------- LangGraph Workflow ---------------- #
             state.last_user_message = user_text
+            updated_state_dict: Optional[dict] = None
 
-            # Run workflow node
             try:
-                state = await run_step(state)
-            except Exception as e:
-                logger.exception("Workflow error: %s", e)
-                state.system_message = "Oops! Something went wrong."
-                state.step = "START"
+                # Ensure we pass a plain dict to LangGraph
+                updated_state_dict = await run_step(state)
+                if isinstance(updated_state_dict, dict):
+                    state = ConversationState(**updated_state_dict)
+                else:
+                    # Fallback if workflow returns a model
+                    state = updated_state_dict
 
+            except Exception:
+                logger.exception("LangGraph execution failed")
+                # Always fallback safely
+                state.system_message = "Sorry, something went wrong."
+
+            # Save updated state
             user_states[user_id] = state
 
-            # ---------------- Text-to-Speech ---------------- #
-            audio_b64 = None
+            # ---------------- TTS ---------------- #
+            audio_b64: Optional[str] = None
             if state.system_message:
                 try:
-                    audio_bytes = await KokoroTTSService.synthesize(state.system_message)
-                    audio_b64 = base64.b64encode(audio_bytes).decode("utf-8")
-                except Exception as e:
-                    logger.exception("TTS failed: %s", e)
+                    audio_b64 = await KokoroTTSService.synthesize(state.system_message)
+                except TTSError as e:
+                    logger.error("TTS generation failed: %s", e)
+                    audio_b64 = None
 
-            # ---------------- Send Response ---------------- #
-            response = {
-                "text": state.system_message,
+            # ---------------- Response ---------------- #
+            await websocket.send_json({
+                "text": state.system_message or "",
                 "audio_b64": audio_b64,
                 "step": state.step,
-            }
-            await websocket.send(json.dumps(response))
+            })
 
-    except Exception as e:
-        logger.exception("WebSocket error for %s: %s", user_id, e)
-    finally:
-        logger.info("Client disconnected: %s", user_id)
-        if user_id in user_states:
-            del user_states[user_id]
-
-# ---------------- Server Entry Point ---------------- #
-async def main():
-    async with serve(handle_client, "0.0.0.0", 8765):
-        logger.info("WebSocket server started on port 8765")
-        await asyncio.Future()  # run forever
-
+    except WebSocketDisconnect:
+        logger.info("WebSocket client disconnected: %s", user_id)
+        user_states.pop(user_id, None)

@@ -1,87 +1,100 @@
-"""
-workflow.py
-
-Defines and initializes the conversation StateGraph for the Voice Scheduling Agent.
-"""
-
+# workflow.py
+import logging
 from langgraph.graph import StateGraph, END
+
 from app.graph import (
     start_node,
     ask_name_node,
     ask_datetime_node,
     ask_title_node,
     confirm_details_node,
-    handle_confirmation_node,
+    await_confirmation_node,
 )
 from app.state import ConversationState
-from app.utils.logger import setup_logging  
 
-logger = setup_logging(__name__)
+logger = logging.getLogger(__name__)
 
-# ---------------- Node Mapping ---------------- #
-# Maps state.step strings to corresponding async node functions
-NODE_MAPPING = {
-    "START": start_node,
-    "ASK_NAME": ask_name_node,
-    "ASK_DATETIME": ask_datetime_node,
-    "ASK_TITLE": ask_title_node,
-    "CONFIRM_DETAILS": confirm_details_node,
-    "AWAIT_CONFIRMATION": handle_confirmation_node,
-}
 
-# ---------------- StateGraph Initialization ---------------- #
-# This graph handles the full conversation workflow
-conversation_graph: StateGraph[ConversationState] = StateGraph(
-    initial_state="START",       # starting node
-    nodes=NODE_MAPPING,          # node mapping
-    end_states=[END],            # nodes considered as end of conversation
-    state_type=ConversationState # type of state object
-)
+# ---------------------------------------------------------------------------
+# Router
+# ---------------------------------------------------------------------------
 
-# ---------------- Utility Functions ---------------- #
-
-def get_node_for_step(step: str):
+def next_step_router(state: ConversationState) -> str:
     """
-    Retrieve the async node function for a given step.
+    Determines the NEXT node to execute.
+    This router is executed AFTER a node runs.
     """
-    node_func = NODE_MAPPING.get(step)
-    if not node_func:
-        logger.warning("No node found for step: %s", step)
-        return None
-    return node_func
+    return state.step
 
-async def run_step(state: ConversationState):
+
+# ---------------------------------------------------------------------------
+# Graph Builder
+# ---------------------------------------------------------------------------
+
+def build_graph() -> StateGraph:
+    graph = StateGraph(ConversationState)
+
+    # Nodes
+    graph.add_node("START", start_node)
+    graph.add_node("ASK_NAME", ask_name_node)
+    graph.add_node("ASK_DATETIME", ask_datetime_node)
+    graph.add_node("ASK_TITLE", ask_title_node)
+    graph.add_node("CONFIRM_DETAILS", confirm_details_node)
+    graph.add_node("AWAIT_CONFIRMATION", await_confirmation_node)
+
+    # Entry
+    graph.set_entry_point("START")
+
+    # START always executes once, then exits
+    graph.add_edge("START", END)
+
+    # Routing AFTER each node
+    for node in [
+        "ASK_NAME",
+        "ASK_DATETIME",
+        "ASK_TITLE",
+        "CONFIRM_DETAILS",
+        "AWAIT_CONFIRMATION",
+    ]:
+        graph.add_conditional_edges(
+            node,
+            next_step_router,
+            {
+                "ASK_NAME": "ASK_NAME",
+                "ASK_DATETIME": "ASK_DATETIME",
+                "ASK_TITLE": "ASK_TITLE",
+                "CONFIRM_DETAILS": "CONFIRM_DETAILS",
+                "AWAIT_CONFIRMATION": "AWAIT_CONFIRMATION",
+                None: END,
+                END: END,
+            },
+        )
+
+    return graph.compile()
+
+
+# ---------------------------------------------------------------------------
+# Compiled Graph
+# ---------------------------------------------------------------------------
+
+conversation_graph = build_graph()
+
+
+# ---------------------------------------------------------------------------
+# Public Runner
+# ---------------------------------------------------------------------------
+
+async def run_step(state: ConversationState) -> dict:
     """
-    Run the current step for a given conversation state.
-    This is a convenience wrapper for LangGraph's run().
+    Executes exactly ONE node per websocket turn.
     """
-    current_step = state.step or "START"
-    node_func = get_node_for_step(current_step)
-
-    if not node_func:
-        logger.error("Invalid step: %s, defaulting to START", current_step)
-        node_func = start_node
-
     try:
-        new_state = await conversation_graph.run(state)
-        return new_state
-    except Exception as e:
-        logger.exception("Error running state graph at step %s: %s", current_step, e)
-        state.system_message = "Oops! Something went wrong. Let's start over."
-        state.step = "START"
-        return state
+        result = await conversation_graph.ainvoke(
+            state.dict(),
+            config={"recursion_limit": 3},
+        )
+        return result
 
-# ---------------- Optional: Debug / Testing ---------------- #
-if __name__ == "__main__":
-    import asyncio
-    from app.state import ConversationState
-
-    async def test_graph():
-        state = ConversationState()
-        while state.step != END:
-            state = await run_step(state)
-            print(f"[{state.step}] {state.system_message}")
-            # simulate user input for testing
-            state.last_user_message = input("User: ")
-
-    asyncio.run(test_graph())
+    except Exception:
+        logger.exception("Graph execution failed")
+        return state.dict()

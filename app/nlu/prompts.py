@@ -14,14 +14,15 @@ Rules:
 - Output VALID JSON ONLY
 """
 
+
 USER_PROMPT = """
 User message:
 "{user_message}"
 
 Return JSON in this exact format:
-{
+{{
   "name": null,
   "meeting_datetime_text": null,
   "meeting_title": null
-}
+}}
 """

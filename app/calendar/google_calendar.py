@@ -6,7 +6,7 @@ Responsibilities:
 - Handle retries and transient failures
 - Surface clear, domain-specific errors
 """
-
+import logging
 import asyncio
 from datetime import datetime, timedelta
 from typing import Optional, Dict, Any
@@ -17,9 +17,8 @@ from googleapiclient.errors import HttpError
 
 from app.calendar.google_auth import GoogleAuth, GoogleAuthError
 from app.config import settings
-from app.utils.logger import setup_logging  
 
-logger = setup_logging(__name__)
+logger = logging.getLogger(__name__)
 
 
 class GoogleCalendarError(Exception):
