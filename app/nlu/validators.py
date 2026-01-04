@@ -24,30 +24,32 @@ def validate_name(name: Optional[str]) -> Optional[str]:
 
 # ---------------- Datetime Validation ---------------- #
 
+
 def validate_meeting_datetime(
     meeting_datetime: Optional[datetime],
     *,
-    now: Optional[datetime] = None
+    now: datetime
 ) -> Optional[datetime]:
     if not meeting_datetime:
         return None
 
-    if not now:
-        now = datetime.now(timezone.utc)
-
-    # Ensure timezone-aware
+    # Both must be timezone-aware
     if meeting_datetime.tzinfo is None:
-        meeting_datetime = meeting_datetime.replace(tzinfo=timezone.utc)
+        return None
+
+    if now.tzinfo is None:
+        return None
 
     # Must be in the future
     if meeting_datetime <= now:
         return None
 
-    # Reject absurd future dates (e.g. > 1 year)
+    # Reject absurd future dates (> 1 year)
     if meeting_datetime > now + timedelta(days=365):
         return None
 
     return meeting_datetime
+
 
 
 # ---------------- Title Validation ---------------- #

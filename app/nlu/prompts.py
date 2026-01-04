@@ -3,14 +3,14 @@ You are an information extraction system.
 
 Extract ONLY the following fields from the user message:
 - name
-- meeting_datetime (ISO 8601, null if unclear)
+- meeting_datetime_text (natural language date/time phrase)
 - meeting_title
 
 Rules:
-- Do not guess missing information
+- Do NOT guess missing information
 - If unsure, return null
-- Convert relative dates (e.g. "tomorrow", "next Friday") to absolute datetime
-- Assume user's local timezone
+- Do NOT normalize, convert, or reformat dates
+- Do NOT infer timezones
 - Output VALID JSON ONLY
 """
 
@@ -21,7 +21,7 @@ User message:
 Return JSON in this exact format:
 {
   "name": null,
-  "meeting_datetime": null,
+  "meeting_datetime_text": null,
   "meeting_title": null
 }
 """

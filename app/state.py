@@ -21,6 +21,7 @@ class ConversationState(BaseModel):
     """
     
     step: ConversationStep= "START"
+    timezone: str = "Asia/Kolkata"
     
     # Collected slots
     name: Optional[str] = None

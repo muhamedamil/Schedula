@@ -4,6 +4,7 @@ import asyncio
 import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from groq import Groq
 from pydantic import ValidationError
@@ -15,8 +16,9 @@ from app.nlu.validators import (
     validate_meeting_datetime,
     validate_meeting_title,
 )
+from app.utils.datetime_parser import parse_datetime
 from app.nlu.prompts import SYSTEM_PROMPT, USER_PROMPT
-from app.nlu.schemas import ExtractionFields  # <- your schema
+from app.nlu.schemas import ExtractionFields  
 
 # ------------------ Logging ------------------ #
 logger = logging.getLogger(__name__)
@@ -118,20 +120,46 @@ async def extract_fields(
     try:
         fields = ExtractionFields(**raw_output)
     except ValidationError as e:
-        logger.warning("LLM output failed schema validation: %s", e)
+        logger.warning(
+            "Schema validation failed. Raw output: %s | Error: %s",
+            raw_output,
+            e,
+        )
         return state
+
 
     # ---------------- Validators ---------------- #
     name = validate_name(fields.name)
     title = validate_meeting_title(fields.meeting_title)
 
     meeting_datetime: Optional[datetime] = None
-    if fields.meeting_datetime:
-        try:
-            meeting_datetime = validate_meeting_datetime(fields.meeting_datetime)
-        except Exception:
-            logger.warning("Invalid datetime from LLM: %s", fields.meeting_datetime)
 
+    if fields.meeting_datetime_text:
+        
+        user_tz = ZoneInfo(state.timezone or "UTC")
+        now = datetime.now(user_tz)
+        parsed_dt = parse_datetime(
+            fields.meeting_datetime_text,
+            now = now,
+            tz=user_tz,
+        )
+
+        if not parsed_dt:
+            logger.info(
+                "Date parsing failed for text: %s",
+                fields.meeting_datetime_text,
+            )
+        else:
+            validated_dt = validate_meeting_datetime(parsed_dt)
+
+            if validated_dt:
+                meeting_datetime = validated_dt
+            else:
+                logger.info(
+                    "Parsed datetime failed validation: %s",
+                    parsed_dt,
+                )
+                
     # ---------------- Defensive state updates ---------------- #
     if name and not state.name:
         state.name = name
