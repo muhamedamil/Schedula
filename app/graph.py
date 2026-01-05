@@ -9,13 +9,13 @@ from app.calendar.google_calendar import GoogleCalendarService, GoogleCalendarEr
 logger = logging.getLogger(__name__)
 calendar_service = GoogleCalendarService()
 
-# ---------------- Nodes ---------------- #
 
+# Nodes --------------------------------
 
 async def start_node(state: ConversationState) -> dict:
     logger.info("[START_NODE] Executing")
 
-    # Logic for authenticated users (Name pre-filled from Google)
+    # Logic for authenticated users 
     if state.name:
         logger.info("User authenticated as %s. Skipping ASK_NAME.", state.name)
         response = await generate_response(
@@ -27,7 +27,7 @@ async def start_node(state: ConversationState) -> dict:
         logger.info("Set step to ASK_DATETIME")
 
     else:
-        # Standard flow for guests
+        #Standard flow for guests
         response = await generate_response(
             state,
             goal="Greet the user warmly and ask for their name to start scheduling.",
@@ -45,7 +45,6 @@ async def ask_name_node(state: ConversationState) -> dict:
     logger.info("[ASK_NAME_NODE] After extraction, state.name: %s", state.name)
 
     if state.name:
-        # Dynamic Acknowledgment
         response = await generate_response(
             state,
             goal="Acknowledge the user's name warmly and ask for the meeting date and time.",
@@ -79,7 +78,6 @@ async def ask_datetime_node(state: ConversationState) -> dict:
     )
 
     if state.meeting_datetime:
-        # Dynamic Acknowledgment
         response = await generate_response(
             state,
             goal="Acknowledge the date/time and ask if they want to add a meeting title (or say no to skip).",
@@ -180,7 +178,7 @@ async def await_confirmation_node(state: ConversationState) -> dict:
             )
             state.system_message = final_response
             state.is_confirmed = True
-            state.step = "HANDLE_NEW_LOOP"  # Transition to loop handler
+            state.step = "HANDLE_NEW_LOOP" 
 
         except GoogleCalendarError:
             logger.exception("Calendar error")
@@ -196,7 +194,6 @@ async def await_confirmation_node(state: ConversationState) -> dict:
         state.step = "END"
 
     else:
-        # Uncertain
         state.system_message = "I'm not sure if you want to confirm. Please say yes to confirm or no to cancel."
         state.step = "AWAIT_CONFIRMATION"
 
@@ -206,7 +203,6 @@ async def await_confirmation_node(state: ConversationState) -> dict:
 async def handle_new_loop_node(state: ConversationState) -> dict:
     logger.info("[HANDLE_NEW_LOOP_NODE] Executing")
 
-    # Extract intent for "Another one?"
     state.confirmation_status = None
     state = await extract_fields(state, state.last_user_message)
 

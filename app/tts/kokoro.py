@@ -31,7 +31,7 @@ class KokoroTTSService:
     _voice: Optional[str] = None
     _sample_rate: int = 24000
 
-    # ---------------- Initialization ---------------- #
+    # Initialization --------------------------------
     @classmethod
     def _init_pipeline(cls):
         """Lazy-load the heavy Kokoro pipeline once."""
@@ -41,7 +41,7 @@ class KokoroTTSService:
             logger.info("Kokoro TTS pipeline loaded with voice '%s'", cls._voice)
         return cls._pipeline
 
-    # ---------------- Internal blocking call ---------------- #
+    #  Internal blocking call --------------------------------
     @classmethod
     def _synthesize_blocking(cls, text: str) -> bytes:
         """
@@ -69,7 +69,7 @@ class KokoroTTSService:
             sf.write(buf, full_audio, cls._sample_rate, format="WAV")
             return buf.getvalue()
 
-    # ---------------- Public async API ---------------- #
+    # Public async API --------------------------------
     @classmethod
     async def synthesize(
         cls,

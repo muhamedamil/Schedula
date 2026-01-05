@@ -680,7 +680,8 @@
         statusText.textContent = "Connecting...";
 
         // Add token to query params if available
-        let wsUrl = "ws://" + window.location.host + "/ws";
+        const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+        let wsUrl = protocol + "//" + window.location.host + "/ws";
         if (googleAccessToken) {
           wsUrl += "?token=" + encodeURIComponent(googleAccessToken);
         }

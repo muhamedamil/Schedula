@@ -73,7 +73,6 @@ async def websocket_endpoint(
     state = ConversationState()
 
     # Handle initial authentication
-    # Enforce Authentication
     if not token:
         logger.warning("Connection rejected: No token provided")
         await websocket.close(code=1008, reason="Authentication Required")
@@ -97,7 +96,7 @@ async def websocket_endpoint(
         await websocket.close(code=1008, reason="Invalid Token")
         return
 
-    # Token is valid - Proceed
+    # Token is valid, Proceed
     state.google_access_token = token
     if user_info.get("given_name"):
         state.name = user_info.get("given_name")
@@ -170,7 +169,7 @@ async def websocket_endpoint(
             payload = data.get("payload")
             user_text: Optional[str] = None
 
-            # ---------------- Authentication ---------------- #
+            # Authentication --------------------------------
             if msg_type == "auth":
                 # Frontend sends Google OAuth token
                 google_token = (
@@ -188,7 +187,7 @@ async def websocket_endpoint(
                     await websocket.send_json({"error": "No token provided"})
                 continue
 
-            # ---------------- STT ---------------- #
+            # STT --------------------------------
             if msg_type == "audio":
                 try:
                     audio_bytes = base64.b64decode(payload)
@@ -214,7 +213,7 @@ async def websocket_endpoint(
                 await websocket.send_json({"error": "Invalid message type"})
                 continue
 
-            # ---------------- LangGraph Workflow ---------------- #
+            # LangGraph Workflow --------------------------------
             state.last_user_message = user_text
             logger.info("Current state.step before run_step: %s", state.step)
             logger.info("Calling run_step with last_user_message: %s", user_text)
@@ -243,7 +242,7 @@ async def websocket_endpoint(
             # Save updated state
             user_states[user_id] = state
 
-            # ---------------- TTS ---------------- #
+            # TTS -------------------------------
             audio_b64: Optional[str] = None
             if state.system_message:
                 try:
@@ -252,7 +251,7 @@ async def websocket_endpoint(
                     logger.error("TTS generation failed: %s", e)
                     audio_b64 = None
 
-            # ---------------- Response ---------------- #
+            # Response --------------------------------
             await websocket.send_json(
                 {
                     "text": state.system_message or "",

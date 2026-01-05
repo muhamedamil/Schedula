@@ -50,7 +50,7 @@ class WhisperSTTService:
     _model: Optional[WhisperModel] = None
     _executor = ThreadPoolExecutor(max_workers=2)
 
-    # ---------------- Model Loading ----------------
+    # Model Loading --------------------------------
     @classmethod
     def _load_model(cls):
         if cls._model is None:
