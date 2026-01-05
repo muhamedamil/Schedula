@@ -44,10 +44,23 @@ The project is structured for performance and clarity:
 1. **Frontend (HTML5/Vanilla JS)**: Captures audio from the microphone, handles Google OAuth, and communicates with the backend through a persistent WebSocket for instant feedback.
 2. **Backend (FastAPI)**: Asynchronous Python service that coordinates between various AI models and the Google API.
 3. **Brain (LangGraph & LLM)**: The conversation logic is a directed graph. It doesn't just "chat"; it follows a logical flow (Identify User -> Extract DateTime -> Clarify Topic -> Confirm -> Execute).
-4. **Calendar Integration**:
-   - **Secure Token Exchange**: Instead of storing sensitive user credentials, the app uses a temporary access token provided by the frontend during the OAuth handshake.
-   - **Permission Scoping**: Operates on a "least privilege" principle, requesting only `calendar.events` scope.
-   - **Multi-Tenant Ready**: The backend identifies the user via their token in the WebSocket connection, allowing unique sessions for every logged-in user simultaneously.
+### 📅 How it connects to your Google Calendar
+
+Think of the assistant as a polite helper who only asks for a "temporary key" to your calendar's front door.
+
+- **No Passwords Stored**: We never see or save your Google password. We use a secure, one-time "handshake" (OAuth 2.0) that you control.
+- **Respecting Your Privacy**: The assistant only asks for permission to manage your events. It doesn't read your emails or access your personal files.
+- **Total Privacy**: Each conversation is strictly private. The assistant uses your unique secure token to make sure it's talking to *your* calendar and no one else's.
+- **You're in Control**: You can revoke access at any time through your Google Account settings.
+
+####  Under the Hood (The Technical Bit)
+
+For those interested in how the gears turn, here is the flow:
+
+1.  **Identity Initiation**: The frontend uses the **Google Identity Services (GSI)** client to request an `access_token` with the `calendar.events` scope.
+2.  **Secure Handshake**: This token is passed to the backend during the WebSocket connection. The server immediately validates it by calling the Google `userinfo` endpoint.
+3.  **Stateless Security**: No user credentials or tokens are stored in a database. Everything is held in memory for the duration of the session, following the "security by design" principle.
+4.  **API Execution**: When you confirm a meeting, the backend uses the **Google API Client Library** to securely push the event to your `primary` calendar.
 
 ---
 
