@@ -18,7 +18,7 @@ This decision was driven by a commitment to gain more in depth knowledge. By con
 
 ## Experience the Live Agent
 
-**Deployed URL:** [https://05c0775ce34e.ngrok-free.app/]
+**Deployed URL:** [https://1fa4c0ef1f14.ngrok-free.app]
 
 **Sample Workflow:** [https://drive.google.com/file/d/14cW0vytOUcGlRqboeaosNfORdlMnmJ8H/view?usp=sharing]
 
